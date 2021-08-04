@@ -12,8 +12,11 @@ module.exports = {
         allExtensions: true,
       }
     },
+    "gatsby-plugin-tsconfig-paths",
     "gatsby-plugin-sass",
     "gatsby-plugin-gatsby-cloud",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {

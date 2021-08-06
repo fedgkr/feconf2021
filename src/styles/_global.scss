@@ -1,1 +1,19 @@
 @import "~normalize.css/normalize.css";
+
+body {
+  background-color: $background-color;
+}
+
+a, li {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+.stretch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

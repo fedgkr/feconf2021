@@ -1,0 +1,19 @@
+.container {
+  position: relative;
+  padding-bottom: 200%;
+}
+
+.videoWrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  .dimmed {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .9;
+    background-color: black;
+    z-index: 1;
+  }
+}

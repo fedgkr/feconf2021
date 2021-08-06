@@ -1,11 +1,15 @@
 import * as React from "react"
+import "~/styles/main.scss";
 import { StaticImage } from "gatsby-plugin-image";
 import ConstraintLayout from "~/components/ConstraintLayout/ConstraintLayout";
-import "~/styles/main.scss";
+import Header from "~/components/Header/Header";
+import HeroSection from "~/components/HeroSection/HeroSection";
 
 const IndexPage = () => {
   return (
     <main>
+      <Header/>
+      <HeroSection/>
       <ConstraintLayout>
         <StaticImage
           alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"

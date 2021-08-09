@@ -6,14 +6,14 @@ interface HeroSectionProps {}
 
 const HeroSection: React.FC<HeroSectionProps> = () => {
   return (
-    <div className={container}>
+    <section className={container}>
       <div className={videoWrap}>
         <div className="stretch">
           <BackgroundVideo/>
           <div className={dimmed}/>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

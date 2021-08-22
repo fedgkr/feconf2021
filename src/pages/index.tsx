@@ -1,5 +1,6 @@
 import * as React from "react"
 import "~/styles/main.scss";
+import { Helmet } from 'react-helmet';
 import { StaticImage } from "gatsby-plugin-image";
 import ConstraintLayout from "~/components/ConstraintLayout/ConstraintLayout";
 import Header from "~/components/Header/Header";
@@ -11,6 +12,11 @@ import Footer from "~/components/Footer/Footer";
 const IndexPage = () => {
   return (
     <main>
+      <Helmet>
+        <meta charSet="utf-8"/>
+        <title>FEConf 2021</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+      </Helmet>
       <Header/>
       <HeroSection/>
       <IntroSection/>

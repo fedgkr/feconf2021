@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://feconf.kr",
     title: "FEConf2021",
   },
   plugins: [

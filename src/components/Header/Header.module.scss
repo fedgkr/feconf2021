@@ -12,6 +12,8 @@
   li {
     color: white;
     font-size: 16px;
+    font-weight: 500;
+    opacity: .9;
     &:not(:last-child) {
       margin-right: 32px;
     }

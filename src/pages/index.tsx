@@ -8,6 +8,7 @@ import HeroSection from "~/components/HeroSection/HeroSection";
 import IntroSection from "~/components/IntroSection/IntroSection";
 import LookForSponsorSection from "~/components/LookForSponsorSection/LookForSponsorSection";
 import Footer from "~/components/Footer/Footer";
+import HistorySection from "~/components/HistorySection/HistorySection";
 
 const IndexPage = () => {
   return (
@@ -15,11 +16,12 @@ const IndexPage = () => {
       <Helmet>
         <meta charSet="utf-8"/>
         <title>FEConf 2021</title>
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
       </Helmet>
       <Header/>
       <HeroSection/>
       <IntroSection/>
+      <HistorySection/>
       <LookForSponsorSection/>
       <ConstraintLayout>
         <StaticImage

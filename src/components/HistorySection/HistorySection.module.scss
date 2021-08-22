@@ -1,0 +1,47 @@
+.container {
+  padding: 160px 0;
+}
+
+.heading {
+  font-size: 56px;
+  line-height: 1.3;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+
+.paragraph {
+  margin-top: 40px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #C0C9DB;
+  text-align: center;
+}
+
+.historyContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 63px;
+  margin: 80px 0 0;
+}
+
+.history {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  img {
+    width: 200px;
+  }
+  h4 {
+    font-size: 40px;
+    margin: 24px 0 16px 0;
+    background: linear-gradient(94.75deg, #918FE7 6.7%, #699EEF 85.54%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  span {
+    font-size: 16px;
+    color: #D3D9E4;
+  }
+}

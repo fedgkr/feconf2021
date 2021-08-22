@@ -1,11 +1,12 @@
 .container {
   position: relative;
-  padding-bottom: 200%;
+  background-color: #0B0D0D;
 }
 
 .videoWrap {
   position: relative;
   padding-bottom: 56.25%;
+  display: none;
   .dimmed {
     position: absolute;
     left: 0;
@@ -15,5 +16,31 @@
     opacity: .9;
     background-color: black;
     z-index: 1;
+  }
+}
+
+.headingWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 134px 0 169px 0;
+  .heading {
+    position: relative;
+    font-size: 160px;
+    font-weight: 900;
+    line-height: .87;
+    color: #FFFFFF;
+    margin: 134px 0 0 -134px;
+    z-index: 1;
+    .circle {
+      position: absolute;
+      right: -197px;
+      bottom: 0;
+      width: 466px;
+      height: 466px;
+      border-radius: 50%;
+      background-color: rgb(39, 38, 74);
+      z-index: -1;
+    }
   }
 }

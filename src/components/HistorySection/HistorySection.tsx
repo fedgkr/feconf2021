@@ -1,8 +1,6 @@
 import React from 'react';
 import { container, heading, paragraph, historyContainer, history } from './HistorySection.module.scss';
 import fiveImage from '~/images/history/5.png';
-import blendImage from '~/images/history/blend.png';
-import { StaticImage } from "gatsby-plugin-image";
 
 interface HistorySectionProps {}
 

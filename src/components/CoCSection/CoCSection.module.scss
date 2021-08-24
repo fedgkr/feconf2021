@@ -1,0 +1,27 @@
+.container {
+  padding: 160px 0;
+  background-color: #171920;
+}
+
+.contents {
+  display: flex;
+  max-width: 1080px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.heading {
+  h4 {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 38px;
+    color: #E5E5E5;
+  }
+  p {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #A3AAB1;
+  }
+}

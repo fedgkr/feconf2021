@@ -9,6 +9,10 @@ import IntroSection from "~/components/IntroSection/IntroSection";
 import LookForSponsorSection from "~/components/LookForSponsorSection/LookForSponsorSection";
 import Footer from "~/components/Footer/Footer";
 import HistorySection from "~/components/HistorySection/HistorySection";
+import ChannelInfoSection from "~/components/ChannelInfoSection/ChannelInfoSection";
+import FEConfFightingSection from "~/components/FEConfFightingSection/FEConfFightingSection";
+import LinkShareSection from "~/components/LinkShareSection/LinkShareSection";
+import CoCSection from "~/components/CoCSection/CoCSection";
 
 const IndexPage = () => {
   return (
@@ -22,13 +26,11 @@ const IndexPage = () => {
       <HeroSection/>
       <IntroSection/>
       <HistorySection/>
+      <ChannelInfoSection/>
       <LookForSponsorSection/>
-      <ConstraintLayout>
-        <StaticImage
-          alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
-          src="https://pbs.twimg.com/media/E1oMV3QVgAIr1NT?format=jpg&name=large"
-        />
-      </ConstraintLayout>
+      <FEConfFightingSection/>
+      <LinkShareSection/>
+      <CoCSection/>
       <Footer/>
     </main>
   )

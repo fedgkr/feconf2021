@@ -1,3 +1,30 @@
 .container {
-
+  position: relative;
+  padding: 44px 0;
+  background-color: #FAFAFF;
 }
+
+.contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  ul {
+    display: flex;
+    li {
+      a {
+        color: #000000;
+        font-size: 16px;
+        line-height: 25px;
+      }
+    }
+  }
+  span {
+    font-size: 12px;
+    line-height: 19px;
+    color: #595D68;
+  }
+}
+
+

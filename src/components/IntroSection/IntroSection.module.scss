@@ -1,9 +1,14 @@
+@import 'mixin';
+
 .container {
   position: relative;
   text-align: center;
   color: white;
   padding: 160px 0 517px 0;
   background: linear-gradient(95.06deg, #8280E3 2.38%, #5590ED 100.44%);
+  @include respond-to('small') {
+    padding: 80px 34px 364px 34px;
+  }
 }
 
 .title {
@@ -12,6 +17,9 @@
   font-weight: bold;
   text-align: center;
   margin: 0;
+  @include respond-to('small') {
+    font-size: 16px;
+  }
 }
 
 .background {
@@ -33,6 +41,13 @@
     font-weight: 800;
     margin: 0;
   }
+  @include respond-to('small') {
+    margin-top: 12px;
+    h2 {
+      font-size: 30px;
+      font-weight: 700;
+    }
+  }
 }
 
 .heading2 {
@@ -44,6 +59,10 @@
   background: linear-gradient(to right, #D5D4FA, #88B1ED);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @include respond-to('small') {
+    font-size: 22px;
+    margin: 32px 0;
+  }
 }
 
 .paragraph {
@@ -55,14 +74,22 @@
     font-weight: 700;
     color: rgb(146, 242, 206);
   }
+  @include respond-to('small') {
+    font-size: 16px;
+  }
 }
 
 .earth {
   position: absolute !important;
-  max-width: 1440px;
-  width: 100%;
+  width: 732px;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+  img {
+    width: 100%;
+  }
+  @include respond-to('small') {
+    width: 900px;
+  }
 }

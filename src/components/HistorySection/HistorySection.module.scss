@@ -1,5 +1,10 @@
+@import "mixin";
+
 .container {
   padding: 160px 0;
+  @include respond-to('small') {
+    padding: 80px 20px;
+  }
 }
 
 .heading {
@@ -8,6 +13,9 @@
   color: #fff;
   text-align: center;
   margin: 0;
+  @include respond-to('small') {
+    font-size: 30px;
+  }
 }
 
 .paragraph {
@@ -16,6 +24,9 @@
   line-height: 1.6;
   color: #C0C9DB;
   text-align: center;
+  @include respond-to('small') {
+    font-size: 16px;
+  }
 }
 
 .historyContainer {

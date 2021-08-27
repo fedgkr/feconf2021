@@ -1,3 +1,5 @@
+@import 'mixin';
+
 .container {
   position: relative;
   background-color: #0B0D0D;
@@ -42,5 +44,8 @@
       background-color: rgb(39, 38, 74);
       z-index: -1;
     }
+  }
+  @include respond-to('small') {
+    display: none;
   }
 }

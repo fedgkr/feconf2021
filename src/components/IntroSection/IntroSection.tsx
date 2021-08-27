@@ -1,8 +1,7 @@
 import React from 'react';
 import noiseImage from '~/images/noise.png';
 import earthImage from '~/images/earth.png';
-import { container, title, background, heading, heading2, paragraph, earth } from './IntroSection.module.scss';
-import { StaticImage } from "gatsby-plugin-image";
+import { container, title, background, heading, heading2, paragraph, earth, desktop, mobile } from './IntroSection.module.scss';
 
 interface IntroSectionProps {}
 
@@ -16,12 +15,12 @@ const IntroSection: React.FC<IntroSectionProps> = () => {
       </div>
       <h3 className={heading2}>Broaden Your Experience</h3>
       <p className={paragraph}>
-        <span>기술 트렌드를 주도하는 프론트엔드 개발자들의 치열한 이야기를</span><br/>
-        <span>FECONF와 함께 <strong>2021년 10월 30일</strong> 유튜브로 찾아옵니다.</span>
+        <span>기술 트렌드를 주도하는 프론트엔드 개발자들의<br className="mobile"/> 치열한 이야기를</span><br className="desktop"/>
+        <span>FECONF와 함께<br className="mobile"/> <strong>2021년 10월 30일</strong> 유튜브로 찾아옵니다.</span>
       </p>
       <div className={background} style={{ backgroundImage: `url(${noiseImage})` }}>
         <div className={earth}>
-          <StaticImage src="../../images/earth.png" alt="FEConf Planet"/>
+          <img src={earthImage} alt="FEConf Planet"/>
         </div>
       </div>
     </section>

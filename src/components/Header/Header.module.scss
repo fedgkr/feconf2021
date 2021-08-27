@@ -1,9 +1,19 @@
+@import 'mixin';
+
 .container {
   position: relative;
   height: 80px;
+  max-width: 1440px;
+  padding: 0 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+  @include respond-to('small') {
+    height: 72px;
+    padding: 0 20px;
+  }
 }
 
 .menuList {
@@ -17,5 +27,8 @@
     &:not(:last-child) {
       margin-right: 32px;
     }
+  }
+  @include respond-to('small') {
+    display: none;
   }
 }

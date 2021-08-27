@@ -1,8 +1,14 @@
+@import "mixin";
 @import "~normalize.css/normalize.css";
 
 body {
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
   background-color: $background-color;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 a, li {
@@ -17,4 +23,19 @@ a, li {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+br {
+  &.desktop {
+    display: block;
+    @include respond-to('small') {
+      display: none;
+    }
+  }
+  &.mobile {
+    display: none;
+    @include respond-to('small') {
+      display: block;
+    }
+  }
 }

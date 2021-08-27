@@ -13,7 +13,20 @@ module.exports = {
       }
     },
     "gatsby-plugin-tsconfig-paths",
-    "gatsby-plugin-sass",
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: true
+          },
+        },
+        sassOptions: {
+          includePaths: ["src/styles"]
+        }
+      }
+    },
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",

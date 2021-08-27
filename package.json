@@ -15,22 +15,23 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^3.11.1",
+    "gatsby": "^3.13.0",
     "gatsby-plugin-gatsby-cloud": "^2.11.0",
-    "gatsby-plugin-google-analytics": "^3.11.0",
-    "gatsby-plugin-image": "^1.11.0",
-    "gatsby-plugin-react-helmet": "^4.12.0",
-    "gatsby-plugin-sass": "^4.11.0",
-    "gatsby-plugin-sharp": "^3.11.0",
+    "gatsby-plugin-google-analytics": "^3.13.0",
+    "gatsby-plugin-image": "^1.13.0",
+    "gatsby-plugin-react-helmet": "^4.13.0",
+    "gatsby-plugin-sass": "^4.0.2",
+    "gatsby-plugin-sharp": "^3.13.0",
     "gatsby-plugin-tsconfig-paths": "^1.0.3",
-    "gatsby-plugin-typescript": "^3.11.0",
-    "gatsby-source-filesystem": "^3.11.0",
+    "gatsby-plugin-typescript": "^3.13.0",
+    "gatsby-source-filesystem": "^3.13.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-hls-player": "^3.0.7",
-    "sass": "^1.37.5"
+    "react-hls-player": "^3.0.7"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
 }

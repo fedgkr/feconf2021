@@ -12,7 +12,7 @@
 }
 
 .heading {
-  h4 {
+  h3 {
     font-size: 32px;
     font-weight: bold;
     line-height: 38px;
@@ -23,5 +23,29 @@
     font-size: 16px;
     line-height: 1.6;
     color: #A3AAB1;
+    width: 250px;
+  }
+}
+
+.codeList {
+  margin-left: 157px;
+  li {
+    display: block;
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+      color: #FFFFFF;
+      margin: 0;
+    }
+    p {
+      margin: 6px 0 0;
+      font-size: 15px;
+      line-height: 24px;
+      color: #A3AAB1;
+    }
   }
 }

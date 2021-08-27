@@ -8,13 +8,13 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
   return (
     <div className={container}>
       <h2 className={heading}>
-        국내 최대 규모 프론트엔드 컨퍼런스 <br/>
-        FECONF가 5주년을 맞이합니다.
+        국내 최대 규모 프론트엔드<br className="mobile"/> 컨퍼런스 <br className="desktop"/>
+        FECONF가 <br className="mobile"/>5주년을 맞이합니다.
       </h2>
       <p className={paragraph}>
-        FECONF는 프론트엔드를 개발하며 마주했던 치열한 고민과 깊은 인사이트를 <br/>
-        함께 공유하고 성장을 도모하는 국내 최고의 프론트엔드 개발 컨퍼런스입니다. <br/>
-        5주년을 맞이해 더욱 알찬 내용을 가지고 찾아옵니다! <br/>
+        FECONF는 프론트엔드를 개발하며 마주했던 치열한 고민과 깊은 인사이트를 <br className="desktop"/>
+        함께 공유하고 성장을 도모하는 국내 최고의 프론트엔드 개발 컨퍼런스입니다. <br className="desktop"/>
+        5주년을 맞이해 더욱 알찬 내용을 가지고 찾아옵니다!
       </p>
       <ul className={historyContainer}>
         <li className={history}>

@@ -81,7 +81,8 @@
 
 .earth {
   position: absolute !important;
-  width: 732px;
+  width: 100%;
+  max-width: 1440px;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);

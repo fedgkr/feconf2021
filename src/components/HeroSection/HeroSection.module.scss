@@ -46,6 +46,6 @@
     }
   }
   @include respond-to('small') {
-    display: none;
+    //display: none;
   }
 }

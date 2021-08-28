@@ -1,6 +1,11 @@
+@import "mixin";
+
 .container {
   padding: 160px 0;
   background-color: #171920;
+  @include respond-to('small') {
+    padding: 80px 20px 100px 20px;
+  }
 }
 
 .contents {
@@ -9,6 +14,10 @@
   padding: 0 10px;
   box-sizing: border-box;
   margin: 0 auto;
+  @include respond-to('small') {
+    flex-direction: column;
+    padding: 0;
+  }
 }
 
 .heading {
@@ -24,6 +33,8 @@
     line-height: 1.6;
     color: #A3AAB1;
     width: 250px;
+  }
+  @include respond-to('small') {
   }
 }
 
@@ -46,6 +57,18 @@
       font-size: 15px;
       line-height: 24px;
       color: #A3AAB1;
+    }
+  }
+  @include respond-to('small') {
+    margin: 40px 0 0;
+    li {
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+      h4 {
+        font-size: 17px;
+        line-height: 27px;
+      }
     }
   }
 }

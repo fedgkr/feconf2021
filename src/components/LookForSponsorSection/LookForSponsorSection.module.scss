@@ -1,8 +1,9 @@
+@import "mixin";
+
 .container {
   text-align: center;
   padding: 160px 0 200px 0;
   background-color: #F3F2FD;
-
   button {
     margin-top: 60px;
     padding: 16px 28px 16px 36px;
@@ -12,6 +13,15 @@
     background-color: #000000;
     border-radius: 100px;
     border: none;
+  }
+  @include respond-to('small') {
+    padding: 80px 32px 100px 32px;
+    button {
+      margin-top: 54px;
+      padding: 13px 52px 13px 28px;
+      font-size: 14px;
+      border-radius: 45px;
+    }
   }
 }
 
@@ -28,6 +38,15 @@
     color: #313131;
     margin-top: 40px;
   }
+  @include respond-to('small') {
+    h2 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 16px;
+      margin-top: 32px;
+    }
+  }
 }
 
 .sponsorHistory {
@@ -43,5 +62,14 @@
   ul {
     display: flex;
     margin-top: 4px;
+  }
+  @include respond-to('small') {
+    margin: 60px auto 0 auto;
+    strong {
+      font-size: 18px;
+    }
+    ul {
+      margin-top: 8px;
+    }
   }
 }

@@ -1,3 +1,5 @@
+@import "mixin";
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -5,6 +7,10 @@
   margin: 0 auto;
   padding: 193px 50px 373px 50px;
   box-sizing: border-box;
+  @include respond-to('small') {
+    flex-direction: column;
+    padding: 100px 40px 120px 40px;
+  }
 }
 
 .textContainer {
@@ -31,11 +37,49 @@
     border-radius: 100px;
     border: none;
   }
+  @include respond-to('small') {
+    h2 {
+      font-size: 30px;
+    }
+    p {
+      margin-top: 32px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 32px;
+      padding: 13px 52px 13px 28px;
+      font-size: 14px;
+      border-radius: 45px;
+    }
+  }
 }
 
 .circle {
+  position: relative;
+  font-size: 0;
   width: 520px;
   height: 520px;
-  border-radius: 50%;
-  background-color: rgb(39, 38, 74);
+  img {
+    width: 100%;
+  }
+  .backgroundImage {
+    position: absolute;
+    width: 978px;
+    height: 978px;
+    top: -140px;
+    left: 84px;
+    background: radial-gradient(52.56% 52.56% at 50% 50%, #5254B0 0%, rgba(154, 156, 255, 0) 100%);
+    opacity: 0.4;
+  }
+  @include respond-to('small') {
+    width: 300px;
+    height: 300px;
+    margin-top: 70px;
+    .backgroundImage {
+      width: 662px;
+      height: 662px;
+      bottom: 14px;
+      left: 53px;
+    }
+  }
 }

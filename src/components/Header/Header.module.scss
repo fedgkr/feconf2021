@@ -20,12 +20,22 @@
   display: flex;
   justify-content: space-between;
   li {
-    color: white;
+    color: #C0C9DB;
     font-size: 16px;
     font-weight: 500;
     opacity: .9;
+    align-self: center;
     &:not(:last-child) {
-      margin-right: 32px;
+      margin-right: 24px;
+    }
+    button {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      border: none;
+      padding: 7px 20px;
+      border-radius: 34px;
+      background: linear-gradient(94.75deg, #918FE7 6.7%, #699EEF 85.54%);
     }
   }
   @include respond-to('small') {

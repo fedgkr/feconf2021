@@ -1,5 +1,6 @@
 import React from 'react';
 import { container, contentsWrap, textContainer } from './FEConfFightingSection.module.scss';
+import Br from "~/components/Br/Br";
 
 interface FEConfFightingSectionProps {}
 
@@ -9,8 +10,8 @@ const FEConfFightingSection: React.FC<FEConfFightingSectionProps> = () => {
       <div className={contentsWrap}>
         <div className={textContainer}>
           <h2>
-            사전 등록하고 <br/>
-            응원 메세지를 <br/>
+            사전 등록하고 <Br desktop/>
+            응원<Br mobile/> 메세지를 <Br desktop/>
             남겨보세요
           </h2>
           <p>

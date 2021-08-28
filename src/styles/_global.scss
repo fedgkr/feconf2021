@@ -4,6 +4,7 @@
 body {
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
   background-color: $background-color;
+  font-size: 0;
 }
 
 * {
@@ -38,4 +39,8 @@ br {
       display: block;
     }
   }
+}
+
+p, span {
+  word-break: keep-all;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { container, textContainer, circle } from './ChannelInfoSection.module.scss';
+import { container, textContainer, circle, backgroundImage } from './ChannelInfoSection.module.scss';
+import planet from '~/images/icon/shiny-planet.png';
 
 interface ChannelInfoSectionProps {}
 
@@ -20,7 +21,10 @@ const ChannelInfoSection: React.FC<ChannelInfoSectionProps> = () => {
         </p>
         <button>유튜브 구독하기</button>
       </div>
-      <div className={circle}/>
+      <div className={circle}>
+        <img src={planet} alt=""/>
+        <div className={backgroundImage}/>
+      </div>
     </div>
   );
 }

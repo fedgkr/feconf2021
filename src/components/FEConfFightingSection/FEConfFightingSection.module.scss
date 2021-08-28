@@ -1,5 +1,10 @@
+@import "mixin";
+
 .container {
   padding: 160px 0;
+  @include respond-to('small') {
+    padding: 120px 40px;
+  }
 }
 
 .contentsWrap {
@@ -7,6 +12,10 @@
   max-width: 1064px;
   padding: 152px 50px;
   margin: 0 auto;
+  @include respond-to('small') {
+    flex-direction: column;
+    padding: 0;
+  }
 }
 
 .textContainer {
@@ -25,9 +34,22 @@
   button {
     margin-top: 80px;
     padding: 16px 28px 16px 36px;
+    font-size: 18px;
     color: white;
     border: none;
     background: linear-gradient(94.75deg, #918FE7 6.7%, #699EEF 85.54%);
     border-radius: 72px;
+  }
+  @include respond-to('small') {
+    h2 {
+      font-size: 30px;
+    }
+    p {
+      margin-top: 32px;
+      font-size: 16px;
+    }
+    button {
+      display: none;
+    }
   }
 }

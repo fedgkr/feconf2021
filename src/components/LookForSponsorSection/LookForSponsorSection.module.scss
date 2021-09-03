@@ -51,23 +51,47 @@
 
 .sponsorHistory {
   max-width: 1100px;
-  margin: 82px auto 0 auto;
   overflow: hidden;
+  margin: 82px auto 0 auto;
   strong {
     font-size: 20px;
     font-weight: bold;
     line-height: 1.4;
     color: #BAB6DB;
   }
-  ul {
-    display: flex;
-    margin-top: 4px;
-  }
   @include respond-to('small') {
     margin: 60px auto 0 auto;
     strong {
       font-size: 18px;
     }
+  }
+}
+
+.sponsorContainer {
+  position: relative;
+  height: 80px;
+  ul {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-top: 17px;
+    li {
+      img {
+        width: 120px;
+      }
+      &:not(:last-child) {
+        margin-right: 45px;
+      }
+    }
+    :global {
+      .banksalad {
+        img {
+          width: 150px;
+        }
+      }
+    }
+  }
+  @include respond-to('small') {
     ul {
       margin-top: 8px;
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { container, contents, heading, codeList } from './CoCSection.module.scss';
+import { FECONF_EMAIL } from "~/data/const/links";
 
 interface CoCSectionProps {}
 
@@ -33,7 +34,7 @@ const CoCSection: React.FC<CoCSectionProps> = () => {
           </li>
           <li>
             <h4>참여</h4>
-            <p>FEConf의 발전을 위해 도움을 주실 분은 언제든 환영합니다. <a href="mailto:feconf@googlegroups.com">feconf@googlegroups.com</a>으로 메일을 보내주세요.</p>
+            <p>FEConf의 발전을 위해 도움을 주실 분은 언제든 환영합니다. <a href={`mailto:${FECONF_EMAIL}`}>{FECONF_EMAIL}</a>으로 메일을 보내주세요.</p>
           </li>
         </ul>
       </div>

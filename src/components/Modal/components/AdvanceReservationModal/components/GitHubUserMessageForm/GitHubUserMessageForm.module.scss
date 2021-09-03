@@ -1,0 +1,55 @@
+.container {
+  text-align: center;
+  margin-top: 58px;
+  .username {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: white;
+  }
+  .email {
+    margin-top: 4px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #C0C9DB;
+  }
+}
+
+.form {
+  margin: 20px auto 0 auto;
+  width: 100%;
+  max-width: 540px;
+  textarea {
+    padding: 24px;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 1px solid #565E76;
+    resize: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 15px;
+    line-height: 24px;
+    color: white;
+  }
+  .description {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #737C94;
+    font-size: 13px;
+    line-height: 24px;
+  }
+  .register {
+    padding: 16px 36px;
+    margin-top: 36px;
+    border-radius: 100px;
+    background: linear-gradient(94.75deg, #918FE7 6.7%, #699EEF 85.54%);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 25px;
+    color: #FFFFFF;
+    border: none;
+  }
+}

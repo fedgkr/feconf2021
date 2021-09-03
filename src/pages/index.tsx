@@ -11,6 +11,7 @@ import FEConfFightingSection from "~/components/FEConfFightingSection/FEConfFigh
 import LinkShareSection from "~/components/LinkShareSection/LinkShareSection";
 import CoCSection from "~/components/CoCSection/CoCSection";
 import Meta from "~/components/Meta/Meta";
+import AdvanceReservationModal from "~/components/Modal/components/AdvanceReservationModal/AdvanceReservationModal";
 
 const IndexPage = () => {
   return (
@@ -28,6 +29,8 @@ const IndexPage = () => {
         <CoCSection/>
         <Footer/>
       </main>
+      <div id="modal-root"/>
+      <AdvanceReservationModal/>
     </React.Fragment>
   )
 }

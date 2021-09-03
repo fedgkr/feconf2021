@@ -38,6 +38,8 @@
     border: none;
   }
   @include respond-to('small') {
+    max-width: 350px;
+    margin: 0 auto;
     h2 {
       font-size: 30px;
     }
@@ -74,7 +76,7 @@
   @include respond-to('small') {
     width: 300px;
     height: 300px;
-    margin-top: 70px;
+    margin: 70px auto 0 auto;
     .backgroundImage {
       width: 662px;
       height: 662px;

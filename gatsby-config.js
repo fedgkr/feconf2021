@@ -1,3 +1,5 @@
+const path = require(`path`);
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://feconf.kr",
@@ -28,14 +30,21 @@ module.exports = {
       }
     },
     "gatsby-plugin-gatsby-cloud",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, `src`, `images`),
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-portal",
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-68676515-5",
       },
     },
-    "gatsby-plugin-react-helmet",
   ],
 };

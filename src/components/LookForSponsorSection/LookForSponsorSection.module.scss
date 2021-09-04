@@ -5,7 +5,9 @@
   padding: 160px 0 200px 0;
   background-color: #F3F2FD;
   button {
-    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    margin: 60px auto 0 auto;
     padding: 16px 28px 16px 36px;
     font-size: 16px;
     line-height: 1.6;
@@ -13,11 +15,14 @@
     background-color: #000000;
     border-radius: 100px;
     border: none;
+    span {
+      margin-right: 12px;
+    }
   }
   @include respond-to('small') {
     padding: 80px 32px 100px 32px;
     button {
-      margin-top: 54px;
+      margin: 54px auto 0 auto;
       padding: 13px 52px 13px 28px;
       font-size: 14px;
       border-radius: 45px;
@@ -40,7 +45,7 @@
   }
   @include respond-to('small') {
     h2 {
-      font-size: 32px;
+      font-size: 30px;
     }
     p {
       font-size: 16px;
@@ -91,9 +96,43 @@
       }
     }
   }
+  .leftShadow, .rightShadow {
+    position: absolute;
+    top: 0;
+    width: 33%;
+    height: 100%;
+    z-index: 2;
+  }
+  .leftShadow {
+    left: 0;
+    background: linear-gradient(90deg, #F3F2FD 0%, rgba(243, 242, 253, 0) 102.39%);
+  }
+  .rightShadow {
+    right: 0;
+    background: linear-gradient(90deg, #F3F2FD 0%, rgba(243, 242, 253, 0) 102.39%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
   @include respond-to('small') {
-    ul {
-      margin-top: 8px;
+    display: none;
+  }
+}
+
+.mobileSponsorContainer {
+  display: none;
+  @include respond-to('small') {
+    display: block;
+    max-width: 320px;
+    margin: 30px auto 0 auto;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &:not(:last-child) {
+        margin-bottom: 50px;
+      }
+      img {
+        width: 80px;
+      }
     }
   }
 }

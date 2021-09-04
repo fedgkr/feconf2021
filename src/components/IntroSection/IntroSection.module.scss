@@ -5,10 +5,16 @@
   text-align: center;
   color: white;
   padding: 160px 0 517px 0;
+  overflow: hidden;
   background: linear-gradient(95.06deg, #8280E3 2.38%, #5590ED 100.44%);
   @include respond-to('small') {
     padding: 80px 34px 364px 34px;
   }
+}
+
+.text {
+  position: relative;
+  z-index: 1;
 }
 
 .title {

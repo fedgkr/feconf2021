@@ -2,6 +2,7 @@
 
 .container {
   padding: 160px 0 200px 0;
+  background-color: black;
   @include respond-to('small') {
     padding: 40px 20px 100px 20px;
   }

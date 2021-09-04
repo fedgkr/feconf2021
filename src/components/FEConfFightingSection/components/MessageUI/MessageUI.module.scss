@@ -1,0 +1,37 @@
+@import "mixin";
+
+.container {
+  padding: 30px 28px 42px 28px;
+  border-radius: 16px;
+  background-color: #20232C;
+  min-height: 180px;
+  box-sizing: border-box;
+  @include respond-to('small') {
+    padding: 20px;
+    min-height: 122px;
+    border-radius: 12px;
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  img {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    margin-right: 9px;
+  }
+  span {
+    font-size: 20px;
+    line-height: 32px;
+    color: #B2B9C6;
+  }
+}
+
+.messageWrap {
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 28px;
+  color: #E4E8EC;
+}

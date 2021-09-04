@@ -9,7 +9,7 @@ interface HistorySectionProps {}
 
 const HistorySection: React.FC<HistorySectionProps> = () => {
   return (
-    <div className={container}>
+    <div className={container} id="event">
       <h2 className={heading}>
         국내 최대 규모 프론트엔드 <Br mobile/> 컨퍼런스 <Br desktop/>
         FECONF가 <Br mobile/>5주년을 맞이합니다.
@@ -26,7 +26,7 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
             <div></div>
           </div>
           <h4>5주년</h4>
-          <span>FECONF 함께한 시간</span>
+          <span>FECONF와 함께한 시간</span>
         </li>
         <li className={history}>
           <div className={imageWrap}>

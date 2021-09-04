@@ -27,6 +27,8 @@
     color: #C0C9DB;
   }
   button {
+    display: flex;
+    align-items: center;
     margin-top: 40px;
     padding: 16px 28px 16px 36px;
     font-size: 16px;
@@ -36,6 +38,9 @@
     background-color: #FFFFFF;
     border-radius: 100px;
     border: none;
+    span {
+      margin-right: 12px;
+    }
   }
   @include respond-to('small') {
     max-width: 350px;

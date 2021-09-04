@@ -44,9 +44,9 @@
         a {
           font-size: 15px;
           line-height: 24px;
-          span {
-            display: none;
-          }
+        }
+        span {
+          display: none;
         }
         &:not(:last-child) {
           margin-bottom: 16px;

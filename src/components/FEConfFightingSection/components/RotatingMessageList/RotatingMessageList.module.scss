@@ -1,0 +1,56 @@
+@import "mixin";
+@import "variables";
+
+.container {
+  height: 792px;
+  @include respond-to('small') {
+    height: 536px;
+  }
+}
+
+.overflowWrap {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  transform: translateZ(0);
+  font-size: 0;
+  .messageItem {
+    visibility: hidden;
+    transition: opacity .15s $easeOutCirc, transform .5s $easeOutCirc;
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    &.visible {
+      visibility: visible;
+    }
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  @include respond-to('small') {
+    .messageItem {
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.upperShadow, .bottomShadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 117px;
+}
+
+.upperShadow {
+  top: 0;
+  background: linear-gradient(180deg, rgba(1, 1, 1, 0) 0%, #010101 100%);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.bottomShadow {
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(1, 1, 1, 0) 0%, #010101 100%);
+}

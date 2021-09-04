@@ -1,6 +1,7 @@
 import React from 'react';
 import { container, textContainer, circle, backgroundImage } from './ChannelInfoSection.module.scss';
 import planet from '~/images/icon/shiny-planet.png';
+import right from '~/images/icon/right-black.svg';
 import { YOUTUBE_CHANNEL_URL } from "~/data/const/links";
 import SafeLink from "~/components/SafeLink/SafeLink";
 
@@ -22,7 +23,7 @@ const ChannelInfoSection: React.FC<ChannelInfoSectionProps> = () => {
           상품을 드립니다.
         </p>
         <SafeLink href={YOUTUBE_CHANNEL_URL}>
-          <button>유튜브 구독하기</button>
+          <button><span>유튜브 구독하기</span><img src={right}/></button>
         </SafeLink>
       </div>
       <div className={circle}>

@@ -42,6 +42,10 @@ br {
   }
 }
 
+img, button {
+  user-select: none;
+}
+
 p, span {
   word-break: keep-all;
 }

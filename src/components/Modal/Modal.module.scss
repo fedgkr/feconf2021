@@ -8,15 +8,13 @@
   @include respond-to('small') {
     position: absolute;
     top: 60px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 12px;
+    right: 12px;
     padding-top: 40px;
     background-color: #20232C;
     overflow: hidden;
     pointer-events: all;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    border-radius: 24px;
     transform: translate3d(0, 0, 0);
     .closeBtn {
       position: absolute;

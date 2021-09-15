@@ -1,5 +1,5 @@
 import React from 'react';
-import { container, contentsWrap, ellipse, textContainer, messagesWrap } from './FEConfFightingSection.module.scss';
+import { container, contentsWrap, ellipse, textContainer, button, messagesWrap } from './FEConfFightingSection.module.scss';
 import right from '~/images/icon/right-white.svg';
 import Br from "~/components/Br/Br";
 import { useReservationModal } from "~/data/states/modal.state";
@@ -23,7 +23,7 @@ const FEConfFightingSection: React.FC<FEConfFightingSectionProps> = () => {
             여러분들의 응원에 힘입어 더 알찬 FEConf가 찾아옵니다. <Br desktop/>
             등록한 이메일로 FEConf 소식을 받을 수 있어요.
           </p>
-          <button onClick={() => setModal(true)}>
+          <button className={button} onClick={() => setModal(true)}>
             <span>사전등록하기</span>
             <img src={right}/>
           </button>
@@ -32,6 +32,10 @@ const FEConfFightingSection: React.FC<FEConfFightingSectionProps> = () => {
       </div>
       <div className={messagesWrap}>
         <RotatingMessageList/>
+        <button className={button} onClick={() => setModal(true)}>
+          <span>사전등록하기</span>
+          <img src={right}/>
+        </button>
       </div>
     </div>
   );

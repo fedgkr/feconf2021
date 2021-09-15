@@ -1,7 +1,9 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { container, username, email, form, description, register } from './GitHubUserMessageForm.module.scss';
-import { useCurrentUser } from "~/data/states/auth.state";
+import { container, username, email, form, description, register, loading } from './GitHubUserMessageForm.module.scss';
+import { useAuthenticating, useCurrentUser } from "~/data/states/auth.state";
 import { useMessages } from "~/data/states/message.state";
+import { useFirebase } from "~/hooks/useFirestore";
+import loadingImage from '~/images/icon/loading.png';
 
 interface GitHubUserMessageFormProps {}
 
@@ -10,8 +12,7 @@ const maxMessageLength = 140;
 
 const useSubmit = (myMessage: Message, message: string) => {
   const postableRef = useRef(true);
-  const textRef = useRef<HTMLTextAreaElement>();
-  // const { fireStoreRef } = useFirebase();
+  const firebase = useFirebase();
   const onSubmit = useCallback((evt) => {
     evt.preventDefault();
     if (postableRef.current) {
@@ -23,9 +24,9 @@ const useSubmit = (myMessage: Message, message: string) => {
       if (message === myMessage?.message) {
         return;
       }
-      // fireStoreRef.fireStore?.post(message || defaultSupportMessage);
+      firebase.post(message || defaultSupportMessage);
     }
-  }, [myMessage]);
+  }, [myMessage, message]);
   return { onSubmit };
 };
 
@@ -33,12 +34,14 @@ const GitHubUserMessageForm: React.FC<GitHubUserMessageFormProps> = () => {
   const { myMessage } = useMessages();
   const [currentMessage, setMessage] = useState(myMessage?.message || '');
   const currentUser = useCurrentUser();
+  const [authenticating] = useAuthenticating();
   const { onSubmit } = useSubmit(myMessage, currentMessage);
-
   return (
+    authenticating ?
+    <img className={loading} src={loadingImage}/> :
     <div className={container}>
-      <h4 className={username}>Jooyoung Moon</h4>
-      <p className={email}>hckrmoon@gmail.com</p>
+      <h4 className={username}>{currentUser?.displayName || currentUser?.username}</h4>
+      <p className={email}>{currentUser?.email}</p>
       <form className={form} onSubmit={onSubmit}>
         <textarea
           placeholder={defaultSupportMessage}
@@ -48,7 +51,7 @@ const GitHubUserMessageForm: React.FC<GitHubUserMessageFormProps> = () => {
         />
         <div className={description}>
           <span>2021 FECONF에게 응원 메세지를 남겨주세요!</span>
-          <span>{(myMessage?.message || currentMessage).length}/{maxMessageLength}</span>
+          <span>{(currentMessage).length}/{maxMessageLength}</span>
         </div>
         <button className={register} type="submit">
           { myMessage ? '응원 메세지 수정하기' : '사전 등록하기' }

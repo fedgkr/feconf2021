@@ -67,3 +67,14 @@
     }
   }
 }
+
+.loading {
+  margin-top: 50px;
+  animation: rotating .9s linear infinite;
+}
+
+@keyframes rotating {
+  100% {
+    transform: rotate(360deg);
+  }
+}

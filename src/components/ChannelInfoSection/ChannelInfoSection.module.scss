@@ -1,15 +1,21 @@
 @import "mixin";
 
 .container {
+  padding: 193px 50px 373px 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+  @include respond-to('small') {
+    padding: 100px 40px 120px 40px;
+  }
+}
+
+.wrap {
   display: flex;
   justify-content: space-between;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 193px 50px 373px 50px;
-  box-sizing: border-box;
   @include respond-to('small') {
     flex-direction: column;
-    padding: 100px 40px 120px 40px;
   }
 }
 
@@ -54,7 +60,7 @@
     }
     button {
       margin-top: 32px;
-      padding: 13px 52px 13px 28px;
+      padding: 13px 28px 13px 36px;
       font-size: 14px;
       border-radius: 45px;
     }

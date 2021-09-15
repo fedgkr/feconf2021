@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useEffect, useMemo, useRef, useState } from 'react';
+import React, { MouseEventHandler, useMemo } from 'react';
 import { container, dimmed, portal, open, closeBtn, overflowWrap, wrapper } from './Modal.module.scss';
 import classcat from "classcat";
 import { useModal } from "~/hooks/useModal";
@@ -7,20 +7,22 @@ import { createPortal } from "react-dom";
 
 interface ModalProps {
   active: boolean;
+  needWrap?: boolean;
   maxWidth?: number;
   onClose: MouseEventHandler;
 }
 
-const Modal: React.FC<ModalProps> = ({ children, active, maxWidth, onClose }) => {
+const Modal: React.FC<ModalProps> = ({ children, active, maxWidth, needWrap = true, onClose }) => {
   useModal(active);
   return (
     <Portal>
       <div className={classcat([portal, active ? open : ''])} onClick={onClose}>
         <div className={dimmed}/>
-        { active ?
+        { active && needWrap ?
           <ModalContents active={active} maxWidth={maxWidth}>
             {children}
           </ModalContents> : null }
+        { active && !needWrap ? children : null }
       </div>
     </Portal>
   );

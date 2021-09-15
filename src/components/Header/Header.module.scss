@@ -43,3 +43,19 @@
     display: none;
   }
 }
+
+.menu {
+  display: none;
+  @include respond-to('small') {
+    display: block;
+    width: 20px;
+    padding: 2px;
+    & > div {
+      height: 2px;
+      background-color: #FFFFFF;
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

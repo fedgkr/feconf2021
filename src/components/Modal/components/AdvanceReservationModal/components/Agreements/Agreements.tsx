@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { container, infoContainer, row, textContainer, warning, agreement, checkbox, checkedBox, preRegisterButton } from './Agreements.module.scss';
 import classcat from "classcat";
 import checked from "~/images/icon/checked.svg";
 import { useAuthenticated } from "~/data/states/auth.state";
+import { useFirebase } from "~/hooks/useFirestore";
 
 interface AgreementsProps {}
 
+const useSignIn = () => {
+  const firebase = useFirebase();
+  return useCallback(() => {
+    try {
+      history.replaceState(null, '', '/?loginRedirect=github');
+      firebase?.signIn();
+    } catch(err) {
+      console.log('err : ', err.message);
+      history.replaceState(null, '', '/');
+    }
+  }, [firebase]);
+};
+
 const Agreements: React.FC<AgreementsProps> = () => {
   const [isChecked, setChecked] = useState(false);
-  const [, setAuth] = useAuthenticated();
+  const signIn = useSignIn();
   const onCheckClick = () => {
     setChecked(!isChecked);
   }
@@ -49,7 +63,7 @@ const Agreements: React.FC<AgreementsProps> = () => {
       <button
         className={preRegisterButton}
         style={{ opacity: isChecked ? 1 : .3 }}
-        onClick={() => isChecked && setAuth(true)}
+        onClick={() => isChecked && signIn()}
       >
         사전 등록하기
       </button>

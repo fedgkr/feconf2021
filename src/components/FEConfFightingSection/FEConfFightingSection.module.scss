@@ -60,20 +60,6 @@
     line-height: 1.6;
     color: #C0C9DB;
   }
-  button {
-    display: flex;
-    align-items: center;
-    margin-top: 80px;
-    padding: 16px 28px 16px 36px;
-    font-size: 18px;
-    color: white;
-    border: none;
-    background: linear-gradient(94.75deg, #918FE7 6.7%, #699EEF 85.54%);
-    border-radius: 72px;
-    span {
-      margin-right: 12px;
-    }
-  }
   @include respond-to('small') {
     width: 295px;
     h2 {
@@ -89,11 +75,33 @@
   }
 }
 
+.button {
+  display: flex;
+  align-items: center;
+  margin-top: 80px;
+  padding: 16px 28px 16px 36px;
+  font-size: 18px;
+  color: white;
+  border: none;
+  background: linear-gradient(94.75deg, #918FE7 6.7%, #699EEF 85.54%);
+  border-radius: 72px;
+  span {
+    margin-right: 12px;
+  }
+}
+
 .messagesWrap {
   position: relative;
   width: 455px;
+  button {
+    display: none;
+  }
   @include respond-to('small') {
     margin: 40px auto 0 auto;
     width: 310px;
+    button {
+      display: flex;
+      margin: 0 auto;
+    }
   }
 }

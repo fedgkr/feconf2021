@@ -1,5 +1,9 @@
 const path = require(`path`);
 
+require("dotenv").config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://feconf.kr",
@@ -40,6 +44,18 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-portal",
     "gatsby-plugin-react-helmet",
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: [
+          'API_KEY',
+          'AUTH_DOMAIN',
+          'DATABASE_URL',
+          'PROJECT_ID',
+          'APP_ID',
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {

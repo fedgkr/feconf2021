@@ -12,8 +12,13 @@ import LinkShareSection from "~/components/LinkShareSection/LinkShareSection";
 import CoCSection from "~/components/CoCSection/CoCSection";
 import Meta from "~/components/Meta/Meta";
 import AdvanceReservationModal from "~/components/Modal/components/AdvanceReservationModal/AdvanceReservationModal";
+import { useAfterLoginModal } from "~/hooks/useSupportModal";
+import { useFirebase } from "~/hooks/useFirestore";
+import MobileMenu from "~/components/Modal/components/MobileMenu/MobileMenu";
 
 const IndexPage = () => {
+  useAfterLoginModal();
+  useFirebase();
   return (
     <React.Fragment>
       <Meta/>
@@ -29,8 +34,8 @@ const IndexPage = () => {
         <CoCSection/>
         <Footer/>
       </main>
-      <div id="modal-root"/>
       <AdvanceReservationModal/>
+      <MobileMenu/>
     </React.Fragment>
   )
 }

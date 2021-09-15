@@ -42,7 +42,7 @@ const useRotateList = (messageList, active: boolean) => {
         setCurrentIdx(currentIdx + 1);
         intervalTimeRef.current = intervalTime;
       };
-      timeout = setTimeout(callNext, intervalTimeRef.current);
+      // timeout = setTimeout(callNext, intervalTimeRef.current);
       return () => {
         clearTimeout(timeout);
       };

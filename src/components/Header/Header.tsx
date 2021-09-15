@@ -1,12 +1,13 @@
 import React from 'react';
-import { container, menuList } from './Header.module.scss';
+import { container, menuList, menu } from './Header.module.scss';
 import Logo from "~/components/Logo/Logo";
-import { useReservationModal } from "~/data/states/modal.state";
+import { useMobileMenu, useReservationModal } from "~/data/states/modal.state";
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
   const [, setModal] = useReservationModal();
+  const [, setMobileMenu] = useMobileMenu();
   return (
     <div className={container}>
       <Logo/>
@@ -16,6 +17,11 @@ const Header: React.FC<HeaderProps> = () => {
         <li><a href="#sponsor">스폰서 모집</a></li>
         <li><a href="#"><button onClick={() => setModal(true)}>사전등록</button></a></li>
       </ul>
+      <div className={menu} onClick={() => setMobileMenu(true)}>
+        <div/>
+        <div/>
+        <div/>
+      </div>
     </div>
   );
 }

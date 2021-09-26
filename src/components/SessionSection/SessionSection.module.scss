@@ -1,0 +1,30 @@
+.container {
+  padding-bottom: 264px;
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 78px;
+  color: white;
+  text-align: center;
+}
+
+.toggleWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.sessionCardContainer {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.sessionRow {
+  display: flex;
+  justify-content: center;
+  gap: 21px;
+}

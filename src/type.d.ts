@@ -22,3 +22,18 @@ interface Message {
   createdAt: number;
   user: User ;
 }
+
+interface Speaker {
+  name: string;
+  company: string;
+  imageUrl: string;
+}
+
+interface Session {
+  type: SessionType;
+  title: string;
+  description: string;
+  speaker: Speaker;
+}
+
+type SessionType = 'A' | 'B';

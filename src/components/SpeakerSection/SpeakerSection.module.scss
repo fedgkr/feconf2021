@@ -1,0 +1,32 @@
+.container {
+  position: relative;
+  padding-bottom: 320px;
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 16px;
+  text-align: center;
+  color: #D7DEEB;
+}
+
+.speakerContainer {
+  margin-top: 78px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.speakerRow {
+  position: relative;
+  display: flex;
+  gap: 20px;
+}

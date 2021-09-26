@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 13px 22px 0 22px;
+}
+
+.image {
+  width: 144px;
+}
+
+.grade {
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: center;
+  color: #5B5D71;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 400;
+  color: #BBBFC7;
+  line-height: 26px;
+}

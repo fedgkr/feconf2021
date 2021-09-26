@@ -3,7 +3,7 @@ import "~/styles/main.scss";
 import Header from "~/components/Header/Header";
 import HeroSection from "~/components/HeroSection/HeroSection";
 import IntroSection from "~/components/IntroSection/IntroSection";
-import LookForSponsorSection from "~/components/LookForSponsorSection/LookForSponsorSection";
+import SponsorSection from "~/components/SponsorSection/SponsorSection";
 import Footer from "~/components/Footer/Footer";
 import HistorySection from "~/components/HistorySection/HistorySection";
 import ChannelInfoSection from "~/components/ChannelInfoSection/ChannelInfoSection";
@@ -15,6 +15,8 @@ import AdvanceReservationModal from "~/components/Modal/components/AdvanceReserv
 import { useAfterLoginModal } from "~/hooks/useSupportModal";
 import { useFirebase } from "~/hooks/useFirestore";
 import MobileMenu from "~/components/Modal/components/MobileMenu/MobileMenu";
+import SpeakerSection from "~/components/SpeakerSection/SpeakerSection";
+import SessionSection from "~/components/SessionSection/SessionSection";
 
 const IndexPage = () => {
   useAfterLoginModal();
@@ -28,7 +30,9 @@ const IndexPage = () => {
         <IntroSection/>
         <HistorySection/>
         <ChannelInfoSection/>
-        <LookForSponsorSection/>
+        <SpeakerSection/>
+        <SessionSection/>
+        <SponsorSection/>
         <FEConfFightingSection/>
         <LinkShareSection/>
         <CoCSection/>

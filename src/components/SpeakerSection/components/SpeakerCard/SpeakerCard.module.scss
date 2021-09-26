@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  width: 260px;
+  height: 148px;
+  border-radius: 12px;
+  background-color: #1F242C;
+}
+
+.textWrap {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+  }
+  span {
+    font-size: 15px;
+    line-height: 24px;
+    color: #D7DEEB;
+  }
+}
+
+.image {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+}

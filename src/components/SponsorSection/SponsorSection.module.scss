@@ -37,6 +37,21 @@
   display: flex;
   flex-direction: column;
   margin: 109px auto 0 auto;
+  &:not(:last-child) {
+    display: flex;
+  }
+  &:last-child {
+    display: none;
+  }
+  @include respond-to('small') {
+    margin: 60px auto 0 auto;
+    &:not(:last-child) {
+      display: none;
+    }
+    &:last-child {
+      display: flex;
+    }
+  }
 }
 
 .sponsorRow {
@@ -49,5 +64,8 @@
   }
   &:last-child {
     margin-top: 60px;
+  }
+  @include respond-to('small') {
+    margin-bottom: 48px;
   }
 }

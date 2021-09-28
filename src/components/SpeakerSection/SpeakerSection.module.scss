@@ -1,6 +1,11 @@
+@import "mixin";
+
 .container {
   position: relative;
   padding-bottom: 320px;
+  @include respond-to('small') {
+    padding: 0 24px 170px 24px;
+  }
 }
 
 .title {
@@ -8,25 +13,64 @@
   font-weight: 700;
   text-align: center;
   color: white;
+  @include respond-to('small') {
+    font-size: 30px;
+  }
 }
 
 .description {
   font-size: 18px;
   line-height: 28px;
-  margin-top: 16px;
+  margin-top: 32px;
   text-align: center;
   color: #D7DEEB;
+  @include respond-to('small') {
+    font-size: 16px;
+    line-height: 25px;
+  }
 }
 
 .speakerContainer {
-  margin-top: 78px;
+  position: relative;
+  height: 326px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 30px;
+  @include respond-to('small') {
+    height: auto;
+    margin-top: 40px;
+    gap: 20px;
+  }
 }
 
 .speakerRow {
-  position: relative;
+  position: absolute;
   display: flex;
   gap: 20px;
+  width: 1660px;
+  &:first-child {
+    top: 0;
+    right: 50%;
+  }
+  &:last-child {
+    bottom: 0;
+    left: 50%;
+  }
+  @include respond-to('small') {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: auto;
+    &:first-child {
+      top: auto;
+      right: auto;
+    }
+    &:last-child {
+      bottom: auto;
+      left: auto;
+    }
+  }
 }

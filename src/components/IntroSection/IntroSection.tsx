@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import noiseImage from '~/images/noise.png';
 import earthImage from '~/images/earth.png';
-import { container, text, title, background, heading, heading2, paragraph, earth, desktop, mobile } from './IntroSection.module.scss';
+import { container, visible, text, title, background, heading, heading2, paragraph, earth } from './IntroSection.module.scss';
 import Br from "~/components/Br/Br";
+import { useIntersection } from "use-intersection";
+import classcat from "classcat";
 
 interface IntroSectionProps {}
 
 const IntroSection: React.FC<IntroSectionProps> = () => {
+  const ref = useRef();
+  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
   return (
-    <section className={container} id="intro">
+    <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="intro">
       <div className={text}>
         <h4 className={title}>2021 Conference Theme</h4>
         <div className={heading}>

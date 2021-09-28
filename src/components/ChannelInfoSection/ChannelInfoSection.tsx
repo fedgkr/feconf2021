@@ -1,15 +1,19 @@
-import React from 'react';
-import { container, wrap, textContainer, circle, backgroundImage } from './ChannelInfoSection.module.scss';
+import React, { useRef } from 'react';
+import { container, visible, wrap, textContainer, circle, backgroundImage } from './ChannelInfoSection.module.scss';
 import planet from '~/images/icon/shiny-planet.png';
 import right from '~/images/icon/right-black.svg';
 import { YOUTUBE_CHANNEL_URL } from "~/data/const/links";
 import SafeLink from "~/components/SafeLink/SafeLink";
+import { useIntersection } from "use-intersection";
+import classcat from "classcat";
 
 interface ChannelInfoSectionProps {}
 
 const ChannelInfoSection: React.FC<ChannelInfoSectionProps> = () => {
+  const ref = useRef();
+  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
   return (
-    <div className={container}>
+    <div ref={ref} className={classcat([container, isVisible ? visible : ''])} >
       <div className={wrap}>
         <div className={textContainer}>
           <h2>

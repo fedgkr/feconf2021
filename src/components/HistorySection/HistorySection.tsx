@@ -1,15 +1,19 @@
-import React from 'react';
-import { container, heading, paragraph, historyContainer, history, imageWrap } from './HistorySection.module.scss';
+import React, { useRef } from 'react';
+import { container, visible, heading, paragraph, historyContainer, history, imageWrap } from './HistorySection.module.scss';
 import fiveImage from '~/images/history/5.png';
 import rocketImage from '~/images/history/rocket.png';
 import peopleImage from '~/images/history/people.png';
 import Br from "~/components/Br/Br";
+import { useIntersection } from "use-intersection";
+import classcat from "classcat";
 
 interface HistorySectionProps {}
 
 const HistorySection: React.FC<HistorySectionProps> = () => {
+  const ref = useRef();
+  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
   return (
-    <div className={container} id="event">
+    <div ref={ref} className={classcat([container, isVisible ? visible : ''])} id="event">
       <h2 className={heading}>
         국내 최대 규모 프론트엔드 <Br mobile/> 컨퍼런스 <Br desktop/>
         FECONF가 <Br mobile/>5주년을 맞이합니다.

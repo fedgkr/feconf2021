@@ -1,13 +1,21 @@
+@import "mixin";
+
 .container {
   padding-bottom: 264px;
+  @include respond-to('small') {
+    padding-bottom: 170px;
+  }
 }
 
 .title {
   font-size: 56px;
   font-weight: 700;
-  line-height: 78px;
+  line-height: 1.3;
   color: white;
   text-align: center;
+  @include respond-to('small') {
+    font-size: 30px;
+  }
 }
 
 .toggleWrap {
@@ -21,10 +29,20 @@
   display: flex;
   flex-direction: column;
   gap: 48px;
+  @include respond-to('small') {
+    align-items: center;
+    margin-top: 60px;
+    gap: 36px;
+  }
 }
 
 .sessionRow {
   display: flex;
   justify-content: center;
   gap: 21px;
+  @include respond-to('small') {
+    flex-direction: column;
+    margin-top: 0;
+    gap: 36px;
+  }
 }

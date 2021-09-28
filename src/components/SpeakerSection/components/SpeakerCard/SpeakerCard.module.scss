@@ -1,23 +1,31 @@
+@import "mixin";
+
 .container {
   position: relative;
   width: 260px;
   height: 148px;
   border-radius: 12px;
   background-color: #1F242C;
+  @include respond-to('small') {
+    width: 100%;
+    max-width: 400px;
+    height: 160px;
+  }
 }
 
 .textWrap {
   position: absolute;
-  left: 24px;
-  bottom: 24px;
+  left: 16px;
+  bottom: 16px;
   h3 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
+    line-height: 26px;
     color: white;
   }
   span {
-    font-size: 15px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 22px;
     color: #D7DEEB;
   }
 }

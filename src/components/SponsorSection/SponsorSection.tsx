@@ -57,6 +57,29 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           <SponsorCard/>
         </div>
       </div>
+      <div className={sponsorContainer}>
+        <div className={sponsorRow}>
+          <SponsorCard/>
+        </div>
+        <div className={sponsorRow}>
+          <SponsorCard/>
+          <SponsorCard/>
+          <SponsorCard/>
+        </div>
+        <div className={sponsorRow}>
+          <SponsorCard/>
+          <SponsorCard/>
+          <SponsorCard/>
+        </div>
+        <div className={sponsorRow}>
+          <SponsorCard/>
+          <SponsorCard/>
+          <div style={{ width: '100%' }}/>
+        </div>
+        <div className={sponsorRow}>
+          <SponsorCard/>
+        </div>
+      </div>
     </div>
   );
 }

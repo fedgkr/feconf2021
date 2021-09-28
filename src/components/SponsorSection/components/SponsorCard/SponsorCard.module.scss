@@ -1,26 +1,41 @@
+@import "mixin";
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 13px 22px 0 22px;
+  @include respond-to('small') {
+    padding: 3px 8px 0 8px;
+  }
 }
 
 .image {
   width: 144px;
+  @include respond-to('small') {
+    width: 84px;
+  }
 }
 
 .grade {
   margin-top: 14px;
   font-size: 16px;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 1.4;
   text-align: center;
   color: #5B5D71;
+  @include respond-to('small') {
+    margin-top: 7px;
+    font-size: 12px;
+  }
 }
 
 .name {
   font-size: 16px;
   font-weight: 400;
   color: #BBBFC7;
-  line-height: 26px;
+  line-height: 1.4;
+  @include respond-to('small') {
+    font-size: 12px;
+  }
 }

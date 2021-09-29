@@ -24,37 +24,10 @@
 
 .headingWrap {
   position: relative;
-  display: flex;
-  justify-content: center;
-  padding: 134px 0 169px 0;
-  .heading {
-    position: relative;
-    font-size: 160px;
-    font-weight: 900;
-    line-height: .87;
-    color: #FFFFFF;
-    margin: 134px 0 0 -134px;
-    z-index: 1;
-    .circle {
-      position: absolute;
-      right: -197px;
-      bottom: 0;
-      width: 466px;
-      height: 466px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      z-index: -1;
-    }
-    .noiseWrap {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-  }
+  height: 720px;
+  // display: flex;
+  // justify-content: center;
+  // padding: 134px 0 169px 0;
   @include respond-to('small') {
     //display: none;
   }

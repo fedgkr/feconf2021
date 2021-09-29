@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@egjs/component": "^3.0.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "classcat": "^5.0.3",
     "clipboard": "^2.0.8",
@@ -39,11 +40,13 @@
     "react-helmet": "^6.1.0",
     "react-hls-player": "^3.0.7",
     "react-spring": "^9.2.4",
+    "three": "^0.132.2",
     "use-intersection": "^0.2.1",
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@types/firebase": "^3.2.1",
+    "@types/three": "^0.132.1",
     "node-sass": "^6.0.1"
   }
 }

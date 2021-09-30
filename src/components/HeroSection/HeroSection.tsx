@@ -3,8 +3,8 @@ import { container, videoWrap, headingWrap, dimmed } from './HeroSection.module.
 import { getWindowSize, useWindowSize } from '~/hooks/useWindow';
 import flagImage from '~/images/flag.png';
 import * as THREE from "three";
-import { cloneAttributes, getFlagFunction } from './three/flag';
-import { useThree } from '../Three/Three';
+import { getFlagFunction } from './three/flag';
+import { cloneAttributes, useThree } from '../Three/Three';
 import { ZOOM_FRAGMENT_SHADER, ZOOM_VERTEX_SHADER } from './three/zoom';
 
 interface HeroSectionProps { }

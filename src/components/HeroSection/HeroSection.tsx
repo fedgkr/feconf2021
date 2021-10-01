@@ -137,17 +137,20 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
     three.datas.scrollTop = scrollTop;
 
+    let ratio = 0;
     if (!isMobile && scrollTop > fixedArea[1]) {
       ref.current.className = `${headingContainer} ${down}`;
+
+      ratio = 1;
     } else if (!isMobile && scrollTop > fixedArea[0]) {
       ref.current.className = `${headingContainer} ${fixed}`;
 
-      const ratio = Math.max(0, scrollTop - fixedArea[0]) / height;
-
-      three.datas.zoomMaterial.uniforms.zoomSize.value = (180 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
+      ratio = Math.max(0, scrollTop - fixedArea[0]) / height;
     } else {
       ref.current.className = `${headingContainer}`;
+      
     }
+    three.datas.zoomMaterial.uniforms.zoomSize.value = (180 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
   });
   return (
     <section className={container}>

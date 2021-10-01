@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ClipboardJS from 'clipboard';
 import { container, visible, textContainer, shareContainer, circle, shareSection } from './LinkShareSection.module.scss';
 import { useThree, cloneAttributes } from '../Three/Three';
+import sphereImage from '~/images/sphere.png';
 import * as THREE from 'three';
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
@@ -25,24 +26,33 @@ const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
   useEffect(() => {
     const three = threeRef.current;
 
+
+    const textureLoader = new THREE.TextureLoader();
+    const flagTexture = textureLoader.load(sphereImage);
+
+    flagTexture.anisotropy = 16;
+
+
+    const sphereMaterial = new THREE.MeshBasicMaterial({
+      map: flagTexture,
+      side: THREE.DoubleSide,
+    });
+    const sphereGeometry = new THREE.PlaneGeometry(406, 406, 1, 1);
+
+    sphereGeometry.translate(-1, 0, 0)
+    // three.addMesh(sphereGeometry, sphereMaterial);
+
     const edgeGeometry = new THREE.EdgesGeometry(new THREE.SphereGeometry(200, 20, 20));
     const edgeMaterial = new THREE.LineBasicMaterial( {
       linewidth: 1,
       color: 0xffffff,
     });
-    const edgeCloned = cloneAttributes(edgeGeometry);
-    const mesh = new THREE.LineSegments(edgeGeometry, edgeMaterial);
+    const edgeMesh = new THREE.LineSegments(edgeGeometry, edgeMaterial);
 
-    three.add(mesh);
+    edgeGeometry.rotateX(Math.PI / 5);
+    edgeGeometry.rotateZ(Math.PI / 8);
+    three.add(edgeMesh);
 
-    three.on("render", ({ now }) => {
-      edgeGeometry.attributes.position = edgeCloned.position.clone();
-      // edgeGeometry.attributes.normal = clonedEdge.normal.clone();
-      // edgeGeometry.attributes.uv = clonedEdge.uv.clone();
-      edgeGeometry.rotateY(now / 2000);
-      edgeGeometry.rotateX(Math.PI / 5);
-      edgeGeometry.rotateZ(Math.PI / 8);
-    });
   }, []);
 
   useEffect(() => {

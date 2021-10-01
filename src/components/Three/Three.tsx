@@ -4,6 +4,7 @@ import Component from '@egjs/component';
 
 export interface ThreeProps {
     background: number;
+    minWidth?: number;
 }
 export interface MeshObject {
     mesh: THREE.Mesh;
@@ -49,10 +50,14 @@ export default class Three extends Component<{
 }> {
     public width = 0;
     public height = 0;
-    private scene: THREE.Scene;
-    private camera: THREE.OrthographicCamera;
-    private renderer: THREE.WebGLRenderer;
+    public canvasWidth = 0;
+    public canvasHeight = 0;
+    public scene: THREE.Scene;
+    public camera: THREE.OrthographicCamera;
+    public renderer: THREE.WebGLRenderer;
+    public datas: Record<string, any> = {};
     private rafId = 0;
+
 
     constructor(private container: HTMLElement, public props: ThreeProps) {
         super();
@@ -74,6 +79,9 @@ export default class Three extends Component<{
 
         scene.background = new THREE.Color(this.props.background);
 
+
+        this.width = container.clientWidth;
+        this.height = container.clientHeight;
         this.rafId = requestAnimationFrame((now) => {
             this.onWindowResize();
             this.onAnimate(now);
@@ -110,11 +118,14 @@ export default class Three extends Component<{
         const camera = this.camera;
         const renderer = this.renderer;
         const container = this.container;
+        const props = this.props;
         const width = container.clientWidth;
         const height = container.clientHeight;
 
-        camera.left = -width / 2;
-        camera.right = width / 2;
+        const canvasWidth = Math.max(props.minWidth || 0,  width);
+
+        camera.left = -canvasWidth / 2;
+        camera.right = canvasWidth / 2;
         camera.top = height / 2;
         camera.bottom = -height / 2;
         camera.updateProjectionMatrix();
@@ -122,9 +133,11 @@ export default class Three extends Component<{
 
         this.width = width;
         this.height = height;
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = height;
 
         this.trigger("resize", { width, height });
 
-        renderer.setSize(width, height);
+        renderer.setSize(canvasWidth, height, false);
     }
 }

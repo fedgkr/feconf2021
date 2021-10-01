@@ -13,6 +13,6 @@ uniform float zoomX;
 uniform float zoomY;
 
 void main() {
-  float a = min(ceil(max(distance(vec2(zoomX * aspectRatio, zoomY), vec2(vUv.x * aspectRatio, vUv.y)) - zoomSize * aspectRatio, 0.0)), 1.0) * 0.5;
+  float a = min(ceil(max(distance(vec2(zoomX * aspectRatio, zoomY), vec2(vUv.x * aspectRatio, vUv.y)) - zoomSize * aspectRatio, 0.0)), 1.0) * 0.9;
   gl_FragColor = vec4(0.0, 0.0, 0.0, a); // R, G, B, A
 }`;

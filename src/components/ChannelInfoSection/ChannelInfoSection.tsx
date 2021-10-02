@@ -13,7 +13,7 @@ interface ChannelInfoSectionProps {}
 
 const ChannelInfoSection: React.FC<ChannelInfoSectionProps> = () => {
   const ref = useRef();
-  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
+  const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   const {
     ref: containerRef,
     threeRef,

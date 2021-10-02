@@ -148,7 +148,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       ratio = Math.max(0, scrollTop - fixedArea[0]) / height;
     } else {
       ref.current.className = `${headingContainer}`;
-      
+
     }
     three.datas.zoomMaterial.uniforms.zoomSize.value = (180 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
   });
@@ -156,7 +156,6 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
     <section className={container}>
       <div className={videoWrap}>
         <div className="stretch">
-          {/*<BackgroundVideo/>*/}
           <div className={dimmed} />
         </div>
       </div>

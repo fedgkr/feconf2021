@@ -11,7 +11,7 @@ interface LinkShareSectionProps {}
 
 const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
   const ref = useRef();
-  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
+  const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   const [link, setLink] = useState('');
   const clipboard = useRef<ClipboardJS>();
 

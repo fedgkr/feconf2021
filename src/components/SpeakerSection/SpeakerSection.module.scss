@@ -14,13 +14,8 @@
     .description {
       animation: FadeInUp 800ms 100ms ease-out forwards;
     }
-    .speakerRow {
-      &:first-child {
-        animation: FadeInUp 800ms 200ms ease-out forwards;
-      }
-      &:last-child {
-        animation: FadeInUp 800ms 300ms ease-out forwards;
-      }
+    .speakerContainer {
+      animation: FadeInUp 800ms 200ms ease-out forwards;
     }
   }
 }
@@ -58,6 +53,8 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  opacity: 0;
+  transform: translateY(100px);
   @include respond-to('small') {
     height: auto;
     margin-top: 40px;
@@ -70,8 +67,6 @@
   display: flex;
   gap: 20px;
   width: 1660px;
-  opacity: 0;
-  transform: translateY(100px);
   &:first-child {
     top: 0;
     right: 50%;
@@ -88,12 +83,17 @@
     gap: 20px;
     width: auto;
     &:first-child {
-      top: auto !important;
-      right: auto !important;
+      transform: translate3d(0, 0, 0) !important;
     }
     &:last-child {
-      bottom: auto !important;
-      left: auto !important;
+      transform: translate3d(0, 0, 0) !important;
     }
   }
+}
+
+.pillar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 600px;
 }

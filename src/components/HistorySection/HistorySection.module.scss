@@ -70,6 +70,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(100px);
   .imageWrap {
     position: relative;
     z-index: 2;
@@ -82,8 +84,8 @@
       height: 100%;
       top: 0;
       left: 0;
-      background: linear-gradient(94.75deg, #918FE7 6.7%, #699EEF 85.54%);
-      mix-blend-mode: hue;
+      //background: linear-gradient(94.75deg, #918FE7 6.7%, #699EEF 85.54%);
+      //mix-blend-mode: hue;
     }
   }
   h4 {

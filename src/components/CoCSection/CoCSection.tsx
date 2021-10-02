@@ -10,7 +10,7 @@ const CoCSection: React.FC<CoCSectionProps> = () => {
   const ref = useRef();
   const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   return (
-    <section ref={ref} className={classcat([container, isVisible ? visible : ''])}>
+    <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="coc">
       <div className={contents}>
         <div className={heading}>
           <h3>Code of Conduct</h3>

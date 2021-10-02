@@ -29,9 +29,6 @@
     .paragraph {
       animation: FadeInUp 800ms 400ms ease-out forwards;
     }
-    .earth {
-      animation: FadeIn 2500ms 1000ms ease-out forwards;
-    }
   }
 }
 
@@ -59,7 +56,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: .4;
   mix-blend-mode: soft-light;
   background-size: cover;
 }
@@ -124,7 +120,6 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-  opacity: 0;
   img {
     width: 100%;
   }

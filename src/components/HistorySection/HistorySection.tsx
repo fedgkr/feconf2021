@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { container, visible, heading, paragraph, historyContainer, history, imageWrap } from './HistorySection.module.scss';
 import fiveImage from '~/images/history/5.png';
 import rocketImage from '~/images/history/rocket.png';
@@ -6,12 +6,28 @@ import peopleImage from '~/images/history/people.png';
 import Br from "~/components/Br/Br";
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
+import { animated, config, useSpring } from "react-spring";
 
 interface HistorySectionProps {}
+
+const formatter = new Intl.NumberFormat('ko');
 
 const HistorySection: React.FC<HistorySectionProps> = () => {
   const ref = useRef();
   const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
+  const [anniversary, setAnniversary] = useState(0);
+  const [speakers, setSpeakers] = useState(0);
+  const [people, setPeople] = useState(0);
+  const { value: anniversaryValue } = useSpring({ from: { value: 0 }, to: { value: anniversary }, config: config.slow, delay: 200 });
+  const { value: speakersValue } = useSpring({ from: { value: 0 }, to: { value: speakers }, config: config.slow, delay: 400 });
+  const { value: peopleValue } = useSpring({ from: { value: 0 }, to: { value: people }, config: config.slow, delay: 600});
+  useEffect(() => {
+    if (isVisible) {
+      setAnniversary(5);
+      setSpeakers(120);
+      setPeople(73400);
+    }
+  }, [isVisible]);
   return (
     <div ref={ref} className={classcat([container, isVisible ? visible : ''])} id="event">
       <h2 className={heading}>
@@ -29,7 +45,7 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
             <img src={fiveImage} alt="5주년"/>
             <div></div>
           </div>
-          <h4>5주년</h4>
+          <animated.h4>{anniversaryValue.to(val => Math.ceil(val) + '주년')}</animated.h4>
           <span>FECONF와 함께한 시간</span>
         </li>
         <li className={history}>
@@ -37,15 +53,15 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
             <img src={rocketImage} alt="120명"/>
             <div></div>
           </div>
-          <h4>120명</h4>
+          <animated.h4>{speakersValue.to(val => Math.floor(val) + '명')}</animated.h4>
           <span>5년간 지식을 공유해준 스피커</span>
         </li>
         <li className={history}>
           <div className={imageWrap}>
-            <img src={peopleImage} alt="63,400명"/>
+            <img src={peopleImage} alt="73,400명"/>
             <div></div>
           </div>
-          <h4>63,400명</h4>
+          <animated.h4>{peopleValue.to(val => formatter.format(Math.floor(val)) + '명')}</animated.h4>
           <span>5년간 FECONF를 찾아준 인원</span>
         </li>
       </ul>

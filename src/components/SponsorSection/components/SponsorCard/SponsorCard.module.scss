@@ -5,6 +5,12 @@
   flex-direction: column;
   justify-content: center;
   padding: 13px 22px 0 22px;
+  pointer-events: none;
+  opacity: 0;
+  &.visible {
+    pointer-events: all;
+    opacity: 1;
+  }
   @include respond-to('small') {
     padding: 3px 8px 0 8px;
   }

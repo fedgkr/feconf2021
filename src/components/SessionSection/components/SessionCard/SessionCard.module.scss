@@ -1,6 +1,11 @@
+@import "mixin";
+
 .container {
   position: relative;
-  width: 306px;
+  width: 480px;
+  @include respond-to('large') {
+    width: 306px;
+  }
 }
 
 .imageWrap {

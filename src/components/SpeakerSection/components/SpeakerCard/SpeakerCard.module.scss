@@ -2,10 +2,14 @@
 
 .container {
   position: relative;
-  width: 260px;
-  height: 148px;
+  width: 380px;
+  height: 214px;
   border-radius: 12px;
   background-color: #1F242C;
+  @include respond-to('large') {
+    width: 260px;
+    height: 148px;
+  }
   @include respond-to('small') {
     width: 100%;
     max-width: 400px;

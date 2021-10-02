@@ -3,9 +3,9 @@
 
 .container {
   position: relative;
-  padding-bottom: 320px;
+  padding: 73px 24px 0 24px;
   @include respond-to('small') {
-    padding: 0 24px 170px 24px;
+    padding: 20px 24px 0 24px;
   }
   &.visible {
     .title {
@@ -48,13 +48,16 @@
 
 .speakerContainer {
   position: relative;
-  height: 326px;
+  height: 452px;
   margin-top: 80px;
   display: flex;
   flex-direction: column;
   gap: 30px;
   opacity: 0;
   transform: translateY(100px);
+  @include respond-to('large') {
+    height: 326px;
+  }
   @include respond-to('small') {
     height: auto;
     margin-top: 40px;
@@ -66,7 +69,8 @@
   position: absolute;
   display: flex;
   gap: 20px;
-  width: 1660px;
+  width: 2380px;
+  will-change: transform;
   &:first-child {
     top: 0;
     right: 50%;
@@ -74,6 +78,9 @@
   &:last-child {
     bottom: 0;
     left: 50%;
+  }
+  @include respond-to('large') {
+    width: 1660px;
   }
   @include respond-to('small') {
     position: relative;
@@ -84,16 +91,11 @@
     width: auto;
     &:first-child {
       transform: translate3d(0, 0, 0) !important;
+      right: 0;
     }
     &:last-child {
       transform: translate3d(0, 0, 0) !important;
+      left: 0;
     }
   }
-}
-
-.pillar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 600px;
 }

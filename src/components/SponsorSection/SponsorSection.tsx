@@ -31,7 +31,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
   const ref = useRef();
   const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   return (
-    <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="sponsor">
+    <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="sponsors">
       <div className={heading}>
         <h2>
           5주년을 함께 맞이 할 <br/>
@@ -79,7 +79,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           <div className={sponsorRow}>
             <SponsorCard/>
             <SponsorCard/>
-            <div style={{ width: '100%' }}/>
+            <SponsorCard display={false}/>
           </div>
           <div className={sponsorRow}>
             <SponsorCard/>

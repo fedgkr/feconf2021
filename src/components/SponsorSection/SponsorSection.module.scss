@@ -18,7 +18,7 @@
       }
     }
     .sponsorContainer {
-      &:first-child {
+      &:first-child, &:last-child {
         .sponsorRow {
           &:nth-child(1) {
             animation: FadeInUp 800ms 200ms ease-out forwards;

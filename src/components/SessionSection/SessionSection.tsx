@@ -12,7 +12,7 @@ const SessionSection: React.FC<SessionSectionProps> = () => {
   const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   const [selectedSessionType, setSession] = useState<SessionType>('A');
   return (
-    <section ref={ref} className={classcat([container, isVisible ? visible : ''])}>
+    <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="sessions">
       <h2 className={title}>세션 소개</h2>
       <div className={toggleWrap}>
         <Toggle session={selectedSessionType} onSessionChange={setSession}/>

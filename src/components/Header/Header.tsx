@@ -14,7 +14,10 @@ const Header: React.FC<HeaderProps> = () => {
       <ul className={menuList}>
         <li><a href="#intro">소개</a></li>
         <li><a href="#event">이벤트</a></li>
-        <li><a href="#sponsor">스폰서 모집</a></li>
+        <li><a href="#speakers">스피커</a></li>
+        <li><a href="#sessions">세션 소개</a></li>
+        <li><a href="#sponsors">스폰서</a></li>
+        <li><a href="#coc">CoC</a></li>
         <li><a href="#"><button onClick={() => setModal(true)}>사전등록</button></a></li>
       </ul>
       <div className={menu} onClick={() => setMobileMenu(true)}>

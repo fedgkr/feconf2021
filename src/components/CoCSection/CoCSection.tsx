@@ -1,12 +1,16 @@
-import React from 'react';
-import { container, contents, heading, codeList } from './CoCSection.module.scss';
+import React, { useRef } from 'react';
+import { container, visible, contents, heading, codeList } from './CoCSection.module.scss';
 import { FECONF_EMAIL } from "~/data/const/links";
+import { useIntersection } from "use-intersection";
+import classcat from "classcat";
 
 interface CoCSectionProps {}
 
 const CoCSection: React.FC<CoCSectionProps> = () => {
+  const ref = useRef();
+  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
   return (
-    <div className={container}>
+    <section ref={ref} className={classcat([container, isVisible ? visible : ''])}>
       <div className={contents}>
         <div className={heading}>
           <h3>Code of Conduct</h3>
@@ -38,7 +42,7 @@ const CoCSection: React.FC<CoCSectionProps> = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 

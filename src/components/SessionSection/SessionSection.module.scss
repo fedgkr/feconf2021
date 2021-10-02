@@ -1,9 +1,26 @@
 @import "mixin";
+@import "keyframes";
 
 .container {
   padding-bottom: 264px;
   @include respond-to('small') {
     padding-bottom: 170px;
+  }
+  &.visible {
+    .title {
+      animation: FadeInUp 800ms ease-out forwards;
+    }
+    .toggleWrap {
+      animation: FadeInUp 800ms 100ms ease-out forwards;
+    }
+    .sessionRow {
+      &:first-child {
+        animation: FadeInUp 800ms 200ms ease-out forwards;
+      }
+      &:last-child {
+        animation: FadeInUp 800ms 300ms ease-out forwards;
+      }
+    }
   }
 }
 
@@ -13,6 +30,8 @@
   line-height: 1.3;
   color: white;
   text-align: center;
+  opacity: 0;
+  transform: translateY(100px);
   @include respond-to('small') {
     font-size: 30px;
   }
@@ -22,6 +41,8 @@
   display: flex;
   justify-content: center;
   margin-top: 32px;
+  opacity: 0;
+  transform: translateY(100px);
 }
 
 .sessionCardContainer {
@@ -40,6 +61,8 @@
   display: flex;
   justify-content: center;
   gap: 21px;
+  opacity: 0;
+  transform: translateY(100px);
   @include respond-to('small') {
     flex-direction: column;
     margin-top: 0;

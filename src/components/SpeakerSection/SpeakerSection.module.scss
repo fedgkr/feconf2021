@@ -1,10 +1,27 @@
 @import "mixin";
+@import "keyframes";
 
 .container {
   position: relative;
   padding-bottom: 320px;
   @include respond-to('small') {
     padding: 0 24px 170px 24px;
+  }
+  &.visible {
+    .title {
+      animation: FadeInUp 800ms ease-out forwards;
+    }
+    .description {
+      animation: FadeInUp 800ms 100ms ease-out forwards;
+    }
+    .speakerRow {
+      &:first-child {
+        animation: FadeInUp 800ms 200ms ease-out forwards;
+      }
+      &:last-child {
+        animation: FadeInUp 800ms 300ms ease-out forwards;
+      }
+    }
   }
 }
 
@@ -13,6 +30,8 @@
   font-weight: 700;
   text-align: center;
   color: white;
+  opacity: 0;
+  transform: translateY(100px);
   @include respond-to('small') {
     font-size: 30px;
   }
@@ -24,6 +43,8 @@
   margin-top: 32px;
   text-align: center;
   color: #D7DEEB;
+  opacity: 0;
+  transform: translateY(100px);
   @include respond-to('small') {
     font-size: 16px;
     line-height: 25px;
@@ -49,6 +70,8 @@
   display: flex;
   gap: 20px;
   width: 1660px;
+  opacity: 0;
+  transform: translateY(100px);
   &:first-child {
     top: 0;
     right: 50%;
@@ -65,12 +88,12 @@
     gap: 20px;
     width: auto;
     &:first-child {
-      top: auto;
-      right: auto;
+      top: auto !important;
+      right: auto !important;
     }
     &:last-child {
-      bottom: auto;
-      left: auto;
+      bottom: auto !important;
+      left: auto !important;
     }
   }
 }

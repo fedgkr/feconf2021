@@ -1,4 +1,5 @@
 @import "mixin";
+@import "keyframes";
 
 .container {
   padding: 160px 0 200px 0;
@@ -6,17 +7,40 @@
   @include respond-to('small') {
     padding: 40px 20px 100px 20px;
   }
+  &.visible {
+    .textContainer {
+      strong {
+        animation: FadeInUp 800ms ease-out forwards;
+      }
+      h3 {
+        animation: FadeInUp 800ms 100ms ease-out forwards;
+      }
+    }
+    .shareContainer {
+      .circle {
+        img {
+          animation: FadeInUp 800ms 200ms ease-out forwards;
+        }
+      }
+      .shareSection {
+        animation: FadeInUp 800ms 300ms ease-out forwards;
+      }
+    }
+  }
 }
 
 .textContainer {
   text-align: center;
   strong {
+    display: block;
     font-size: 24px;
     font-weight: 600;
     line-height: 1.6;
     background: linear-gradient(94.75deg, #D5D4FA 6.7%, #88B1ED 85.54%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(100px);
   }
   h3 {
     margin: 12px 0 0;
@@ -24,6 +48,8 @@
     font-weight: 900;
     line-height: 100px;
     color: #FFFFFF;
+    opacity: 0;
+    transform: translateY(100px);
   }
   @include respond-to('small') {
     strong {
@@ -47,6 +73,8 @@
     img {
       width: 100%;
       height: 100%;
+      opacity: 0;
+      transform: translateY(100px);
     };
   }
   .shareSection {
@@ -59,6 +87,8 @@
     box-sizing: border-box;
     border-radius: 20px;
     background-color: #20232D;
+    opacity: 0;
+    transform: translateY(100px);
     span {
       font-size: 24px;
       font-weight: 600;

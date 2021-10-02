@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import { container, title, toggleWrap, sessionCardContainer, sessionRow } from './SessionSection.module.scss';
+import React, { useRef, useState } from 'react';
+import { container, visible, title, toggleWrap, sessionCardContainer, sessionRow } from './SessionSection.module.scss';
 import Toggle from "~/components/SessionSection/components/Toggle/Toggle";
 import SessionCard from "~/components/SessionSection/components/SessionCard/SessionCard";
+import { useIntersection } from "use-intersection";
+import classcat from "classcat";
 
 interface SessionSectionProps {}
 
 const SessionSection: React.FC<SessionSectionProps> = () => {
+  const ref = useRef();
+  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
   const [selectedSessionType, setSession] = useState<SessionType>('A');
   return (
-    <section className={container}>
+    <section ref={ref} className={classcat([container, isVisible ? visible : ''])}>
       <h2 className={title}>세션 소개</h2>
       <div className={toggleWrap}>
         <Toggle session={selectedSessionType} onSessionChange={setSession}/>

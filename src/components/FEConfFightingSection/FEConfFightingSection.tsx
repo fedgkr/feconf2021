@@ -1,16 +1,20 @@
-import React from 'react';
-import { container, contentsWrap, ellipse, textContainer, button, messagesWrap } from './FEConfFightingSection.module.scss';
+import React, { useRef } from 'react';
+import { container, visible, contentsWrap, ellipse, textContainer, button, messagesWrap } from './FEConfFightingSection.module.scss';
 import right from '~/images/icon/right-white.svg';
 import Br from "~/components/Br/Br";
 import { useReservationModal } from "~/data/states/modal.state";
 import RotatingMessageList from "~/components/FEConfFightingSection/components/RotatingMessageList/RotatingMessageList";
+import { useIntersection } from "use-intersection";
+import classcat from "classcat";
 
 interface FEConfFightingSectionProps {}
 
 const FEConfFightingSection: React.FC<FEConfFightingSectionProps> = () => {
   const [, setModal] = useReservationModal();
+  const ref = useRef();
+  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
   return (
-    <div className={container}>
+    <section ref={ref} className={classcat([container, isVisible ? visible : ''])}>
       <div className={contentsWrap}>
         <div className={textContainer}>
           <h2>
@@ -37,7 +41,7 @@ const FEConfFightingSection: React.FC<FEConfFightingSectionProps> = () => {
           <img src={right}/>
         </button>
       </div>
-    </div>
+    </section>
   );
 }
 

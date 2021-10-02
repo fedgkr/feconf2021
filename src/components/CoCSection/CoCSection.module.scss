@@ -1,10 +1,65 @@
 @import "mixin";
+@import "keyframes";
 
 .container {
   padding: 160px 0;
   background-color: #171920;
   @include respond-to('small') {
     padding: 80px 20px 100px 20px;
+  }
+  &.visible {
+    .heading {
+      h3 {
+        animation: FadeInUp 800ms ease-out forwards;
+      }
+      p {
+        animation: FadeInUp 800ms 100ms ease-out forwards;
+      }
+    }
+    .codeList {
+      li {
+        &:nth-child(1) {
+          h4 {
+            animation: FadeInUp 800ms 200ms ease-out forwards;
+          }
+          p {
+            animation: FadeInUp 800ms 250ms ease-out forwards;
+          }
+        }
+        &:nth-child(2) {
+          h4 {
+            animation: FadeInUp 800ms 300ms ease-out forwards;
+          }
+          p {
+            animation: FadeInUp 800ms 350ms ease-out forwards;
+          }
+        }
+        &:nth-child(3) {
+          h4 {
+            animation: FadeInUp 800ms 400ms ease-out forwards;
+          }
+          p {
+            animation: FadeInUp 800ms 450ms ease-out forwards;
+          }
+        }
+        &:nth-child(4) {
+          h4 {
+            animation: FadeInUp 800ms 500ms ease-out forwards;
+          }
+          p {
+            animation: FadeInUp 800ms 550ms ease-out forwards;
+          }
+        }
+        &:nth-child(5) {
+          h4 {
+            animation: FadeInUp 800ms 600ms ease-out forwards;
+          }
+          p {
+            animation: FadeInUp 800ms 650ms ease-out forwards;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -26,6 +81,8 @@
     font-weight: bold;
     line-height: 38px;
     color: #E5E5E5;
+    opacity: 0;
+    transform: translateY(100px);
   }
   p {
     margin-top: 16px;
@@ -33,6 +90,8 @@
     line-height: 1.6;
     color: #A3AAB1;
     width: 250px;
+    opacity: 0;
+    transform: translateY(100px);
   }
   @include respond-to('small') {
   }
@@ -51,12 +110,16 @@
       line-height: 28px;
       color: #FFFFFF;
       margin: 0;
+      opacity: 0;
+      transform: translateY(100px);
     }
     p {
       margin: 6px 0 0;
       font-size: 15px;
       line-height: 24px;
       color: #A3AAB1;
+      opacity: 0;
+      transform: translateY(100px);
     }
   }
   @include respond-to('small') {

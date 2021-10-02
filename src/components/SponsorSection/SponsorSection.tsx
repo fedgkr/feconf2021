@@ -1,5 +1,5 @@
-import React from 'react';
-import { container, heading, sponsorRow, sponsorContainer } from './SponsorSection.module.scss';
+import React, { useRef } from 'react';
+import { container, visible, heading, sponsorRow, sponsorContainer } from './SponsorSection.module.scss';
 import banksalad from '~/images/sponsor/banksalad.png';
 import class101 from '~/images/sponsor/class101.png';
 import coupang from '~/images/sponsor/coupang.png';
@@ -10,6 +10,8 @@ import programmers from '~/images/sponsor/programmers.png';
 import soomgo from '~/images/sponsor/soomgo.png';
 import toss from '~/images/sponsor/toss.png';
 import SponsorCard from "~/components/SponsorSection/components/SponsorCard/SponsorCard";
+import { useIntersection } from "use-intersection";
+import classcat from "classcat";
 
 const imageUrlMap = {
   banksalad: banksalad,
@@ -26,8 +28,10 @@ const imageUrlMap = {
 interface SponsorSectionProps {}
 
 const SponsorSection: React.FC<SponsorSectionProps> = () => {
+  const ref = useRef();
+  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
   return (
-    <div className={container} id="sponsor">
+    <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="sponsor">
       <div className={heading}>
         <h2>
           5주년을 함께 맞이 할 <br/>
@@ -37,50 +41,52 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           FECONF은 여러분과 후원사의 지원을 통해 진행하는 비영리 단체입니다.
         </p>
       </div>
-      <div className={sponsorContainer}>
-        <div className={sponsorRow}>
-          <SponsorCard/>
+      <div>
+        <div className={sponsorContainer}>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+          </div>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+            <SponsorCard/>
+            <SponsorCard/>
+            <SponsorCard/>
+          </div>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+            <SponsorCard/>
+            <SponsorCard/>
+            <SponsorCard/>
+          </div>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+          </div>
         </div>
-        <div className={sponsorRow}>
-          <SponsorCard/>
-          <SponsorCard/>
-          <SponsorCard/>
-          <SponsorCard/>
-        </div>
-        <div className={sponsorRow}>
-          <SponsorCard/>
-          <SponsorCard/>
-          <SponsorCard/>
-          <SponsorCard/>
-        </div>
-        <div className={sponsorRow}>
-          <SponsorCard/>
+        <div className={sponsorContainer}>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+          </div>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+            <SponsorCard/>
+            <SponsorCard/>
+          </div>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+            <SponsorCard/>
+            <SponsorCard/>
+          </div>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+            <SponsorCard/>
+            <div style={{ width: '100%' }}/>
+          </div>
+          <div className={sponsorRow}>
+            <SponsorCard/>
+          </div>
         </div>
       </div>
-      <div className={sponsorContainer}>
-        <div className={sponsorRow}>
-          <SponsorCard/>
-        </div>
-        <div className={sponsorRow}>
-          <SponsorCard/>
-          <SponsorCard/>
-          <SponsorCard/>
-        </div>
-        <div className={sponsorRow}>
-          <SponsorCard/>
-          <SponsorCard/>
-          <SponsorCard/>
-        </div>
-        <div className={sponsorRow}>
-          <SponsorCard/>
-          <SponsorCard/>
-          <div style={{ width: '100%' }}/>
-        </div>
-        <div className={sponsorRow}>
-          <SponsorCard/>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }
 

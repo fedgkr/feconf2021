@@ -11,7 +11,7 @@ interface HistorySectionProps {}
 
 const HistorySection: React.FC<HistorySectionProps> = () => {
   const ref = useRef();
-  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
+  const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   return (
     <div ref={ref} className={classcat([container, isVisible ? visible : ''])} id="event">
       <h2 className={heading}>

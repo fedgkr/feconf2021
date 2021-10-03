@@ -29,7 +29,7 @@ interface SponsorSectionProps {}
 
 const SponsorSection: React.FC<SponsorSectionProps> = () => {
   const ref = useRef();
-  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
+  const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   return (
     <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="sponsor">
       <div className={heading}>

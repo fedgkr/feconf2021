@@ -10,7 +10,7 @@ interface IntroSectionProps {}
 
 const IntroSection: React.FC<IntroSectionProps> = () => {
   const ref = useRef();
-  const isVisible = useIntersection(ref.current, { once: true, threshold: .3 });
+  const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   return (
     <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="intro">
       <div className={text}>

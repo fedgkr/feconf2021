@@ -29,7 +29,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           멋진 파트너를 소개합니다
         </h2>
         <p>
-          FECONF은 여러분과 후원사의 지원을 통해 진행하는 비영리 단체입니다.
+          FEConf은 여러분과 후원사의 지원을 통해 진행하는 비영리 단체입니다.
         </p>
       </div>
       <div>

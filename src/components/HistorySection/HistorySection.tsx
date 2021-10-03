@@ -32,10 +32,10 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
     <div ref={ref} className={classcat([container, isVisible ? visible : ''])} id="event">
       <h2 className={heading}>
         국내 최대 규모 프론트엔드 <Br mobile/> 컨퍼런스 <Br desktop/>
-        FECONF가 <Br mobile/>5주년을 맞이합니다.
+        FEConf가 <Br mobile/>5주년을 맞이합니다.
       </h2>
       <p className={paragraph}>
-        FECONF는 프론트엔드를 개발하며 마주했던 치열한<Br mobile/> 고민과 깊은 인사이트를 <Br desktop/>
+        FEConf는 프론트엔드를 개발하며 마주했던 치열한<Br mobile/> 고민과 깊은 인사이트를 <Br desktop/>
         함께 공유하고 성장을<Br mobile/> 도모하는 국내 최고의 프론트엔드 개발 컨퍼런스입니다.<Br mobile/> <Br desktop/>
         5주년을 맞이해 더욱 알찬 내용을 가지고 찾아옵니다!
       </p>
@@ -46,7 +46,7 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
             <div></div>
           </div>
           <animated.h4>{anniversaryValue.to(val => Math.ceil(val) + '주년')}</animated.h4>
-          <span>FECONF와 함께한 시간</span>
+          <span>FEConf와 함께한 시간</span>
         </li>
         <li className={history}>
           <div className={imageWrap}>
@@ -62,7 +62,7 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
             <div></div>
           </div>
           <animated.h4>{peopleValue.to(val => formatter.format(Math.floor(val)) + '명')}</animated.h4>
-          <span>5년간 FECONF를 찾아준 인원</span>
+          <span>5년간 FEConf를 찾아준 인원</span>
         </li>
       </ul>
     </div>

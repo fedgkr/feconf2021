@@ -15,7 +15,7 @@ const CoCSection: React.FC<CoCSectionProps> = () => {
         <div className={heading}>
           <h3>Code of Conduct</h3>
           <p>
-            FECONF2021에 참여하는 모든 분은 <br/>
+            FEConf2021에 참여하는 모든 분은 <br/>
             다음 사항을 준수해주세요.
           </p>
         </div>

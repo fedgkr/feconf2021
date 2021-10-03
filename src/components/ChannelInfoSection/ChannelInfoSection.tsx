@@ -71,9 +71,9 @@ const ChannelInfoSection: React.FC<ChannelInfoSectionProps> = () => {
             생생한 경험을
           </h2>
           <p>
-            유튜브로 공개되는 2021 FECONF 어디서든 <br/>
+            유튜브로 공개되는 FEconf2021 어디서든 <br/>
             만나볼 수 있어요. <br/><br/>
-            FECONF가 5주년을 맞이해 이벤트를 진행합니다. <br/>
+            FEConf가 5주년을 맞이해 이벤트를 진행합니다. <br/>
             유튜브 채널을 구독하시면 추첨을 통해 다양한<br/>
             상품을 드립니다.
           </p>

@@ -68,13 +68,13 @@ const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
     <section ref={ref} className={classcat([container, isVisible ? visible : ''])}>
       <div className={textContainer}>
         <strong>2021. 10. 30</strong>
-        <h3>FECONF</h3>
+        <h3>FEConf</h3>
       </div>
       <div className={shareContainer}>
         <div className={circle} ref={containerRef}>
         </div>
         <div className={shareSection}>
-          <span>주변 친구에게 FECONF를 공유해보세요!</span>
+          <span>주변 친구에게 FEConf를 공유해보세요!</span>
           <button id="share-link" data-clipboard-text={link}>링크 복사</button>
         </div>
       </div>

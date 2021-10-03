@@ -50,7 +50,7 @@ const GitHubUserMessageForm: React.FC<GitHubUserMessageFormProps> = () => {
           onChange={evt => setMessage(evt.target.value)}
         />
         <div className={description}>
-          <span>2021 FECONF에게 응원 메세지를 남겨주세요!</span>
+          <span>FEconf2021에게 응원 메세지를 남겨주세요!</span>
           <span>{(currentMessage).length}/{maxMessageLength}</span>
         </div>
         <button className={register} type="submit">

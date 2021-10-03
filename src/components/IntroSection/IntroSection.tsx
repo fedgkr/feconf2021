@@ -29,7 +29,7 @@ const IntroSection: React.FC<IntroSectionProps> = () => {
         <h3 className={heading2}>Broaden Your Experience</h3>
         <p className={paragraph}>
           <span>기술 트렌드를 주도하는 프론트엔드 개발자들의<Br mobile/> 치열한 이야기를</span><Br desktop/>
-          <span>FECONF와 함께<Br mobile/> <strong>2021년 10월 30일</strong> 유튜브로 찾아옵니다.</span>
+          <span>FEConf와 함께<Br mobile/> <strong>2021년 10월 30일</strong> 유튜브로 찾아옵니다.</span>
         </p>
       </div>
       <div className={background} style={{ backgroundImage: `url(${noiseImage})` }}>

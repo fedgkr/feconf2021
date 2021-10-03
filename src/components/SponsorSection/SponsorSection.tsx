@@ -1,30 +1,9 @@
 import React, { useRef } from 'react';
 import { container, visible, heading, sponsorRow, sponsorContainer } from './SponsorSection.module.scss';
-import banksalad from '~/images/sponsor/banksalad.png';
-import class101 from '~/images/sponsor/class101.png';
-import coupang from '~/images/sponsor/coupang.png';
-import jetbrains from '~/images/sponsor/jetbrains.png';
-import karrot from '~/images/sponsor/karrot.png';
-import naver from '~/images/sponsor/naver.png';
-import programmers from '~/images/sponsor/programmers.png';
-import soomgo from '~/images/sponsor/soomgo.png';
-import toss from '~/images/sponsor/toss.png';
 import SponsorCard from "~/components/SponsorSection/components/SponsorCard/SponsorCard";
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
 import { sponsors } from "~/data/db/sponsors";
-
-const imageUrlMap = {
-  banksalad: banksalad,
-  class101: class101,
-  coupang: coupang,
-  jetbrains: jetbrains,
-  karrot: karrot,
-  naver: naver,
-  programmers: programmers,
-  soomgo: soomgo,
-  toss: toss,
-};
 
 const noopSponsor: Sponsor = {
   name: '',

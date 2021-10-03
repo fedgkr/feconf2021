@@ -1,6 +1,5 @@
 import React from 'react';
 import { container, textWrap, image } from './SpeakerCard.module.scss';
-import sanggeun from '~/images/speakers/sanggeun.png';
 
 interface SpeakerCardProps {
   speaker: Speaker;
@@ -13,7 +12,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker }) => {
         <span>{speaker.company}</span>
         <h3>{speaker.name}</h3>
       </div>
-      <img className={image} src={sanggeun} alt=""/>
+      <img className={image} src="/images/speakers/sanggeun.png" alt=""/>
     </div>
   );
 }

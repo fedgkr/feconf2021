@@ -10,7 +10,6 @@ const Meta: React.FC<MetaProps> = () => {
     <Helmet>
       <meta charSet="utf-8"/>
       <title>FEConf 2021</title>
-      <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
       <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
       <meta
         name="description"
@@ -36,12 +35,6 @@ const Meta: React.FC<MetaProps> = () => {
       />
       <meta name="twitter:creator" content="@codemilli" />
       <link rel="icon" type="image/png" href={favicon}/>
-      <style>
-
-      </style>
-      <style dangerouslySetInnerHTML={{ __html: `
-
-      ` }}></style>
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
     </Helmet>
   );

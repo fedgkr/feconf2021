@@ -19,13 +19,30 @@ export default function useOnContainerScroll(container: MutableRefObject<HTMLEle
     scrollY: 0,
     progress: 0,
   };
+  const buffer = 1000;
+  let isRunning = false;
+  let latestRequestedTime = 0;
   const onFireScroll = () => {
-    requestAnimationFrame(() => {
-      const scrolled = window.pageYOffset + window.innerHeight;
-      scrollInfo.scrollY = Math.max(scrolled - dimension.top, 0);
-      scrollInfo.progress = Math.min(scrollInfo.scrollY / dimension.scrollHeight, 1);
-      onScroll(scrollInfo);
-    });
+    latestRequestedTime = Date.now();
+    if (isRunning) {
+      return;
+    }
+    isRunning = true;
+    const play = () => {
+      requestAnimationFrame(() => {
+        const now = Date.now() - buffer;
+        const scrolled = window.pageYOffset + window.innerHeight;
+        scrollInfo.scrollY = Math.max(scrolled - dimension.top, 0);
+        scrollInfo.progress = Math.min(scrollInfo.scrollY / dimension.scrollHeight, 1);
+        onScroll(scrollInfo);
+        if (now < latestRequestedTime) {
+          play();
+        } else {
+          isRunning = false;
+        }
+      });
+    };
+    play();
   }
   const setDimension = () => {
     if (container.current) {

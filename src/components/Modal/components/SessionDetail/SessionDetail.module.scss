@@ -1,0 +1,124 @@
+@import "mixin";
+
+.container {
+  position: absolute;
+  top: 140px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #20232C;
+  @include respond-to('small') {
+    top: auto;
+    bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 12px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .1);
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+  }
+}
+
+.header {
+  position: relative;
+  height: 180px;
+  background-color: #749BFF;
+  overflow: hidden;
+  & > div {
+    position: absolute;
+    border-radius: 50%;
+    &:first-child {
+      top: 72px;
+      left: -244px;
+      height: 510px;
+      width: 510px;
+      background: linear-gradient(339.55deg, #8FAEFF 11.54%, rgba(116, 155, 255, 0) 39.44%);
+      transform: matrix(1, 0, 0, -1, 0, 0);
+    }
+    &:last-child {
+      bottom: -5px;
+      left: 359px;
+      width: 384px;
+      height: 384px;
+      background: linear-gradient(347.22deg, #8FAEFF 42.86%, rgba(116, 155, 255, 0) 96.7%);
+      transform: matrix(1, 0, 0, -1, 0, 0);
+    }
+  }
+  @include respond-to('small') {
+    display: none;
+  }
+}
+
+.content {
+  padding: 40px 40px 30px 40px;
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #ffffff;
+    word-break: keep-all;
+  }
+  p {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ffffff;
+  }
+  @include respond-to('small') {
+    padding: 68px 20px 30px 20px;
+  }
+}
+
+.tagList {
+  display: flex;
+  gap: 4px;
+  margin-top: 12px;
+  span {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #4D86FF;
+    background-color: #2B2F3B;
+  }
+}
+
+.speaker {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #C0C9DB;
+}
+
+.button {
+  text-align: right;
+  margin-top: 20px;
+  button {
+    padding: 12px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.4);
+    background: #2B2F3B;
+    border-radius: 12px;
+    border: none;
+  }
+}

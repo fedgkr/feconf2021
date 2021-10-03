@@ -12,6 +12,7 @@ import toss from '~/images/sponsor/toss.png';
 import SponsorCard from "~/components/SponsorSection/components/SponsorCard/SponsorCard";
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
+import { sponsors } from "~/data/db/sponsors";
 
 const imageUrlMap = {
   banksalad: banksalad,
@@ -25,11 +26,22 @@ const imageUrlMap = {
   toss: toss,
 };
 
+const noopSponsor: Sponsor = {
+  name: '',
+  grade: 'Diamond',
+  imageUrl: '',
+  link: '',
+};
+
 interface SponsorSectionProps {}
 
 const SponsorSection: React.FC<SponsorSectionProps> = () => {
   const ref = useRef();
   const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
+  const diamond = sponsors.filter(s => s.grade === 'Diamond');
+  const platinum = sponsors.filter(s => s.grade === 'Platinum');
+  const gold = sponsors.filter(s => s.grade === 'Gold');
+  const place = sponsors.filter(s => s.grade === '장소지원');
   return (
     <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="sponsors">
       <div className={heading}>
@@ -44,45 +56,34 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
       <div>
         <div className={sponsorContainer}>
           <div className={sponsorRow}>
-            <SponsorCard/>
+            { diamond.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
-            <SponsorCard/>
-            <SponsorCard/>
-            <SponsorCard/>
-            <SponsorCard/>
+            { platinum.slice(0, 4).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
-            <SponsorCard/>
-            <SponsorCard/>
-            <SponsorCard/>
-            <SponsorCard/>
+            { platinum.slice(4, 8).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
-            <SponsorCard/>
+            { gold.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
         </div>
         <div className={sponsorContainer}>
           <div className={sponsorRow}>
-            <SponsorCard/>
+            { diamond.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
-            <SponsorCard/>
-            <SponsorCard/>
-            <SponsorCard/>
+            { platinum.slice(0, 3).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
-            <SponsorCard/>
-            <SponsorCard/>
-            <SponsorCard/>
+            { platinum.slice(3, 6).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
-            <SponsorCard/>
-            <SponsorCard/>
-            <SponsorCard display={false}/>
+            { platinum.slice(6, 8).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
+            <SponsorCard sponsor={noopSponsor} display={false}/>
           </div>
           <div className={sponsorRow}>
-            <SponsorCard/>
+            { gold.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
         </div>
       </div>

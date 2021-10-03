@@ -29,11 +29,21 @@ interface Speaker {
   imageUrl: string;
 }
 
+type SessionType = 'A' | 'B';
+
 interface Session {
   type: SessionType;
   title: string;
   description: string;
   speaker: Speaker;
+  tags: string[];
 }
 
-type SessionType = 'A' | 'B';
+type SponsorGrade = 'Diamond' | 'Platinum' | 'Gold' | '장소지원';
+
+interface Sponsor {
+  grade: SponsorGrade;
+  name: string;
+  imageUrl: string;
+  link: string;
+}

@@ -17,6 +17,7 @@ import { useFirebase } from "~/hooks/useFirestore";
 import MobileMenu from "~/components/Modal/components/MobileMenu/MobileMenu";
 import SpeakerSection from "~/components/SpeakerSection/SpeakerSection";
 import SessionSection from "~/components/SessionSection/SessionSection";
+import SessionDetail from "~/components/Modal/components/SessionDetail/SessionDetail";
 
 const IndexPage = () => {
   useAfterLoginModal();
@@ -40,6 +41,7 @@ const IndexPage = () => {
       </main>
       <AdvanceReservationModal/>
       <MobileMenu/>
+      <SessionDetail/>
     </React.Fragment>
   )
 }

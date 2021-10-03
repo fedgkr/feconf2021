@@ -1,18 +1,22 @@
 import React from 'react';
 import { container, imageWrap, textWrap } from './SessionCard.module.scss';
 import cardImage from '~/images/sessions/card.png';
+import { useSessionDetail } from "~/data/states/modal.state";
 
-interface SessionCardProps {}
+interface SessionCardProps {
+  session: Session;
+}
 
-const SessionCard: React.FC<SessionCardProps> = () => {
+const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
+  const [, setDetail] = useSessionDetail();
   return (
-    <div className={container}>
+    <div className={container} onClick={() => setDetail({ active: true, data: session })}>
       <div className={imageWrap}>
         <img src={cardImage} alt="Session"/>
       </div>
       <div className={textWrap}>
-        <span>안희종 / flex team</span>
-        <strong>오늘, UI 프로그래밍을 위한 언어를 만든다면</strong>
+        <span>{session.speaker.name} / {session.speaker.company}</span>
+        <strong>{session.title}</strong>
       </div>
     </div>
   );

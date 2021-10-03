@@ -4,15 +4,16 @@ import toss from '~/images/sponsor/toss.png';
 import classcat from "classcat";
 
 interface SponsorCardProps {
+  sponsor: Sponsor;
   display?: boolean;
 }
 
-const SponsorCard: React.FC<SponsorCardProps> = ({ display = true }) => {
+const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, display = true }) => {
   return (
     <div className={classcat([container, display ? visible : ''])}>
-      <img className={image} src={toss} alt="company name"/>
-      <div className={grade}>Diamond</div>
-      <div className={name}>비바리퍼블리카</div>
+      <img className={image} src={toss} alt={sponsor.name}/>
+      <div className={grade}>{sponsor.grade}</div>
+      <div className={name}>{sponsor.name}</div>
     </div>
   );
 }

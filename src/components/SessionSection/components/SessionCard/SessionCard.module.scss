@@ -3,6 +3,7 @@
 .container {
   position: relative;
   width: 480px;
+  cursor: pointer;
   @include respond-to('large') {
     width: 306px;
   }

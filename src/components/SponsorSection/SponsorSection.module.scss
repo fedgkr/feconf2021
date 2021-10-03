@@ -24,13 +24,16 @@
             animation: FadeInUp 800ms 200ms ease-out forwards;
           }
           &:nth-child(2) {
-            animation: FadeInUp 800ms 300ms ease-out forwards;
+            animation: FadeInUp 800ms 350ms ease-out forwards;
           }
           &:nth-child(3) {
-            animation: FadeInUp 800ms 400ms ease-out forwards;
+            animation: FadeInUp 800ms 500ms ease-out forwards;
           }
           &:nth-child(4) {
-            animation: FadeInUp 800ms 500ms ease-out forwards;
+            animation: FadeInUp 800ms 650ms ease-out forwards;
+          }
+          &:nth-child(5) {
+            animation: FadeInUp 800ms 800ms ease-out forwards;
           }
         }
       }
@@ -98,7 +101,7 @@
     margin-bottom: 60px;
   }
   &:last-child {
-    margin-top: 60px;
+    margin-top: 12px;
   }
   @include respond-to('small') {
     margin-bottom: 48px;

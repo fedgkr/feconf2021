@@ -4,6 +4,7 @@ import SpeakerCard from "~/components/SpeakerSection/components/SpeakerCard/Spea
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
 import useOnContainerScroll from "~/hooks/useOnContainerScroll";
+import { sessions } from "~/data/db/sessions";
 
 interface SpeakerSectionProps {}
 
@@ -13,6 +14,7 @@ const SpeakerSection: React.FC<SpeakerSectionProps> = () => {
   const lastRowRef = useRef<HTMLDivElement>();
   const speakersRef = useRef<HTMLDivElement>();
   const isVisible = useIntersection(ref, { once: true, rootMargin: '-200px 0px' });
+  const speakers = sessions.map(session => session.speaker);
   const { scrollInfo, dimension } = useOnContainerScroll(speakersRef, () => {
     if (window.innerWidth > 1024) {
       const progress = Math.min(Math.max(0, scrollInfo.scrollY / dimension.windowHeight), 1);
@@ -30,20 +32,14 @@ const SpeakerSection: React.FC<SpeakerSectionProps> = () => {
       <p className={description}>경험을 공유해줄 12명의 멋진 연사를 소개합니다.</p>
       <div ref={speakersRef} className={speakerContainer}>
         <div ref={firstRowRef} className={speakerRow}>
-          <SpeakerCard/>
-          <SpeakerCard/>
-          <SpeakerCard/>
-          <SpeakerCard/>
-          <SpeakerCard/>
-          <SpeakerCard/>
+          { speakers.slice(0, 6).map(speaker => (
+            <SpeakerCard key={speaker.name} speaker={speaker}/>
+          )) }
         </div>
         <div ref={lastRowRef} className={speakerRow}>
-          <SpeakerCard/>
-          <SpeakerCard/>
-          <SpeakerCard/>
-          <SpeakerCard/>
-          <SpeakerCard/>
-          <SpeakerCard/>
+          { speakers.slice(6, 12).map(speaker => (
+            <SpeakerCard key={speaker.name} speaker={speaker}/>
+          )) }
         </div>
       </div>
     </section>

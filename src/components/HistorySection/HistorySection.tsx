@@ -31,13 +31,12 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
   return (
     <div ref={ref} className={classcat([container, isVisible ? visible : ''])} id="event">
       <h2 className={heading}>
-        국내 최대 규모 프론트엔드 <Br mobile/> 컨퍼런스 <Br desktop/>
+        국내 최고의 프론트엔드 <Br mobile/> 컨퍼런스 <Br desktop/>
         FEConf가 <Br mobile/>5주년을 맞이합니다.
       </h2>
       <p className={paragraph}>
         FEConf는 프론트엔드를 개발하며 마주했던 치열한<Br mobile/> 고민과 깊은 인사이트를 <Br desktop/>
-        함께 공유하고 성장을<Br mobile/> 도모하는 국내 최고의 프론트엔드 개발 컨퍼런스입니다.<Br mobile/> <Br desktop/>
-        5주년을 맞이해 더욱 알찬 내용을 가지고 찾아옵니다!
+        공유하고 함께 성장하는<Br mobile/> 국내 최고의 프론트엔드 개발 컨퍼런스입니다.<Br mobile/> <Br desktop/>
       </p>
       <ul className={historyContainer}>
         <li className={history}>

@@ -68,7 +68,7 @@ const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
     <section ref={ref} className={classcat([container, isVisible ? visible : ''])}>
       <div className={textContainer}>
         <strong>2021. 10. 30</strong>
-        <h3>FEConf</h3>
+        <h3>FECONF</h3>
       </div>
       <div className={shareContainer}>
         <div className={circle} ref={containerRef}>

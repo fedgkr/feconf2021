@@ -6,6 +6,8 @@ import Br from "~/components/Br/Br";
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
 import useOnContainerScroll from "~/hooks/useOnContainerScroll";
+import SafeLink from "~/components/SafeLink/SafeLink";
+import { YOUTUBE_CHANNEL_URL } from "~/data/const/links";
 
 interface IntroSectionProps {}
 
@@ -23,14 +25,15 @@ const IntroSection: React.FC<IntroSectionProps> = () => {
       <div className={text}>
         <h4 className={title}>2021 Conference Theme</h4>
         <div className={heading}>
-          <h2>시대를 앞서는 프론트엔드</h2>
-          <h2>개발자 컨퍼런스</h2>
+          <h2>프론트엔드 개발의</h2>
+          <h2>소중한 경험을 공유합니다!</h2>
         </div>
         <h3 className={heading2}>Broaden Your Experience</h3>
-        <p className={paragraph}>
-          <span>기술 트렌드를 주도하는 프론트엔드 개발자들의<Br mobile/> 치열한 이야기를</span><Br desktop/>
-          <span>FEConf와 함께<Br mobile/> <strong>2021년 10월 30일</strong> 유튜브로 찾아옵니다.</span>
-        </p>
+        <SafeLink href={YOUTUBE_CHANNEL_URL}>
+          <p className={paragraph}>
+            <span><strong>2021년 10월 30일</strong><Br mobile/> Live Streaming on YouTube</span>
+          </p>
+        </SafeLink>
       </div>
       <div className={background} style={{ backgroundImage: `url(${noiseImage})` }}>
         <div className={earth}>

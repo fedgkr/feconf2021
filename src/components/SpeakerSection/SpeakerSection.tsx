@@ -29,7 +29,7 @@ const SpeakerSection: React.FC<SpeakerSectionProps> = () => {
   return (
     <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="speakers">
       <h2 className={title}>스피커 소개</h2>
-      <p className={description}>경험을 공유해줄 12명의 멋진 연사를 소개합니다.</p>
+      <p className={description}>소중한 경험을 공유해줄 12명의 멋진 스피커를 소개합니다.</p>
       <div ref={speakersRef} className={speakerContainer}>
         <div ref={firstRowRef} className={speakerRow}>
           { speakers.slice(0, 6).map(speaker => (

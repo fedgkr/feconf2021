@@ -2,48 +2,230 @@
 @import "keyframes";
 
 .container {
-  padding: 160px 0 200px 0;
+  padding: 160px 0 0 0;
   background-color: black;
   @include respond-to('small') {
-    padding: 40px 20px 100px 20px;
+    padding: 40px 0 0 0;
   }
   &.visible {
-    .textContainer {
-      strong {
+    .noticeContainer {
+      h2 {
         animation: FadeInUp 800ms ease-out forwards;
       }
-      h3 {
+      p {
         animation: FadeInUp 800ms 100ms ease-out forwards;
+      }
+      .buttonWrap {
+        a:nth-child(1) {
+          button {
+            animation: FadeInUp 800ms 200ms ease-out forwards;
+          }
+        }
+        a:nth-child(2) {
+          button {
+           animation: FadeInUp 800ms 300ms ease-out forwards;
+          }
+        }
+        a:nth-child(3) {
+          button {
+           animation: FadeInUp 800ms 400ms ease-out forwards;
+          }
+        }
+      }
+      @include respond-to('small') {
+        h2 {
+          animation: FadeInUpMobile 500ms ease-out forwards;
+        }
+        p {
+          animation: FadeInUpMobile 500ms 100ms ease-out forwards;
+        }
+        .buttonWrap {
+          a:nth-child(1) {
+            button {
+              animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+            }
+          }
+          a:nth-child(2) {
+            button {
+              animation: FadeInUpMobile 500ms 300ms ease-out forwards;
+            }
+          }
+          a:nth-child(3) {
+            button {
+              animation: FadeInUpMobile 500ms 400ms ease-out forwards;
+            }
+          }
+        }
       }
     }
     .shareContainer {
-      .circle {
-        img {
-          animation: FadeInUp 800ms 200ms ease-out forwards;
+      .textContainer {
+        strong {
+          animation: FadeInUp 800ms 500ms ease-out forwards;
+        }
+        h3 {
+          animation: FadeInUp 800ms 600ms ease-out forwards;
         }
       }
       .shareSection {
-        animation: FadeInUp 800ms 300ms ease-out forwards;
-      }
-    }
-    @include respond-to('small') {
-      .textContainer {
-        strong {
-          animation: FadeInUpMobile 500ms ease-out forwards;
+        p {
+          animation: FadeInUp 800ms 700ms ease-out forwards;
         }
-        h3 {
-          animation: FadeInUpMobile 500ms 100ms ease-out forwards;
+        button {
+          animation: FadeInUp 800ms 800ms ease-out forwards;
         }
       }
-      .shareContainer {
-        .circle {
-          img {
-            animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+      @include respond-to('small') {
+        .textContainer {
+          strong {
+            animation: FadeInUpMobile 500ms 500ms ease-out forwards;
+          }
+          h3 {
+            animation: FadeInUpMobile 500ms 600ms ease-out forwards;
           }
         }
         .shareSection {
-          animation: FadeInUpMobile 500ms 300ms ease-out forwards;
+          p {
+            animation: FadeInUpMobile 500ms 700ms ease-out forwards;
+          }
+          button {
+            animation: FadeInUpMobile 500ms 800ms ease-out forwards;
+          }
         }
+      }
+    }
+  }
+}
+
+.noticeContainer {
+  padding: 160px 24px 200px 24px;
+  text-align: center;
+  h2 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #FFFFFF;
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  p {
+    margin-top: 32px;
+    font-size: 18px;
+    color: #D7DEEB;
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  .buttonWrap {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 21px;
+    button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 24px 20px;
+      box-sizing: border-box;
+      width: 306px;
+      height: 72px;
+      background-color: #20232C;
+      border-radius: 12px;
+      border: none;
+      color: #FFFFFF;
+      font-size: 18px;
+      opacity: 0;
+      transform: translateY(100px);
+      img {
+        width: 24px;
+      }
+      span {
+        margin-left: 6px;
+      }
+      svg {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+      }
+    }
+  }
+  @include respond-to('small') {
+    padding: 80px 34px 100px 34px;
+    h2 {
+      font-size: 30px;
+      font-weight: 700;
+      transform: translateY(40px);
+    }
+    p {
+      font-size: 16px;
+      transform: translateY(40px);
+    }
+    .buttonWrap {
+      margin-top: 60px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px;
+      button {
+        position: relative;
+        display: flex;
+        width: 100%;
+        max-width: 400px;
+        transform: translateY(40px);
+        margin: 0 auto;
+        span {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.shareContainer {
+  padding: 72px 0 101px 0;
+  background: linear-gradient(95.06deg, #8280E3 2.38%, #5590ED 100.44%);
+  .shareSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    gap: 48px;
+    p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 28px;
+      color: #FFFFFF;
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    button {
+      display: flex;
+      align-items: center;
+      padding: 17px 20px;
+      background-color: #FFFFFF;
+      border-radius: 36px;
+      border: none;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(100px);
+      span {
+        font-size: 18px;
+        font-weight: 700;
+        color: #4E80E9;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  @include respond-to('small') {
+    .shareSection {
+      transform: translateY(40px);
+      p {
+        transform: translateY(40px);
+      }
+      button {
+        transform: translateY(40px);
       }
     }
   }
@@ -53,7 +235,7 @@
   text-align: center;
   strong {
     display: block;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1.6;
     background: linear-gradient(94.75deg, #D5D4FA 6.7%, #88B1ED 85.54%);
@@ -63,104 +245,19 @@
     transform: translateY(100px);
   }
   h3 {
-    margin: 12px 0 0;
-    font-size: 80px;
-    font-weight: 900;
-    line-height: 100px;
+    margin: 8px 0 0;
+    font-size: 64px;
+    font-weight: 800;
     color: #FFFFFF;
     opacity: 0;
     transform: translateY(100px);
   }
   @include respond-to('small') {
     strong {
-      font-size: 22px;
       transform: translateY(40px);
     }
     h3 {
-      margin: 4px 0 0;
-      font-size: 50px;
-      line-height: 50px;
       transform: translateY(40px);
-    }
-  }
-}
-
-.shareContainer {
-  margin-top: 60px;
-  .circle {
-    position: relative;
-    width: 480px;
-    height: 480px;
-    margin: 0 auto;
-    font-size: 0;
-
-    canvas {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transform: translateY(100px);
-    };
-  }
-  .shareSection {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 794px;
-    margin: 100px auto 0 auto;
-    padding: 29px 40px 29px 40px;
-    box-sizing: border-box;
-    border-radius: 20px;
-    background-color: #20232D;
-    opacity: 0;
-    transform: translateY(100px);
-    span {
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 29px;
-      color: #FFFFFF;
-    }
-    button {
-      padding: 20px;
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 22px;
-      color: #FFFFFF;
-      background-color: #2B2F3B;
-      border-radius: 12px;
-      border: none;
-    }
-  }
-  @include respond-to('small') {
-    margin-top: 48px;
-    .circle {
-      width: 280px;
-      height: 280px;
-      img {
-        transform: translateY(40px);
-      }
-    }
-    .shareSection {
-      flex-direction: column;
-      margin: 42px auto 0 auto;
-      padding: 32px 24px;
-      transform: translateY(40px);
-      span {
-        font-size: 18px;
-        line-height: 25px;
-      }
-      button {
-        width: 100%;
-        margin-top: 20px;
-        padding: 21px;
-        font-size: 15px;
-        line-height: 18px;
-      }
     }
   }
 }

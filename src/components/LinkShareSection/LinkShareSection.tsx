@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ClipboardJS from 'clipboard';
-import { container, visible, textContainer, shareContainer, circle, shareSection } from './LinkShareSection.module.scss';
-import { useThree, cloneAttributes } from '../Three/Three';
-import sphereImage from '~/images/sphere.png';
-import * as THREE from 'three';
+import { container, noticeContainer, buttonWrap, visible, textContainer, shareContainer, shareSection } from './LinkShareSection.module.scss';
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
+import SafeLink from "~/components/SafeLink/SafeLink";
+import Arrow from "~/components/Arrow/Arrow";
+import { FACEBOOK_FECONF_URL, FECONF_EMAIL, YOUTUBE_CHANNEL_URL } from "~/data/const/links";
+import Br from "~/components/Br/Br";
 
 interface LinkShareSectionProps {}
 
@@ -14,46 +15,6 @@ const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
   const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   const [link, setLink] = useState('');
   const clipboard = useRef<ClipboardJS>();
-
-  const {
-    ref: containerRef,
-    threeRef,
-  } = useThree({
-    background: 0x000000,
-  });
-
-
-  useEffect(() => {
-    const three = threeRef.current;
-
-
-    const textureLoader = new THREE.TextureLoader();
-    const flagTexture = textureLoader.load(sphereImage);
-
-    flagTexture.anisotropy = 16;
-
-
-    const sphereMaterial = new THREE.MeshBasicMaterial({
-      map: flagTexture,
-      side: THREE.DoubleSide,
-    });
-    const sphereGeometry = new THREE.PlaneGeometry(406, 406, 1, 1);
-
-    sphereGeometry.translate(-1, 0, 0)
-    // three.addMesh(sphereGeometry, sphereMaterial);
-
-    const edgeGeometry = new THREE.EdgesGeometry(new THREE.SphereGeometry(200, 20, 20));
-    const edgeMaterial = new THREE.LineBasicMaterial( {
-      linewidth: 1,
-      color: 0xffffff,
-    });
-    const edgeMesh = new THREE.LineSegments(edgeGeometry, edgeMaterial);
-
-    edgeGeometry.rotateX(Math.PI / 5);
-    edgeGeometry.rotateZ(Math.PI / 8);
-    three.add(edgeMesh);
-
-  }, []);
 
   useEffect(() => {
     setLink(location.origin);
@@ -66,16 +27,44 @@ const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
 
   return (
     <section ref={ref} className={classcat([container, isVisible ? visible : ''])}>
-      <div className={textContainer}>
-        <strong>2021. 10. 30</strong>
-        <h3>FECONF</h3>
+      <div className={noticeContainer}>
+        <h2>NOTICE</h2>
+        <p>다양한 SNS를 통해 FEConf2021<Br mobile/> 소식을  받아보세요. </p>
+        <div className={buttonWrap}>
+          <SafeLink href={FACEBOOK_FECONF_URL}>
+            <button>
+              <img src="/images/icons/facebook.png" alt="페이스북 그룹"/>
+              <span>Facebook</span>
+              <Arrow/>
+            </button>
+          </SafeLink>
+          <SafeLink href={YOUTUBE_CHANNEL_URL}>
+            <button>
+              <img src="/images/icons/youtube.png" alt="FEConf 유튜브 채널"/>
+              <span>Youtube</span>
+              <Arrow/>
+            </button>
+          </SafeLink>
+          <SafeLink href={`mailto:${FECONF_EMAIL}`}>
+            <button>
+              <img src="/images/icons/mail.png" alt="메일 문의"/>
+              <span>Email Us</span>
+              <Arrow/>
+            </button>
+          </SafeLink>
+        </div>
       </div>
       <div className={shareContainer}>
-        <div className={circle} ref={containerRef}>
+        <div className={textContainer}>
+          <strong>2021. 10. 30</strong>
+          <h3>FECONF</h3>
         </div>
         <div className={shareSection}>
-          <span>주변 친구에게 FEConf를 공유해보세요!</span>
-          <button id="share-link" data-clipboard-text={link}>링크 복사</button>
+          <p>주변 친구에게 FEConf를 공유해보세요!</p>
+          <button id="share-link" data-clipboard-text={link}>
+            <img src="/images/icons/link.png"/>
+            <span>링크 복사</span>
+          </button>
         </div>
       </div>
     </section>

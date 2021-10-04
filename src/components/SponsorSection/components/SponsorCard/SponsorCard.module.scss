@@ -17,9 +17,9 @@
 }
 
 .image {
-  width: 144px;
+  width: 188px;
   @include respond-to('small') {
-    width: 84px;
+    width: 100px;
   }
 }
 

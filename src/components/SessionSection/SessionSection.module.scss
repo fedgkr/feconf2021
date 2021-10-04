@@ -2,9 +2,9 @@
 @import "keyframes";
 
 .container {
-  padding: 320px 24px 264px 24px;
+  padding: 320px 24px 0 24px;
   @include respond-to('small') {
-    padding: 170px 24px 170px 24px;
+    padding: 170px 24px 0 24px;
   }
   &.visible {
     .title {

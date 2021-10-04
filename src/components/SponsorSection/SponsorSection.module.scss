@@ -38,6 +38,37 @@
         }
       }
     }
+    @include respond-to('small') {
+      .heading {
+        h2 {
+          animation: FadeInUpMobile 500ms ease-out forwards;
+        }
+        p {
+          animation: FadeInUpMobile 500ms 100ms ease-out forwards;
+        }
+      }
+      .sponsorContainer {
+        &:first-child, &:last-child {
+          .sponsorRow {
+            &:nth-child(1) {
+              animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+            }
+            &:nth-child(2) {
+              animation: FadeInUpMobile 500ms 350ms ease-out forwards;
+            }
+            &:nth-child(3) {
+              animation: FadeInUpMobile 500ms 500ms ease-out forwards;
+            }
+            &:nth-child(4) {
+              animation: FadeInUpMobile 500ms 650ms ease-out forwards;
+            }
+            &:nth-child(5) {
+              animation: FadeInUpMobile 500ms 800ms ease-out forwards;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -61,10 +92,12 @@
   @include respond-to('small') {
     h2 {
       font-size: 30px;
+      transform: translateY(40px);
     }
     p {
       font-size: 16px;
       margin-top: 32px;
+      transform: translateY(40px);
     }
   }
 }
@@ -105,5 +138,6 @@
   }
   @include respond-to('small') {
     margin-bottom: 48px;
+    transform: translateY(40px);
   }
 }

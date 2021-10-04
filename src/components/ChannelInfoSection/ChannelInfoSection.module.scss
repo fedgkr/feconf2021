@@ -25,6 +25,24 @@
         animation: FadeInUp 800ms 400ms ease-out forwards;
       }
     }
+    @include respond-to('small') {
+      .textContainer {
+        h2 {
+          animation: FadeInUpMobile 500ms ease-out forwards;
+        }
+        p {
+          animation: FadeInUpMobile 500ms 150ms ease-out forwards;
+        }
+        button {
+          animation: FadeInUpMobile 500ms 300ms ease-out forwards;
+        }
+      }
+      .circle {
+        img {
+          animation: FadeInUpMobile 500ms 400ms ease-out forwards;
+        }
+      }
+    }
   }
 }
 
@@ -78,16 +96,19 @@
     margin: 0 auto;
     h2 {
       font-size: 30px;
+      transform: translateY(40px);
     }
     p {
       margin-top: 32px;
       font-size: 16px;
+      transform: translateY(40px);
     }
     button {
       margin-top: 32px;
       padding: 13px 28px 13px 36px;
       font-size: 14px;
       border-radius: 45px;
+      transform: translateY(40px);
     }
   }
 }
@@ -121,6 +142,9 @@
     width: 300px;
     height: 300px;
     margin: 70px auto 0 auto;
+    img {
+      transform: translateY(40px);
+    }
     .backgroundImage {
       width: 480px;
       height: 480px;

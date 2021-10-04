@@ -29,6 +29,25 @@
     .paragraph {
       animation: FadeInUp 800ms 400ms ease-out forwards;
     }
+    @include respond-to('small') {
+      .title {
+        animation: FadeInUpMobile 500ms ease-out forwards;
+      }
+      .heading {
+        h2:first-child {
+          animation: FadeInUpMobile 500ms 100ms ease-out forwards;
+        }
+        h2:last-child {
+          animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+        }
+      }
+      .heading2 {
+        animation: FadeInUpMobile 500ms 300ms ease-out forwards;
+      }
+      .paragraph {
+        animation: FadeInUpMobile 500ms 400ms ease-out forwards;
+      }
+    }
   }
 }
 
@@ -47,6 +66,7 @@
   transform: translateY(100px);
   @include respond-to('small') {
     font-size: 16px;
+    transform: translateY(40px);
   }
 }
 
@@ -75,6 +95,7 @@
     h2 {
       font-size: 30px;
       font-weight: 700;
+      transform: translateY(40px);
     }
   }
 }
@@ -93,6 +114,7 @@
   @include respond-to('small') {
     font-size: 22px;
     margin: 32px 0;
+    transform: translateY(40px);
   }
 }
 
@@ -109,6 +131,7 @@
   }
   @include respond-to('small') {
     font-size: 16px;
+    transform: translateY(40px);
   }
 }
 

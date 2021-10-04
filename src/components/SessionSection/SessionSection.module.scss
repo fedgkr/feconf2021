@@ -21,6 +21,22 @@
         animation: FadeInUp 800ms 300ms ease-out forwards;
       }
     }
+    @include respond-to('small') {
+      .title {
+        animation: FadeInUpMobile 500ms ease-out forwards;
+      }
+      .toggleWrap {
+        animation: FadeInUpMobile 500ms 100ms ease-out forwards;
+      }
+      .sessionRow {
+        &:first-child {
+          animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+        }
+        &:last-child {
+          animation: FadeInUpMobile 500ms 300ms ease-out forwards;
+        }
+      }
+    }
   }
 }
 
@@ -34,6 +50,7 @@
   transform: translateY(100px);
   @include respond-to('small') {
     font-size: 30px;
+    transform: translateY(40px);
   }
 }
 
@@ -43,6 +60,9 @@
   margin-top: 32px;
   opacity: 0;
   transform: translateY(100px);
+  @include respond-to('small') {
+    transform: translateY(40px);
+  }
 }
 
 .sessionCardContainer {
@@ -67,5 +87,6 @@
     flex-direction: column;
     margin-top: 0;
     gap: 36px;
+    transform: translateY(40px);
   }
 }

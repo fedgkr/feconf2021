@@ -17,6 +17,17 @@
     .speakerContainer {
       animation: FadeInUp 800ms 200ms ease-out forwards;
     }
+    @include respond-to('small') {
+      .title {
+        animation: FadeInUpMobile 500ms ease-out forwards;
+      }
+      .description {
+        animation: FadeInUpMobile 500ms 100ms ease-out forwards;
+      }
+      .speakerContainer {
+        animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+      }
+    }
   }
 }
 
@@ -29,6 +40,7 @@
   transform: translateY(100px);
   @include respond-to('small') {
     font-size: 30px;
+    transform: translateY(40px);
   }
 }
 
@@ -43,6 +55,7 @@
   @include respond-to('small') {
     font-size: 16px;
     line-height: 25px;
+    transform: translateY(40px);
   }
 }
 
@@ -62,6 +75,7 @@
     height: auto;
     margin-top: 40px;
     gap: 20px;
+    transform: translateY(40px);
   }
 }
 

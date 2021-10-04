@@ -24,6 +24,25 @@
         animation: FadeInUp 800ms 200ms ease-out forwards;
       }
     }
+    .messagesWrap {
+      animation: FadeInUp 800ms 300ms ease-out forwards;
+    }
+    @include respond-to('small') {
+      .textContainer {
+        h2 {
+          animation: FadeInUpMobile 500ms ease-out forwards;
+        }
+        p {
+          animation: FadeInUpMobile 500ms 100ms ease-out forwards;
+        }
+        button {
+          animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+        }
+      }
+      .messagesWrap {
+        animation: FadeInUpMobile 500ms 300ms ease-out forwards;
+      }
+    }
   }
 }
 
@@ -86,13 +105,16 @@
     width: 295px;
     h2 {
       font-size: 30px;
+      transform: translateY(40px);
     }
     p {
       margin-top: 32px;
       font-size: 16px;
+      transform: translateY(40px);
     }
     button {
       display: none;
+      transform: translateY(40px);
     }
   }
 }
@@ -115,6 +137,8 @@
 .messagesWrap {
   position: relative;
   width: 455px;
+  opacity: 0;
+  transform: translateY(100px);
   button {
     display: none;
   }

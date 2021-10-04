@@ -1,16 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { container, visible, heading, paragraph, historyContainer, history, imageWrap } from './HistorySection.module.scss';
+import classcat from "classcat";
 import fiveImage from '~/images/history/5.png';
 import rocketImage from '~/images/history/rocket.png';
 import peopleImage from '~/images/history/people.png';
 import Br from "~/components/Br/Br";
 import { useIntersection } from "use-intersection";
-import classcat from "classcat";
 import { animated, config, useSpring } from "react-spring";
 
 interface HistorySectionProps {}
 
 const formatter = new Intl.NumberFormat('ko');
+const constants = {
+  anniversary: 5,
+  speakers: 120,
+  people: 73400,
+};
 
 const HistorySection: React.FC<HistorySectionProps> = () => {
   const ref = useRef();
@@ -23,9 +28,9 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
   const { value: peopleValue } = useSpring({ from: { value: 0 }, to: { value: people }, config: config.slow, delay: 600});
   useEffect(() => {
     if (isVisible) {
-      setAnniversary(5);
-      setSpeakers(120);
-      setPeople(73400);
+      setAnniversary(constants.anniversary);
+      setSpeakers(constants.speakers);
+      setPeople(constants.people);
     }
   }, [isVisible]);
   return (

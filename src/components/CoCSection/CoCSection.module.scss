@@ -60,6 +60,60 @@
         }
       }
     }
+    @include respond-to('small') {
+      .heading {
+        h3 {
+          animation: FadeInUpMobile 500ms ease-out forwards;
+        }
+        p {
+          animation: FadeInUpMobile 500ms 100ms ease-out forwards;
+        }
+      }
+      .codeList {
+        li {
+          &:nth-child(1) {
+            h4 {
+              animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+            }
+            p {
+              animation: FadeInUpMobile 500ms 250ms ease-out forwards;
+            }
+          }
+          &:nth-child(2) {
+            h4 {
+              animation: FadeInUpMobile 500ms 300ms ease-out forwards;
+            }
+            p {
+              animation: FadeInUpMobile 500ms 350ms ease-out forwards;
+            }
+          }
+          &:nth-child(3) {
+            h4 {
+              animation: FadeInUpMobile 500ms 400ms ease-out forwards;
+            }
+            p {
+              animation: FadeInUpMobile 500ms 450ms ease-out forwards;
+            }
+          }
+          &:nth-child(4) {
+            h4 {
+              animation: FadeInUpMobile 500ms 500ms ease-out forwards;
+            }
+            p {
+              animation: FadeInUpMobile 500ms 550ms ease-out forwards;
+            }
+          }
+          &:nth-child(5) {
+            h4 {
+              animation: FadeInUpMobile 500ms 600ms ease-out forwards;
+            }
+            p {
+              animation: FadeInUpMobile 500ms 650ms ease-out forwards;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -94,6 +148,12 @@
     transform: translateY(100px);
   }
   @include respond-to('small') {
+    h3 {
+      transform: translateY(40px);
+    }
+    p {
+      transform: translateY(40px);
+    }
   }
 }
 
@@ -131,6 +191,10 @@
       h4 {
         font-size: 17px;
         line-height: 27px;
+        transform: translateY(40px);
+      }
+      p {
+        transform: translateY(40px);
       }
     }
   }

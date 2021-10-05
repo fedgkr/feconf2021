@@ -21,6 +21,7 @@
   position: absolute;
   left: 16px;
   bottom: 16px;
+  z-index: 3;
   h3 {
     font-size: 20px;
     font-weight: 700;
@@ -39,4 +40,14 @@
   height: 100%;
   right: 0;
   bottom: 0;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42%;
+  background: linear-gradient(180deg, rgba(31, 36, 44, 0) 0%, #1F242C 77.6%);
+  z-index: 2;
 }

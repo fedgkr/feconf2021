@@ -6,7 +6,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '안희종',
       company: 'flex team',
-      imageUrl: '',
+      imageUrl: '/images/speakers/1.png',
     },
     tags: ['UI 프로그래밍'],
   },
@@ -17,7 +17,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '임지훈',
       company: '에멘탈',
-      imageUrl: '',
+      imageUrl: '/images/speakers/2.png',
     },
     tags: ['Micro-Frontends', '빌드성능', '툴링', 'next.js'],
   },
@@ -28,7 +28,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '김현태',
       company: 'Mation',
-      imageUrl: '',
+      imageUrl: '/images/speakers/3.png',
     },
     tags: ['리액트', '상태관리', '리코일'],
   },
@@ -39,7 +39,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '이병철',
       company: '비바리퍼블리카(토스)',
-      imageUrl: '',
+      imageUrl: '/images/speakers/4.png',
     },
     tags: ['디자인 시스템', '협업'],
   },
@@ -50,7 +50,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '원지혁',
       company: '당근마켓',
-      imageUrl: '',
+      imageUrl: '/images/speakers/5.png',
     },
     tags: ['설계', '리액트'],
   },
@@ -61,7 +61,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '이상우',
       company: '와탭랩스',
-      imageUrl: '',
+      imageUrl: '/images/speakers/6.png',
     },
     tags: ['대시보드', '클라우드'],
   },
@@ -72,7 +72,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '김상근',
       company: '뷰노',
-      imageUrl: '',
+      imageUrl: '/images/speakers/12.png',
     },
     tags: ['UI 프로그래밍'],
   },
@@ -83,7 +83,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '한윤석',
       company: '마켓컬리, 코드숨(대표)',
-      imageUrl: '',
+      imageUrl: '/images/speakers/11.png',
     },
     tags: ['응집도'],
   },
@@ -94,7 +94,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '김도환',
       company: '비바리퍼블리카(토스)',
-      imageUrl: '',
+      imageUrl: '/images/speakers/10.png',
     },
     tags: ['스크린 리더', 'UX'],
   },
@@ -105,7 +105,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '강동윤',
       company: 'Vercel',
-      imageUrl: '',
+      imageUrl: '/images/speakers/9.png',
     },
     tags: ['빌드성능', '툴링', 'next.js'],
   },
@@ -116,7 +116,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '장기효',
       company: '네이버',
-      imageUrl: '',
+      imageUrl: '/images/speakers/8.png',
     },
     tags: ['Vue.js', 'Vue2', 'Vue3'],
   },
@@ -127,7 +127,7 @@ export const sessions: Session[] = [
     speaker: {
       name: '배선우',
       company: '네이버웹툰',
-      imageUrl: '',
+      imageUrl: '/images/speakers/7.png',
     },
     tags: ['에디터', '저작도구', 'VSCode'],
   },

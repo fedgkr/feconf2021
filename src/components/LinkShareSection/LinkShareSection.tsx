@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import noiseImage from '~/images/noise.png';
 import ClipboardJS from 'clipboard';
-import { container, noticeContainer, buttonWrap, visible, textContainer, shareContainer, shareSection } from './LinkShareSection.module.scss';
+import { container, noticeContainer, buttonWrap, visible, textContainer, shareContainer, background, shareSection } from './LinkShareSection.module.scss';
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
 import SafeLink from "~/components/SafeLink/SafeLink";
@@ -21,6 +22,7 @@ const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
     if (link && !clipboard.current) {
       clipboard.current = new ClipboardJS('#share-link');
       clipboard.current.on('success', () => {
+        alert('링크를 복사했습니다.');
       });
     }
   }, [link]);
@@ -55,6 +57,7 @@ const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
         </div>
       </div>
       <div className={shareContainer}>
+        <div className={background} style={{ backgroundImage: `url(${noiseImage})` }}/>
         <div className={textContainer}>
           <strong>2021. 10. 30</strong>
           <h3>FECONF</h3>

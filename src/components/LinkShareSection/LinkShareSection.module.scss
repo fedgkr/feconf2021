@@ -181,8 +181,18 @@
 }
 
 .shareContainer {
+  position: relative;
   padding: 72px 0 101px 0;
   background: linear-gradient(95.06deg, #8280E3 2.38%, #5590ED 100.44%);
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: soft-light;
+    background-size: cover;
+  }
   .shareSection {
     display: flex;
     flex-direction: column;

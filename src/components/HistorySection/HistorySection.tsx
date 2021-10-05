@@ -13,7 +13,7 @@ interface HistorySectionProps {}
 const formatter = new Intl.NumberFormat('ko');
 const constants = {
   anniversary: 5,
-  speakers: 120,
+  speakers: 60,
   people: 73400,
 };
 
@@ -46,7 +46,7 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
       <ul className={historyContainer}>
         <li className={history}>
           <div className={imageWrap}>
-            <img src={fiveImage} alt="5주년"/>
+            <img src={fiveImage} alt={`${constants.anniversary}주년`}/>
             <div></div>
           </div>
           <animated.h4>{anniversaryValue.to(val => Math.ceil(val) + '주년')}</animated.h4>
@@ -54,7 +54,7 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
         </li>
         <li className={history}>
           <div className={imageWrap}>
-            <img src={rocketImage} alt="120명"/>
+            <img src={rocketImage} alt={`${constants.people}명`}/>
             <div></div>
           </div>
           <animated.h4>{speakersValue.to(val => Math.floor(val) + '명')}</animated.h4>
@@ -62,7 +62,7 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
         </li>
         <li className={history}>
           <div className={imageWrap}>
-            <img src={peopleImage} alt="73,400명"/>
+            <img src={peopleImage} alt={`${constants.speakers}명`}/>
             <div></div>
           </div>
           <animated.h4>{peopleValue.to(val => formatter.format(Math.floor(val)) + '명')}</animated.h4>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import classcat from "classcat";
 import { container } from './FadeInImage.module.scss';
 
 interface FadeInImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -14,7 +15,7 @@ const FadeInImage: React.FC<FadeInImageProps> = (props) => {
     }
   }, []);
   return (
-    <img className={container} ref={ref} {...props} style={{ ...props.style, opacity: loaded ? 1 : 0 }} onLoad={() => setLoaded(true)}/>
+    <img {...props} className={classcat([container, props.className])} ref={ref} style={{ ...props.style, opacity: loaded ? 1 : 0 }} onLoad={() => setLoaded(true)}/>
   );
 }
 

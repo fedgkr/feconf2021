@@ -6,6 +6,7 @@ import classcat from "classcat";
 import { sponsors } from "~/data/db/sponsors";
 import SafeLink from "~/components/SafeLink/SafeLink";
 import { SLASH_21_URL } from "~/data/const/links";
+import SlashLogo from "~/components/SlashLogo/SlashLogo";
 
 const noopSponsor: Sponsor = {
   name: '',
@@ -26,7 +27,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
   const gold = sponsors.filter(s => s.grade === 'Gold');
   const place = sponsors.filter(s => s.grade === '장소지원');
   return (
-    <section className={classcat({ [container]: true, [headingVisible]: isHeadingVisible })} id="sponsors">
+    <section className={classcat({ [container]: true, [headingVisible]: isHeadingVisible, [sponsorVisible]: isSponsorVisible })} id="sponsors">
       <div ref={headingRef} className={heading}>
         <h2>
           5주년을 함께 맞이 할 <br/>
@@ -39,13 +40,13 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
       <SafeLink href={SLASH_21_URL}>
         <div className={slashContainer}>
           <h3>Special Thanks to</h3>
-          <img src="/images/sponsors/slash.png" alt="Slash 21"/>
+          <SlashLogo/>
           <p>
             개발자 생태계 발전을 위한 SLASH의 후원에 깊히 감사드립니다!
           </p>
         </div>
       </SafeLink>
-      <div ref={sponsorRef} className={isSponsorVisible ? sponsorVisible : ''}>
+      <div ref={sponsorRef}>
         <div className={sponsorContainer}>
           <div className={sponsorRow}>
             { diamond.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }

@@ -4,10 +4,12 @@
 
 .container {
   text-align: center;
-  padding: 230px 0 0 0;
+  padding: 130px 0 0 0;
   overflow: hidden;
+  background-color: $background-color;
+  transition: background-color 1200ms ease-out;
   @include respond-to('small') {
-    padding: 80px 0 0 0;
+    padding: 50px 0 0 0;
   }
   &.headingVisible {
     .heading {
@@ -30,7 +32,7 @@
       h3 {
         animation: FadeInUp 800ms 200ms ease-out forwards;
       }
-      img {
+      svg {
         animation: FadeInUp 800ms 300ms ease-out forwards;
       }
       p {
@@ -49,25 +51,46 @@
       }
     }
   }
-  .sponsorVisible {
+  &.sponsorVisible {
+    background-color: #F3F2FD;
+    .heading {
+      h2 {
+        color: #0B0D0D;
+      }
+      p {
+        color: #787878;
+      }
+    }
+    .slashContainer {
+      h3 {
+        color: #0B0D0D;
+      }
+      svg {
+        path {
+          fill: #0B0D0D;
+        }
+      }
+      p {
+        color: #787878;
+      }
+    }
     .sponsorContainer {
-      background-color: #F3F2FD;
       &:first-child, &:last-child {
         .sponsorRow {
           &:nth-child(1) {
-            animation: FadeInUp 800ms 500ms ease-out forwards;
+            animation: FadeInUp 800ms 300ms ease-out forwards;
           }
           &:nth-child(2) {
-            animation: FadeInUp 800ms 650ms ease-out forwards;
+            animation: FadeInUp 800ms 450ms ease-out forwards;
           }
           &:nth-child(3) {
-            animation: FadeInUp 800ms 800ms ease-out forwards;
+            animation: FadeInUp 800ms 600ms ease-out forwards;
           }
           &:nth-child(4) {
-            animation: FadeInUp 800ms 950ms ease-out forwards;
+            animation: FadeInUp 800ms 750ms ease-out forwards;
           }
           &:nth-child(5) {
-            animation: FadeInUp 800ms 1100ms ease-out forwards;
+            animation: FadeInUp 800ms 900ms ease-out forwards;
           }
         }
       }
@@ -111,6 +134,7 @@
     color: #FFFFFF;
     opacity: 0;
     transform: translateY(100px);
+    transition: color 500ms ease-out;
   }
   p {
     font-size: 18px;
@@ -119,6 +143,7 @@
     margin-top: 30px;
     opacity: 0;
     transform: translateY(100px);
+    transition: color 500ms ease-out;
   }
   @include respond-to('small') {
     h2 {
@@ -143,21 +168,27 @@
     color: #FFFFFF;
     opacity: 0;
     transform: translateY(100px);
+    transition: color 500ms ease-out;
   }
-  img {
+  svg {
     width: 354px;
     height: 61px;
     margin-top: 48px;
     pointer-events: none;
     opacity: 0;
     transform: translateY(100px);
+    path {
+      fill: #FFFFFF;
+      transition: fill 500ms ease-out;
+    }
   }
   p {
     margin-top: 32px;
     font-size: 16px;
-    color: #D7DEEB;
+    color: #A8B0BF;
     opacity: 0;
     transform: translateY(100px);
+    transition: color 500ms ease-out;
   }
   @include respond-to('small') {
     margin: 80px 0 70px 0;
@@ -184,8 +215,6 @@
   flex-direction: column;
   padding: 109px 0 124px 0;
   margin: 0 auto;
-  background-color: $background-color;
-  transition: background-color 1200ms ease-out;
   &:not(:last-child) {
     display: flex;
   }

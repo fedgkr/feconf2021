@@ -3,7 +3,6 @@ import { container, visible, image, grade, name } from './SponsorCard.module.scs
 import classcat from "classcat";
 import SafeLink from "~/components/SafeLink/SafeLink";
 import { useIntersection } from "use-intersection";
-import FadeInImage from "~/components/FadeInImage/FadeInImage";
 
 interface SponsorCardProps {
   sponsor: Sponsor;
@@ -16,7 +15,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, display = true }) =>
   return (
     <SafeLink href={sponsor.link}>
       <div ref={ref} className={classcat([container, display ? visible : ''])}>
-        <FadeInImage className={image} src={isVisible ? sponsor.imageUrl : null} alt={sponsor.name}/>
+        <img className={image} src={isVisible ? sponsor.imageUrl : null} alt={sponsor.name}/>
         <div className={grade}>{sponsor.grade}</div>
         <div className={name}>{sponsor.name}</div>
       </div>

@@ -6,6 +6,7 @@
   height: 214px;
   border-radius: 12px;
   background-color: #1F242C;
+  overflow: hidden;
   @include respond-to('large') {
     width: 260px;
     height: 148px;
@@ -50,4 +51,5 @@
   height: 42%;
   background: linear-gradient(180deg, rgba(31, 36, 44, 0) 0%, #1F242C 77.6%);
   z-index: 2;
+  overflow: hidden;
 }

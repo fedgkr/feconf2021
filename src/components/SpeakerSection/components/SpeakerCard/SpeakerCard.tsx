@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { container, textWrap, image, background } from './SpeakerCard.module.scss';
 import { useIntersection } from "use-intersection";
+import FadeInImage from "~/components/FadeInImage/FadeInImage";
 
 interface SpeakerCardProps {
   speaker: Speaker;
@@ -15,7 +16,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker }) => {
         <span>{speaker.company}</span>
         <h3>{speaker.name}</h3>
       </div>
-      <img className={image} src={isVisible ? speaker.imageUrl : null} alt={speaker.name}/>
+      <FadeInImage className={image} src={isVisible ? speaker.imageUrl : null} alt={speaker.name}/>
       <div className={background}/>
     </div>
   );

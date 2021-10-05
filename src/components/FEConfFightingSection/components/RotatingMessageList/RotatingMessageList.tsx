@@ -27,6 +27,9 @@ const useRotateList = (messageList, active: boolean) => {
       let timeout;
       const turnPoint = Math.floor(messageList.length / 2);
       const callNext = () => {
+        if (messageList.length <= 5) {
+          return;
+        }
         if (currentIdx > turnPoint) {
           const origin = messages.concat([]);
           const head = origin.splice(0, currentIdx);

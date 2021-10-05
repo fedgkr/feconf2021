@@ -20,7 +20,7 @@ const IntroSection: React.FC<IntroSectionProps> = () => {
         <h4 className={title}>2021 Conference Theme</h4>
         <div className={heading}>
           <h2>프론트엔드 개발의</h2>
-          <h2>소중한 경험을 공유합니다!</h2>
+          <h2>소중한 경험을 <Br mobile/>공유합니다!</h2>
         </div>
         <h3 className={heading2}>Broaden Your Experience</h3>
         <SafeLink href={YOUTUBE_CHANNEL_URL}>

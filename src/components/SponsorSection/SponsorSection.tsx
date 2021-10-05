@@ -4,6 +4,8 @@ import SponsorCard from "~/components/SponsorSection/components/SponsorCard/Spon
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
 import { sponsors } from "~/data/db/sponsors";
+import SafeLink from "~/components/SafeLink/SafeLink";
+import { SLASH_21_URL } from "~/data/const/links";
 
 const noopSponsor: Sponsor = {
   name: '',
@@ -34,13 +36,15 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           FEConf는 여러분과 후원사의 지원으로 만들어지는 비영리 단체입니다.
         </p>
       </div>
-      <div className={slashContainer}>
-        <h3>Special Thanks to</h3>
-        <img src="/images/sponsors/slash.png" alt="Slash 21"/>
-        <p>
-          개발자 생태계 발전을 위한 SLASH의 후원에 깊히 감사드립니다!
-        </p>
-      </div>
+      <SafeLink href={SLASH_21_URL}>
+        <div className={slashContainer}>
+          <h3>Special Thanks to</h3>
+          <img src="/images/sponsors/slash.png" alt="Slash 21"/>
+          <p>
+            개발자 생태계 발전을 위한 SLASH의 후원에 깊히 감사드립니다!
+          </p>
+        </div>
+      </SafeLink>
       <div ref={sponsorRef} className={isSponsorVisible ? sponsorVisible : ''}>
         <div className={sponsorContainer}>
           <div className={sponsorRow}>

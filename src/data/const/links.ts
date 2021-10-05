@@ -4,7 +4,10 @@ export const FACEBOOK_FRONTEND_URL = 'https://www.facebook.com/groups/webfronten
 
 export const FACEBOOK_FECONF_URL = 'https://www.facebook.com/feconf.kr';
 
+export const SLASH_21_URL = 'https://toss.im/slash-21';
+
 export const FECONF_EMAIL = 'feconf@googlegroups.com';
+
 
 export const SPONSOR_APPLY_FORM = '#';
 

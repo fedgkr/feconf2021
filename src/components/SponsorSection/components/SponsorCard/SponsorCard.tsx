@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { container, visible, image, grade, name } from './SponsorCard.module.scss';
 import classcat from "classcat";
 import SafeLink from "~/components/SafeLink/SafeLink";
+import { useIntersection } from "use-intersection";
 
 interface SponsorCardProps {
   sponsor: Sponsor;
@@ -9,10 +10,12 @@ interface SponsorCardProps {
 }
 
 const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, display = true }) => {
+  const ref = useRef<HTMLDivElement>();
+  const isVisible = useIntersection(ref)
   return (
     <SafeLink href={sponsor.link}>
-      <div className={classcat([container, display ? visible : ''])}>
-        <img className={image} src={sponsor.imageUrl} alt={sponsor.name}/>
+      <div ref={ref} className={classcat([container, display ? visible : ''])}>
+        <img className={image} src={isVisible ? sponsor.imageUrl : null} alt={sponsor.name}/>
         <div className={grade}>{sponsor.grade}</div>
         <div className={name}>{sponsor.name}</div>
       </div>

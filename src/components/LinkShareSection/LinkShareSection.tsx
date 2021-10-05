@@ -43,14 +43,14 @@ const LinkShareSection: React.FC<LinkShareSectionProps> = () => {
           <SafeLink href={YOUTUBE_CHANNEL_URL}>
             <button>
               <img src="/images/icons/youtube.png" alt="FEConf 유튜브 채널"/>
-              <span>Youtube</span>
+              <span>YouTube</span>
               <Arrow/>
             </button>
           </SafeLink>
           <SafeLink href={`mailto:${FECONF_EMAIL}`}>
             <button>
               <img src="/images/icons/mail.png" alt="메일 문의"/>
-              <span>Email Us</span>
+              <span>Email</span>
               <Arrow/>
             </button>
           </SafeLink>

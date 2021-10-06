@@ -35,7 +35,10 @@ const MobileMenu: React.FC<MobileMenuProps> = () => {
         <ul className={list}>
           <li onClick={evt => onMenuClick(evt, 'intro')}><a href="#">소개</a></li>
           <li onClick={evt => onMenuClick(evt, 'event')}><a href="#">이벤트</a></li>
-          <li onClick={evt => onMenuClick(evt, 'sponsor')}><a href="#">스폰서 모집</a></li>
+          <li onClick={evt => onMenuClick(evt, 'speakers')}><a href="#">스피커</a></li>
+          <li onClick={evt => onMenuClick(evt, 'sessions')}><a href="#">세션 소개</a></li>
+          <li onClick={evt => onMenuClick(evt, 'sponsors')}><a href="#">스폰서</a></li>
+          <li onClick={evt => onMenuClick(evt, 'coc')}><a href="#">CoC</a></li>
         </ul>
         <button className={button} onClick={onButtonClick}>사전등록</button>
         <a ref={linkRef} href=""/>

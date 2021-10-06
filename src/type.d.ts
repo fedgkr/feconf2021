@@ -36,6 +36,7 @@ interface Session {
   title: string;
   description: string;
   speaker: Speaker;
+  index: number;
   tags: string[];
 }
 

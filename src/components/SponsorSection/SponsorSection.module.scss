@@ -3,6 +3,7 @@
 @import "keyframes";
 
 .container {
+  position: relative;
   text-align: center;
   padding: 230px 0 0 0;
   overflow: hidden;
@@ -158,6 +159,7 @@
 }
 
 .slashContainer {
+  position: relative;
   margin: 120px 0 134px 0;
   text-align: center;
   h3 {

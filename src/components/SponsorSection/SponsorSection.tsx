@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { container, headingVisible, sponsorVisible, heading, slashContainer, sponsorRow, sponsorContainer } from './SponsorSection.module.scss';
 import SponsorCard from "~/components/SponsorSection/components/SponsorCard/SponsorCard";
+import Confetti from 'react-confetti';
 import { useIntersection } from "use-intersection";
 import classcat from "classcat";
 import { sponsors } from "~/data/db/sponsors";
@@ -17,7 +18,21 @@ const noopSponsor: Sponsor = {
 
 interface SponsorSectionProps {}
 
+const useWindowSize = () => {
+  const [size, setSize] = useState({ width: 0, height: 0 });
+  useEffect(() => {
+    const onResize = () => setSize({ width: window.innerWidth, height: window.innerHeight });
+    window.addEventListener('resize', onResize);
+    onResize();
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+  return size;
+}
+
 const SponsorSection: React.FC<SponsorSectionProps> = () => {
+  const windowSize = useWindowSize();
   const headingRef = useRef();
   const sponsorRef = useRef();
   const isHeadingVisible = useIntersection(headingRef.current, { once: true, rootMargin: '-200px 0px' });
@@ -28,6 +43,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
   const place = sponsors.filter(s => s.grade === '장소지원');
   return (
     <section className={classcat({ [container]: true, [headingVisible]: isHeadingVisible, [sponsorVisible]: isSponsorVisible })} id="sponsors">
+      { isHeadingVisible ? <Confetti {...windowSize} numberOfPieces={50} tweenDuration={1000}/> : null }
       <div ref={headingRef} className={heading}>
         <h2>
           5주년을 함께 맞이 할 <br/>

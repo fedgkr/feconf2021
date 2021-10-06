@@ -76,6 +76,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           </div>
           <div className={sponsorRow}>
             { platinum.slice(6, 8).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
+            <SponsorCard display={false} sponsor={noopSponsor}/>
           </div>
           <div className={sponsorRow}>
             { gold.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }

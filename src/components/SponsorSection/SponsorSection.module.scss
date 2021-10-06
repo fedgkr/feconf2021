@@ -42,7 +42,7 @@
         h3 {
           animation: FadeInUpMobile 500ms 200ms ease-out forwards;
         }
-        img {
+        svg {
           animation: FadeInUpMobile 500ms 300ms ease-out forwards;
         }
         p {
@@ -52,7 +52,7 @@
     }
   }
   &.sponsorVisible {
-    background-color: #F3F2FD;
+    background-color: #FFFFFF;
     .heading {
       h2 {
         color: #0B0D0D;
@@ -97,7 +97,6 @@
     }
     @include respond-to('small') {
       .sponsorContainer {
-        background-color: #F3F2FD;
         &:first-child, &:last-child {
           .sponsorRow {
             &:nth-child(1) {

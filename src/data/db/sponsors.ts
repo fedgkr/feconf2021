@@ -54,6 +54,12 @@ export const sponsors: Sponsor[] = [
     imageUrl: '/images/sponsors/ab180.png',
   },
   {
+    grade: 'Gold',
+    name: 'codesoom',
+    link: 'https://www.codesoom.com/',
+    imageUrl: '/images/sponsors/codesoom.png',
+  },
+  {
     grade: 'Platinum',
     name: '매스프레소',
     link: 'https://mathpresso.com/en',

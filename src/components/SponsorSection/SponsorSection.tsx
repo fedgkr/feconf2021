@@ -21,7 +21,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
   const headingRef = useRef();
   const sponsorRef = useRef();
   const isHeadingVisible = useIntersection(headingRef.current, { once: true, rootMargin: '-200px 0px' });
-  const isSponsorVisible = useIntersection(sponsorRef.current, { once: true, rootMargin: '-300px 0px' });
+  const isSponsorVisible = useIntersection(sponsorRef.current, { rootMargin: '-200px 0px' });
   const diamond = sponsors.filter(s => s.grade === 'Diamond');
   const platinum = sponsors.filter(s => s.grade === 'Platinum');
   const gold = sponsors.filter(s => s.grade === 'Gold');

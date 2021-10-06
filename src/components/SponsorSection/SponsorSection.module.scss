@@ -4,12 +4,12 @@
 
 .container {
   text-align: center;
-  padding: 130px 0 0 0;
+  padding: 230px 0 0 0;
   overflow: hidden;
   background-color: $background-color;
   transition: background-color 1200ms ease-out;
   @include respond-to('small') {
-    padding: 50px 0 0 0;
+    padding: 80px 0 0 0;
   }
   &.headingVisible {
     .heading {

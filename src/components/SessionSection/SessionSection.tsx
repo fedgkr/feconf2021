@@ -13,7 +13,7 @@ const SessionSection: React.FC<SessionSectionProps> = () => {
   const isVisible = useIntersection(ref.current, { once: true, rootMargin: '-200px 0px' });
   const [selectedSessionType, setSession] = useState<SessionType>('A');
   const sortedSessions = useMemo(() => sessions.sort((a, b) => a.index - b.index), [sessions]);
-  const sessionList = useMemo(() => sortedSessions.filter((s) => s.type === selectedSessionType), [sortedSessions]);
+  const sessionList = useMemo(() => sortedSessions.filter((s) => s.type === selectedSessionType), [sortedSessions, selectedSessionType]);
   return (
     <section ref={ref} className={classcat([container, isVisible ? visible : ''])} id="sessions">
       <h2 className={title}>세션 소개</h2>

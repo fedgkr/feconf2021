@@ -21,9 +21,7 @@
       }
     }
     .circle {
-      img {
-        animation: FadeInUp 800ms 400ms ease-out forwards;
-      }
+      animation: FadeInUp 800ms 400ms ease-out forwards;
     }
     @include respond-to('small') {
       .textContainer {
@@ -38,9 +36,7 @@
         }
       }
       .circle {
-        img {
-          animation: FadeInUpMobile 500ms 400ms ease-out forwards;
-        }
+        animation: FadeInUpMobile 500ms 400ms ease-out forwards;
       }
     }
   }
@@ -118,6 +114,8 @@
   font-size: 0;
   width: 520px;
   height: 520px;
+  opacity: 0;
+  transform: translateY(100px);
 
   canvas {
     width: 100%;
@@ -125,8 +123,6 @@
   }
   img {
     width: 100%;
-    opacity: 0;
-    transform: translateY(100px);
   }
   .backgroundImage {
     position: absolute;
@@ -142,9 +138,7 @@
     width: 300px;
     height: 300px;
     margin: 70px auto 0 auto;
-    img {
-      transform: translateY(40px);
-    }
+    transform: translateY(40px);
     .backgroundImage {
       width: 480px;
       height: 480px;

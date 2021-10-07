@@ -28,7 +28,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
     const offset = 80;
     const scrollTop = three.datas.scrollTop;
     const fixedArea = [offset, 500 + offset];
-    const isMobile = width < 1024;
+    const isMobile = false; // width < 1024;
 
     const ratio = isMobile ? 1.2 : Math.min(1.2, Math.max(0, scrollTop - fixedArea[0]) / 2000);
 
@@ -89,7 +89,9 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       zoomMaterial.uniforms.zoomY.value = zoomY;
     }
     window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("click", onMouseMove);
     three.on("render", ({ now }) => {
+      // const { width } = three;
       const elements = [-1, 0, 0, 0, 0, -0.9950371980667114, 0.09950371831655502, 0, 0, 0.09950371831655502, 0.9950371980667114, 0, -0, -0, -1.0049875974655151, 1];
 
       const positionAttribute = flagAttributes.position;
@@ -111,9 +113,9 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         ];
         flagGeometry.attributes.position.setXYZ(i, dest[0] * (flagWidth / 2), dest[1] * (flagHeight / 2), dest[2])
       }
-      flagGeometry.attributes.position.needsUpdate = true;
-      flagGeometry.translate(0, 20, 0);
+      
       flagGeometry.scale(scale, scale, 1);
+      flagGeometry.attributes.position.needsUpdate = true;
       flagGeometry.computeVertexNormals();
     });
     three.on("resize", ({ width, height }) => {
@@ -134,6 +136,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("click", onMouseMove);
     };
   }, []);
 
@@ -145,7 +148,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
     const { width } = three;
     const fixedArea = [offset, 500 + offset];
-    const isMobile = width < 1024;
+    const isMobile = false; // width < 1024;
 
     three.datas.scrollTop = scrollTop;
 

@@ -123,35 +123,35 @@
   }
 }
 @include respond-to('small') {
-  .container {
-    height: auto;
-    .headingWrap {
-      height: auto;
+  // .container {
+  //   height: auto;
+  //   .headingWrap {
+  //     height: auto;
 
-      .headingContainer {
-        position: relative;
-        height: auto;
+  //     .headingContainer {
+  //       position: relative;
+  //       height: auto;
 
-        .scrollDown {
-          display: none;
-        }
-        canvas {
-          position: absolute;
-        }
-        .circle {
-          top: -20vw;
-          right: -10vw;
-          width: 70vw;
-          height: 70vw;
-        }
-      }
-      .headingContainer:before {
-        position: relative;
-        content: "";
-        display: block;
-        width: 100%;
-        padding-top: 80%;
-      }
-    }
-  }
+  //       .scrollDown {
+  //         display: none;
+  //       }
+  //       canvas {
+  //         position: absolute;
+  //       }
+  //       .circle {
+  //         top: -20vw;
+  //         right: -10vw;
+  //         width: 70vw;
+  //         height: 70vw;
+  //       }
+  //     }
+  //     .headingContainer:before {
+  //       position: relative;
+  //       content: "";
+  //       display: block;
+  //       width: 100%;
+  //       padding-top: 80%;
+  //     }
+  //   }
+  // }
 }

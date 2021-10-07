@@ -138,6 +138,12 @@
         canvas {
           position: absolute;
         }
+        .circle {
+          top: -20vw;
+          right: -10vw;
+          width: 70vw;
+          height: 70vw;
+        }
       }
       .headingContainer:before {
         position: relative;

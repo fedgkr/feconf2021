@@ -2,12 +2,30 @@
 
 .container {
   position: relative;
-  background-color: #0B0D0D;
   overflow: hidden;
-  height: 200vh;
-  background: #000;
+  height: calc(100vh + 500px);
+  background: linear-gradient(
+    95.06deg, #8280E3 2.38%, #5590ED 100.44%);
+  // background: #000;
 }
-
+.container:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url("../../images/noise.png") repeat;
+  mix-blend-mode: soft-light;
+  background-size: 100% 100vh;
+}
+.container.fixed .headingContainer {
+  position: fixed;
+  top: 0px;
+}
+.container.down .headingContainer {
+  position: relative;
+  transform: translateY(500px);
+}
 .videoWrap {
   position: relative;
   padding-bottom: 56.25%;
@@ -27,16 +45,26 @@
 .headingWrap {
   position: relative;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: 100vh;
   z-index: 1;
-  background: #000;
 
   .headingContainer {
     position: relative;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100vh;
     transform: none;
 
+    .circle {
+      pointer-events: none;
+      position: absolute;
+      top: -30vmax;
+      right: -20vmax;
+      width: 80vmax;
+      height: 80vmax;
+      z-index: 0;
+      border-radius: 50%;
+      background: linear-gradient(#8faeff 0%, rgba(116, 155, 255, 0) 100%);
+    }
     canvas {
       position: relative;
       width: 100%;
@@ -45,14 +73,7 @@
       transform: translate(-50%, -50%);
     }
   }
-  .headingContainer.fixed {
-    position: fixed;
-    top: 40px;
-  }
-  .headingContainer.down {
-    position: relative;
-    transform: translateY(calc(100vh - 80px));
-  }
+
   .scrollDown {
     position: absolute;
     height: 43px;

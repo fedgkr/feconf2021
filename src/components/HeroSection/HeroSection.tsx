@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import {
   container, videoWrap, headingWrap,
   headingContainer, dimmed, scrollDown,
+  circle,
   fixed, down,
 } from './HeroSection.module.scss';
 import flagImage from '~/images/flag.png';
@@ -14,13 +15,26 @@ import { useScrollEffect } from '../useWindow/useWindowScroll';
 interface HeroSectionProps { }
 
 const HeroSection: React.FC<HeroSectionProps> = () => {
+  const containerRef = useRef<HTMLDivElement>();
   const {
     ref,
     threeRef,
   } = useThree({
-    background: 0x000000,
-    minWidth: 1024,
+    // minWidth: 1024,
   });
+  const updateZoom = useCallback(() => {
+    const three = threeRef.current;
+    const { width, height } = three;
+    const offset = 80;
+    const scrollTop = three.datas.scrollTop;
+    const fixedArea = [offset, 500 + offset];
+    const isMobile = width < 1024;
+
+    const ratio = isMobile ? 1.2 : Math.min(1.2, Math.max(0, scrollTop - fixedArea[0]) / 2000);
+
+    three.datas.zoomMaterial.uniforms.zoomSize.value = (240 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
+  }, []);
+  let scale = 1;
 
   useEffect(() => {
     const container = ref.current;
@@ -31,7 +45,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
     flagTexture.anisotropy = 16;
 
-    const flagXSegments = 15;
+    const flagXSegments = 18;
     const flagYSegments = 10;
     const flagWidth = 50 * flagXSegments;
     const flagHeight = 50 * flagYSegments;
@@ -58,7 +72,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         zoomY: { value: 0.5 },
       },
     });
-    const zoomGeometry = new THREE.PlaneGeometry(500, 500);
+    const zoomGeometry = new THREE.PlaneGeometry(512, 512);
 
     zoomGeometry.translate(0, 0, 400);
     three.datas.zoomMaterial = zoomMaterial;
@@ -69,13 +83,13 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
     three.addMesh(zoomGeometry, zoomMaterial);
 
     function onMouseMove(e: MouseEvent) {
-      const zoomX = e.offsetX / three.width;
-      const zoomY = 1.0 - e.offsetY / three.height;
+      const zoomX = e.clientX / three.width;
+      const zoomY = 1.0 - e.clientY / three.height;
 
       zoomMaterial.uniforms.zoomX.value = zoomX;
       zoomMaterial.uniforms.zoomY.value = zoomY;
     }
-    container.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mousemove", onMouseMove);
     three.on("render", ({ now }) => {
       const elements = [-1, 0, 0, 0, 0, -0.9950371980667114, 0.09950371831655502, 0, 0, 0.09950371831655502, 0.9950371980667114, 0, -0, -0, -1.0049875974655151, 1];
 
@@ -99,61 +113,52 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         flagGeometry.attributes.position.setXYZ(i, dest[0] * (flagWidth / 2), dest[1] * (flagHeight / 2), dest[2])
       }
       flagGeometry.attributes.position.needsUpdate = true;
+      flagGeometry.scale(scale, scale, 1);
       flagGeometry.computeVertexNormals();
     });
     three.on("resize", ({ width, height }) => {
       const position = zoomGeometry.attributes.position as THREE.BufferAttribute;
 
-      position.setXY(0, -width / 2, height / 2);
-      position.setXY(1, width / 2, height / 2);
-      position.setXY(2, -width / 2, -height / 2);
-      position.setXY(3, width / 2, -height / 2);
+      position.setXY(0, -width / 2 - 2, height / 2 + 2);
+      position.setXY(1, width / 2 + 2, height / 2 + 2);
+      position.setXY(2, -width / 2 - 2, -height / 2 - 2);
+      position.setXY(3, width / 2 + 2, -height / 2 - 2);
       position.needsUpdate = true;
 
       zoomMaterial.uniforms.aspectRatio.value = width / height;
 
-      const offset = 80;
-      const scrollTop = three.datas.scrollTop;
-      const fixedArea = [offset / 2, height + offset / 2];
-      const ratio = width < 1024 ? 2 : Math.max(0, scrollTop - fixedArea[0]) / height;
-
-      three.datas.zoomMaterial.uniforms.zoomSize.value = (180 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
+      scale = width / 800;
+      updateZoom();
     });
 
     return () => {
-      container.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mousemove", onMouseMove);
     };
   }, []);
 
   useScrollEffect(() => {
     const scrollTop = document.documentElement.scrollTop;
     const three = threeRef.current;
-    const style = ref.current.style;
+    // const style = ref.current.style;
     const offset = 80;
 
-    const { width, height } = three;
-    const fixedArea = [offset / 2, height + offset / 2];
+    const { width } = three;
+    const fixedArea = [offset, 500 + offset];
     const isMobile = width < 1024;
 
     three.datas.scrollTop = scrollTop;
 
-    let ratio = 0;
     if (!isMobile && scrollTop > fixedArea[1]) {
-      ref.current.className = `${headingContainer} ${down}`;
-
-      ratio = 1;
+      containerRef.current.className = `${container} ${down}`;
     } else if (!isMobile && scrollTop > fixedArea[0]) {
-      ref.current.className = `${headingContainer} ${fixed}`;
-
-      ratio = Math.max(0, scrollTop - fixedArea[0]) / height;
+      containerRef.current.className = `${container} ${fixed}`;
     } else {
-      ref.current.className = `${headingContainer}`;
-
+      containerRef.current.className = `${container}`;
     }
-    three.datas.zoomMaterial.uniforms.zoomSize.value = (180 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
+    updateZoom();
   });
   return (
-    <section className={container}>
+    <section className={container} ref={containerRef}>
       <div className={videoWrap}>
         <div className="stretch">
           <div className={dimmed} />
@@ -161,6 +166,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       </div>
       <div className={headingWrap}>
         <div className={headingContainer} ref={ref}>
+          <div className={circle}></div>
           <div className={scrollDown}>scroll</div>
         </div>
       </div>

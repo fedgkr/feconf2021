@@ -18,7 +18,8 @@ const ChannelInfoSection: React.FC<ChannelInfoSectionProps> = () => {
     ref: containerRef,
     threeRef,
   } = useThree({
-    background: 0x0B0D0D,
+    minWidth: 540,
+    minHeight: 540,
   });
 
 
@@ -35,14 +36,14 @@ const ChannelInfoSection: React.FC<ChannelInfoSectionProps> = () => {
     const sphereMaterial = new THREE.MeshBasicMaterial({
       map: sphereTexture,
       side: THREE.DoubleSide,
-      alphaTest: 1,
+      alphaTest: 0.01,
     });
-    const sphereGeometry = new THREE.PlaneGeometry(406, 406, 1, 1);
+    const sphereGeometry = new THREE.PlaneGeometry(520, 520, 1, 1);
 
     sphereGeometry.translate(0, 0, 0)
     three.addMesh(sphereGeometry, sphereMaterial);
 
-    const edgeGeometry = new THREE.EdgesGeometry(new THREE.SphereGeometry(200, 20, 20));
+    const edgeGeometry = new THREE.EdgesGeometry(new THREE.SphereGeometry(256, 20, 20));
     const edgeMaterial = new THREE.LineBasicMaterial( {
       linewidth: 1,
       color: 0xffffff,

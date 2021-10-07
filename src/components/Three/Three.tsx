@@ -3,8 +3,8 @@ import * as THREE from 'three';
 import Component from '@egjs/component';
 
 export interface ThreeProps {
-    background: number;
     minWidth?: number;
+    minHeight?: number;
 }
 export interface MeshObject {
     mesh: THREE.Mesh;
@@ -63,7 +63,7 @@ export default class Three extends Component<{
         super();
         this.scene = new THREE.Scene();
         this.camera = new THREE.OrthographicCamera(0, 0, 0, 0, 1, 10000);
-        this.renderer = new THREE.WebGLRenderer({ antialias: true });
+        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
         const scene = this.scene;
         const renderer = this.renderer;
@@ -72,13 +72,9 @@ export default class Three extends Component<{
         scene.add(new THREE.AmbientLight(0xffffff));
         camera.position.set(0, 0, 2000);
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.outputEncoding = THREE.sRGBEncoding;
-        renderer.shadowMap.enabled = true;
+
+        renderer.setClearColor(0x000000, 0); 
         container.appendChild(renderer.domElement);
-
-
-        scene.background = new THREE.Color(this.props.background);
-
 
         this.width = container.clientWidth;
         this.height = container.clientHeight;
@@ -123,21 +119,22 @@ export default class Three extends Component<{
         const height = container.clientHeight;
 
         const canvasWidth = Math.max(props.minWidth || 0,  width);
+        const canvasHeight = Math.max(props.minHeight || 0,  height);
 
         camera.left = -canvasWidth / 2;
         camera.right = canvasWidth / 2;
-        camera.top = height / 2;
-        camera.bottom = -height / 2;
+        camera.top = canvasHeight / 2;
+        camera.bottom = -canvasHeight / 2;
         camera.updateProjectionMatrix();
 
 
         this.width = width;
         this.height = height;
         this.canvasWidth = canvasWidth;
-        this.canvasHeight = height;
+        this.canvasHeight = canvasHeight;
 
         this.trigger("resize", { width, height });
 
-        renderer.setSize(canvasWidth, height, false);
+        renderer.setSize(canvasWidth, canvasHeight, false);
     }
 }

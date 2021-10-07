@@ -37,7 +37,6 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
   let scale = 1;
 
   useEffect(() => {
-    const container = ref.current;
     const three = threeRef.current;
 
     const textureLoader = new THREE.TextureLoader();
@@ -45,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
     flagTexture.anisotropy = 16;
 
-    const flagXSegments = 18;
+    const flagXSegments = 20;
     const flagYSegments = 10;
     const flagWidth = 50 * flagXSegments;
     const flagHeight = 50 * flagYSegments;
@@ -113,6 +112,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         flagGeometry.attributes.position.setXYZ(i, dest[0] * (flagWidth / 2), dest[1] * (flagHeight / 2), dest[2])
       }
       flagGeometry.attributes.position.needsUpdate = true;
+      flagGeometry.translate(0, 20, 0);
       flagGeometry.scale(scale, scale, 1);
       flagGeometry.computeVertexNormals();
     });
@@ -127,7 +127,8 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
       zoomMaterial.uniforms.aspectRatio.value = width / height;
 
-      scale = width / 800;
+      // 1000 / 500
+      scale = Math.min(width, height * 2) / 1200;
       updateZoom();
     });
 

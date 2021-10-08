@@ -6,7 +6,7 @@ import rocketImage from '~/images/history/rocket.png';
 import peopleImage from '~/images/history/people.png';
 import Br from "~/components/Br/Br";
 import { useIntersection } from "use-intersection";
-import { animated, config, useSpring } from "react-spring";
+import { animated, useSpring } from "react-spring";
 
 interface HistorySectionProps {}
 
@@ -16,6 +16,9 @@ const constants = {
   speakers: 60,
   people: 73400,
 };
+const config = {
+  duration: 1800,
+};
 
 const HistorySection: React.FC<HistorySectionProps> = () => {
   const ref = useRef();
@@ -23,9 +26,9 @@ const HistorySection: React.FC<HistorySectionProps> = () => {
   const [anniversary, setAnniversary] = useState(0);
   const [speakers, setSpeakers] = useState(0);
   const [people, setPeople] = useState(0);
-  const { value: anniversaryValue } = useSpring({ from: { value: 0 }, to: { value: anniversary }, config: config.slow, delay: 200 });
-  const { value: speakersValue } = useSpring({ from: { value: 0 }, to: { value: speakers }, config: config.slow, delay: 400 });
-  const { value: peopleValue } = useSpring({ from: { value: 0 }, to: { value: people }, config: config.slow, delay: 600});
+  const { value: anniversaryValue } = useSpring({ from: { value: 0 }, to: { value: anniversary }, config, delay: 400 });
+  const { value: speakersValue } = useSpring({ from: { value: 0 }, to: { value: speakers }, config, delay: 500 });
+  const { value: peopleValue } = useSpring({ from: { value: 0 }, to: { value: people }, config, delay: 600});
   useEffect(() => {
     if (isVisible) {
       setAnniversary(constants.anniversary);

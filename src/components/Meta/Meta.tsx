@@ -34,7 +34,7 @@ const Meta: React.FC<MetaProps> = () => {
         name="twitter:description"
         content="국내 최고의 프론트엔드 개발 컨퍼런스. 프론트엔드 개발의 소중한 경험을 공유합니다!"
       />
-      <meta name="twitter:creator" content="@codemilli" />
+      <meta name="twitter:creator" content="@FeConf" />
       <link rel="icon" type="image/png" href={favicon}/>
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
     </Helmet>

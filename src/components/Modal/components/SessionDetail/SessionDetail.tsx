@@ -10,12 +10,12 @@ const SessionDetail: React.FC<SessionDetailProps> = () => {
   return (
     <Modal active={detail.active} needWrap={false} onClose={() => setDetail({ active: false })}>
       <div className={container}>
-        <div className={closeBtn} onClick={() => setDetail({ active: false })}>
+        <a href="#" className={closeBtn} onClick={() => setDetail({ active: false })}>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M15 5L5 15" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M5 5L15 15" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </div>
+        </a>
         <div className={header}>
           <div/>
           <div/>

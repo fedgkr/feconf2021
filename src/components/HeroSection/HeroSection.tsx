@@ -32,6 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
     const ratio = isMobile ? 1.2 : Math.min(1.2, Math.max(0, scrollTop - fixedArea[0]) / 2000);
 
+    three.datas.zoomMaterial.uniforms.scrollRatio.value = ratio;
     three.datas.zoomMaterial.uniforms.zoomSize.value = (240 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
   }, []);
   let scale = 1;
@@ -65,6 +66,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       vertexShader: ZOOM_VERTEX_SHADER,
       fragmentShader: ZOOM_FRAGMENT_SHADER,
       uniforms: {
+        scrollRatio: { value: 0 },
         aspectRatio: { value: null },
         zoomSize: { value: null },
         zoomX: { value: 0.5 },

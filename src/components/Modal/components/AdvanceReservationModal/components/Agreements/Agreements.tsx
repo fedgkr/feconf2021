@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import { container, infoContainer, row, textContainer, warning, agreement, checkbox, checkedBox, preRegisterButton } from './Agreements.module.scss';
 import classcat from "classcat";
 import checked from "~/images/icon/checked.svg";
-import { useAuthenticated } from "~/data/states/auth.state";
 import { useFirebase } from "~/hooks/useFirestore";
 
 interface AgreementsProps {}
@@ -11,7 +10,7 @@ const useSignIn = () => {
   const firebase = useFirebase();
   return useCallback(() => {
     try {
-      history.replaceState(null, '', '/?loginRedirect=github');
+      history.replaceState({ loginTried: true }, '', '/?loginRedirect=github');
       firebase?.signIn();
     } catch(err) {
       console.log('err : ', err.message);

@@ -8,7 +8,9 @@ export const useAfterLoginModal = () => {
   const [, setModal] = useReservationModal();
   useEffect(() => {
     const parsed = qs.parseUrl(location.href);
-    if (parsed.query.loginRedirect) {
+    if (history.state?.loginTried) {
+      history.replaceState(null, '', '/');
+    } else if (parsed.query.loginRedirect) {
       history.replaceState(null, '', '/');
       setAuth(true);
       setModal(true);

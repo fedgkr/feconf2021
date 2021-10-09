@@ -15,7 +15,7 @@ export const sessions: Session[] = [
     title: 'Webpack 5 Module Federation으로 Micro-Frontends 운영하기',
     type: 'A',
     index: 3,
-    description: '모놀리식 아키텍쳐로 구현된 비즈넵 앱에서 운영 중인 \'인사이트\' 서비스를 React로 마이그레이션을 하게 되면서 Micro-Frontends 아키텍쳐를 도입하게 되었습니다. 이번 발표에서는 그 아키텍쳐를 구현하기 위해 선택한 Webpack 5 Module Federation 기술을 중심으로 심도 있게 알아봅니다. 그 과정에서 치열하게 고민했던 경험과 그로부터 얻은 인사이트를 여러분과 함께 공유하고 싶습니다.',
+    description: '모놀리식 아키텍처로 구현된 비즈넵 앱의 일부 서비스를 React로 마이그레이션을 진행하면서 Micro-Frontends 아키텍처를 도입하게 되었습니다. 이번 발표에서는 그 아키텍쳐를 구현하기 위해 선택한 Webpack 5 Module Federation 기술을 중심으로 심도 있게 알아봅니다. 그 과정에서 치열하게 고민했던 경험과 그로부터 얻은 인사이트를 여러분과 함께 공유하고 싶습니다.',
     speaker: {
       name: '임지훈',
       company: '비즈넵',
@@ -72,7 +72,7 @@ export const sessions: Session[] = [
     tags: ['모니터링', '대용량처리', '대시보드', '클라우드'],
   },
   {
-    title: "딥러닝으로 확장하는 프런트엔드의 현주소 (feat. tensorflow.js)",
+    title: "딥러닝으로 확장하는 프론트엔드 현주소 (feat. tensorflow.js)",
     type: 'B',
     index: 5,
     description: "이번 세션에서는 tensorflow.js를 활용하여 서버 없이, 프론트엔드만으로 닮은 딥러닝 모델을 서빙하는 웹서비스 pokemon-ai.com 을 만든 과정을 공유하려고 합니다.\n 위 내용은 올해 초, 취미로 진행된 프로젝트였지만 이 과정에서 얻은 지식을 바탕으로 실제 의료AI 제품에 적용한 경험을 공유하고, 프론트엔드에서 딥러닝 모델을 서빙하는 방법의 장점과 단점, 그리고 한계에 대해 생각해보는 세션입니다.",

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { container, headingVisible, sponsorVisible, heading, slashContainer, sponsorRow, sponsorContainer } from './SponsorSection.module.scss';
+import { container, headingVisible, sponsorVisible, heading, slashContainer, sponsorRow, grade, sponsorContainer } from './SponsorSection.module.scss';
 import SponsorCard from "~/components/SponsorSection/components/SponsorCard/SponsorCard";
 import Confetti from 'react-confetti';
 import { useIntersection } from "use-intersection";
@@ -64,16 +64,16 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
       </SafeLink>
       <div ref={sponsorRef}>
         <div className={sponsorContainer}>
-          <div className={sponsorRow}>
+          <div className={classcat([sponsorRow, grade])}>
             { diamond.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
             { platinum.slice(0, 4).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
-          <div className={sponsorRow}>
+          <div className={classcat([sponsorRow, grade])}>
             { platinum.slice(4, 8).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
-          <div className={sponsorRow}>
+          <div className={classcat([sponsorRow, grade])}>
             { gold.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
@@ -81,7 +81,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           </div>
         </div>
         <div className={sponsorContainer}>
-          <div className={sponsorRow}>
+          <div className={classcat([sponsorRow, grade])}>
             { diamond.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>
@@ -90,11 +90,10 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           <div className={sponsorRow}>
             { platinum.slice(3, 6).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
-          <div className={sponsorRow}>
+          <div className={classcat([sponsorRow, grade])}>
             { platinum.slice(6, 8).map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
-            <SponsorCard display={false} sponsor={noopSponsor}/>
           </div>
-          <div className={sponsorRow}>
+          <div className={classcat([sponsorRow, grade])}>
             { gold.map(sponsor => <SponsorCard key={sponsor.name} sponsor={sponsor}/>) }
           </div>
           <div className={sponsorRow}>

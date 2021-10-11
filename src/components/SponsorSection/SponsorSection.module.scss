@@ -240,14 +240,10 @@
   gap: 8px;
   opacity: 0;
   transform: translateY(100px);
-  &:first-child {
+  &.grade {
     margin-bottom: 60px;
   }
-  &:last-child {
-    margin-top: 12px;
-  }
   @include respond-to('small') {
-    margin-bottom: 48px;
     transform: translateY(40px);
   }
 }

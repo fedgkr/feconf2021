@@ -13,8 +13,8 @@ export const sponsors: Sponsor[] = [
   },
   {
     grade: 'Platinum',
-    name: '에멘탈',
-    link: 'https://emmental.co.kr/',
+    name: '비즈넵',
+    link: 'https://www.bznav.com',
     imageUrl: '/images/sponsors/emmental.png',
   },
   {

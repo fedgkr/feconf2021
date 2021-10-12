@@ -1,7 +1,7 @@
 export const sponsors: Sponsor[] = [
   {
     grade: 'Diamond',
-    name: '비리퍼블리카',
+    name: '비바리퍼블리카',
     link: 'https://toss.im',
     imageUrl: '/images/sponsors/toss.png',
   },

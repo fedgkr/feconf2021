@@ -27,7 +27,7 @@ const Meta: React.FC<MetaProps> = () => {
         property="og:description"
         content="국내 최고의 프론트엔드 개발 컨퍼런스. 프론트엔드 개발의 소중한 경험을 공유합니다!"
       />
-      <meta property="og:image" content={og} />
+      <meta property="og:image" content={`https://2021.feconf.kr${og}`} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="FEConf2021" />
       <meta

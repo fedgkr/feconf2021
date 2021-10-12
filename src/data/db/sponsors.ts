@@ -14,7 +14,7 @@ export const sponsors: Sponsor[] = [
   {
     grade: 'Platinum',
     name: '비즈넵',
-    link: 'https://www.bznav.com',
+    link: 'http://ab.bznav.com/kyry8r',
     imageUrl: '/images/sponsors/emmental.png',
   },
   {

@@ -58,7 +58,7 @@ const SponsorSection: React.FC<SponsorSectionProps> = () => {
           <h3>Special Thanks to</h3>
           <SlashLogo/>
           <p>
-            개발자 생태계 발전을 위한 SLASH의 후원에 깊히 감사드립니다!
+            개발자 생태계 발전을 위한 SLASH의 후원에 깊이 감사드립니다!
           </p>
         </div>
       </SafeLink>

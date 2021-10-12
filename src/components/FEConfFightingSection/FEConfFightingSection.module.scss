@@ -117,6 +117,9 @@
       transform: translateY(40px);
     }
   }
+  @include respond-to('x-small') {
+    width: 100%;
+  }
 }
 
 .button {
@@ -149,5 +152,8 @@
       display: flex;
       margin: 0 auto;
     }
+  }
+  @include respond-to('x-small') {
+    width: 100%;
   }
 }

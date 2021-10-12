@@ -21,6 +21,9 @@
   @include respond-to('small') {
     width: 100px;
   }
+  @include respond-to('x-small') {
+    width: 80px;
+  }
 }
 
 .grade {

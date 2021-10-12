@@ -5,7 +5,8 @@
   width: 480px;
   cursor: pointer;
   @include respond-to('large') {
-    width: 306px;
+    max-width: 306px;
+    width: 100%;
   }
 }
 

@@ -129,7 +129,7 @@ export const sessions: Session[] = [
       company: '네이버',
       imageUrl: '/images/speakers/8.png',
     },
-    tags: ['vue', 'vue3'],
+    tags: ['vue', 'vue3', 'typescript', 'composition'],
   },
   {
     title: 'VSCode Inside',

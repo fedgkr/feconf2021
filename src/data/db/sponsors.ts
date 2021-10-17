@@ -50,7 +50,7 @@ export const sponsors: Sponsor[] = [
   {
     grade: 'Gold',
     name: '에이비일팔공',
-    link: 'https://www.ab180.co/',
+    link: 'https://www.airbridge.io/',
     imageUrl: '/images/sponsors/ab180.png',
   },
   {

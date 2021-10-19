@@ -29,7 +29,7 @@ interface Speaker {
   imageUrl: string;
 }
 
-type SessionType = 'A' | 'B';
+type SessionType = 'A' | 'B' | 'SPECIAL';
 
 interface Session {
   type: SessionType;

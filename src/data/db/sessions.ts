@@ -1,5 +1,17 @@
 export const sessions: Session[] = [
   {
+    title: '토스 현직 개발자에게 직접 듣는 솔직한 이야기! 과연 그들의 대답은?',
+    type: 'SPECIAL',
+    index: -1,
+    description: '',
+    speaker: {
+      name: '후원사 특별세션',
+      company: '비바리퍼블리카(토스)',
+      imageUrl: '',
+    },
+    tags: [],
+  },
+  {
     title: '왜 나는 React를 사랑하는가',
     type: 'A',
     index: 4,

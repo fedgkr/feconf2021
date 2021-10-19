@@ -14,7 +14,7 @@ const SpeakerSection: React.FC<SpeakerSectionProps> = () => {
   const lastRowRef = useRef<HTMLDivElement>();
   const speakersRef = useRef<HTMLDivElement>();
   const isVisible = useIntersection(ref, { once: true, rootMargin: '-200px 0px' });
-  const speakers = sessions.map(session => session.speaker);
+  const speakers = sessions.filter(session => session.type !== 'SPECIAL').map(session => session.speaker);
   const { scrollInfo, dimension } = useOnContainerScroll(speakersRef, () => {
     if (window.innerWidth > 1024) {
       const progress = Math.min(Math.max(0, scrollInfo.scrollY / dimension.windowHeight), 1);

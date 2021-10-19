@@ -10,30 +10,42 @@
     .title {
       animation: FadeInUp 800ms ease-out forwards;
     }
-    .toggleWrap {
+    .toss {
       animation: FadeInUp 800ms 100ms ease-out forwards;
     }
+    .toggleWrap {
+      animation: FadeInUp 800ms 200ms ease-out forwards;
+    }
     .sessionRow {
-      &:first-child {
-        animation: FadeInUp 800ms 200ms ease-out forwards;
-      }
-      &:last-child {
+      &:nth-child(1) {
         animation: FadeInUp 800ms 300ms ease-out forwards;
+      }
+      &:nth-child(2) {
+        animation: FadeInUp 800ms 400ms ease-out forwards;
+      }
+      &:nth-child(3) {
+        animation: FadeInUp 800ms 500ms ease-out forwards;
       }
     }
     @include respond-to('small') {
       .title {
         animation: FadeInUpMobile 500ms ease-out forwards;
       }
-      .toggleWrap {
+      .toss {
         animation: FadeInUpMobile 500ms 100ms ease-out forwards;
       }
+      .toggleWrap {
+        animation: FadeInUpMobile 500ms 200ms ease-out forwards;
+      }
       .sessionRow {
-        &:first-child {
-          animation: FadeInUpMobile 500ms 200ms ease-out forwards;
-        }
-        &:last-child {
+        &:nth-child(1) {
           animation: FadeInUpMobile 500ms 300ms ease-out forwards;
+        }
+        &:nth-child(2) {
+          animation: FadeInUpMobile 500ms 400ms ease-out forwards;
+        }
+        &:nth-child(3) {
+          animation: FadeInUpMobile 500ms 500ms ease-out forwards;
         }
       }
     }
@@ -54,6 +66,57 @@
   }
 }
 
+.toss {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100px);
+  h4 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #D7DEEB;
+  }
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #749BFF;
+    margin: 8px 0;
+    img:first-child {
+      width: 24px;
+    }
+    img:last-child {
+      width: 16px;
+      margin-left: 8px;
+    }
+  }
+  @include respond-to('small') {
+    transform: translateY(40px);
+    p {
+      position: relative;
+      display: block;
+      padding-top: 28px;
+      margin: 16px 0 8px 0;
+      img:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+      img:last-child {
+        margin-bottom: -2px;
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
 .toggleWrap {
   display: flex;
   justify-content: center;
@@ -66,10 +129,10 @@
 }
 
 .sessionCardContainer {
-  margin-top: 80px;
+  margin-top: 48px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 40px;
   @include respond-to('small') {
     align-items: center;
     margin-top: 60px;
@@ -80,7 +143,8 @@
 .sessionRow {
   display: flex;
   justify-content: center;
-  gap: 21px;
+  width: 100%;
+  gap: 36px;
   opacity: 0;
   transform: translateY(100px);
   @include respond-to('small') {

@@ -25,8 +25,23 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
   const isRendered = useRef(false);
   const [background, setBackground] = useState('#000000');
   let scale = 1;
-  let zoomSize = -1;
+  let zoomSize = 0;
   let zoomEffectDone = false;
+
+  const getZoomDimension = useCallback(() => {
+    const three = threeRef.current;
+    const { width, height } = three;
+    const offset = 80;
+    const scrollTop = three.datas.scrollTop;
+    const fixedArea = [offset, 500 + offset];
+    const isMobile = false; // width < 1024;
+    const ratio = isMobile ? 1.2 : Math.min(1.2, Math.max(0, scrollTop - fixedArea[0]) / 2000);
+    three.datas.zoomMaterial.uniforms.zoomSize.value = 0;
+    return {
+      ratio,
+      size: (240 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10),
+    };
+  }, []);
 
   const increaseZoomSize = useCallback((start: ReturnType<typeof Date.now>, duration: number, target: number) => {
     const three = threeRef.current;
@@ -46,16 +61,10 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
   const updateZoom = useCallback(() => {
     const three = threeRef.current;
-    const { width, height } = three;
-    const offset = 80;
-    const scrollTop = three.datas.scrollTop;
-    const fixedArea = [offset, 500 + offset];
-    const isMobile = false; // width < 1024;
-    const ratio = isMobile ? 1.2 : Math.min(1.2, Math.max(0, scrollTop - fixedArea[0]) / 2000);
-    const target = (240 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
+    const { ratio, size } = getZoomDimension();
     three.datas.zoomMaterial.uniforms.scrollRatio.value = ratio;
     if (zoomEffectDone) {
-      three.datas.zoomMaterial.uniforms.zoomSize.value = target;
+      three.datas.zoomMaterial.uniforms.zoomSize.value = size;
     }
   }, []);
 
@@ -111,19 +120,6 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
       zoomMaterial.uniforms.zoomX.value = zoomX;
       zoomMaterial.uniforms.zoomY.value = zoomY;
-
-      if (zoomSize === -1) {
-        const { width, height } = three;
-        const offset = 80;
-        const scrollTop = three.datas.scrollTop;
-        const fixedArea = [offset, 500 + offset];
-        const isMobile = false; // width < 1024;
-        const ratio = isMobile ? 1.2 : Math.min(1.2, Math.max(0, scrollTop - fixedArea[0]) / 2000);
-        zoomSize = 0;
-        three.datas.zoomMaterial.uniforms.zoomSize.value = 0;
-        const target = (240 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
-        increaseZoomSize(Date.now(), 600, target)
-      }
     }
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("click", onMouseMove);
@@ -131,6 +127,8 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       if (!isRendered.current) {
         isRendered.current = true;
         setBackground('linear-gradient(95.06deg, #8280E3 2.38%, #5590ED 100.44%)');
+        const { size } = getZoomDimension();
+        increaseZoomSize(Date.now(), 600, size);
       }
       // const { width } = three;
       const elements = [-1, 0, 0, 0, 0, -0.9950371980667114, 0.09950371831655502, 0, 0, 0.09950371831655502, 0.9950371980667114, 0, -0, -0, -1.0049875974655151, 1];

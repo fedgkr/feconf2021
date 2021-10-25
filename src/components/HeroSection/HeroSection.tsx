@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   container, videoWrap, headingWrap,
   headingContainer, dimmed, scrollDown,
@@ -14,28 +14,59 @@ import { useScrollEffect } from '../useWindow/useWindowScroll';
 
 interface HeroSectionProps { }
 
+const easeOutCubic = (t: number) => (--t) * t * t + 1;
+
 const HeroSection: React.FC<HeroSectionProps> = () => {
   const containerRef = useRef<HTMLDivElement>();
   const {
     ref,
     threeRef,
-  } = useThree({
-    // minWidth: 1024,
-  });
-  const updateZoom = useCallback(() => {
+  } = useThree({});
+  const isRendered = useRef(false);
+  const [background, setBackground] = useState('#000000');
+  let scale = 1;
+  let zoomSize = 0;
+  let zoomEffectDone = false;
+
+  const getZoomDimension = useCallback(() => {
     const three = threeRef.current;
     const { width, height } = three;
     const offset = 80;
     const scrollTop = three.datas.scrollTop;
     const fixedArea = [offset, 500 + offset];
     const isMobile = false; // width < 1024;
-
     const ratio = isMobile ? 1.2 : Math.min(1.2, Math.max(0, scrollTop - fixedArea[0]) / 2000);
-
-    three.datas.zoomMaterial.uniforms.scrollRatio.value = ratio;
-    three.datas.zoomMaterial.uniforms.zoomSize.value = (240 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10);
+    three.datas.zoomMaterial.uniforms.zoomSize.value = 0;
+    return {
+      ratio,
+      size: (240 / Math.sqrt(width * width + height * height)) * (1 + ratio * 10),
+    };
   }, []);
-  let scale = 1;
+
+  const increaseZoomSize = useCallback((start: ReturnType<typeof Date.now>, duration: number, target: number) => {
+    const three = threeRef.current;
+    const increase = () => {
+      const now = Date.now();
+      const progress = easeOutCubic((now - start) / duration);
+      zoomSize = target * progress;
+      three.datas.zoomMaterial.uniforms.zoomSize.value = zoomSize;
+      if (target > zoomSize) {
+        requestAnimationFrame(() => increase());
+      } else {
+        zoomEffectDone = true;
+      }
+    };
+    increase();
+  }, []);
+
+  const updateZoom = useCallback(() => {
+    const three = threeRef.current;
+    const { ratio, size } = getZoomDimension();
+    three.datas.zoomMaterial.uniforms.scrollRatio.value = ratio;
+    if (zoomEffectDone) {
+      three.datas.zoomMaterial.uniforms.zoomSize.value = size;
+    }
+  }, []);
 
   useEffect(() => {
     const three = threeRef.current;
@@ -93,6 +124,12 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("click", onMouseMove);
     three.on("render", ({ now }) => {
+      if (!isRendered.current) {
+        isRendered.current = true;
+        setBackground('linear-gradient(95.06deg, #8280E3 2.38%, #5590ED 100.44%)');
+        const { size } = getZoomDimension();
+        increaseZoomSize(Date.now(), 600, size);
+      }
       // const { width } = three;
       const elements = [-1, 0, 0, 0, 0, -0.9950371980667114, 0.09950371831655502, 0, 0, 0.09950371831655502, 0.9950371980667114, 0, -0, -0, -1.0049875974655151, 1];
 
@@ -115,7 +152,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         ];
         flagGeometry.attributes.position.setXYZ(i, dest[0] * (flagWidth / 2), dest[1] * (flagHeight / 2), dest[2])
       }
-      
+
       flagGeometry.scale(scale, scale, 1);
       flagGeometry.attributes.position.needsUpdate = true;
       flagGeometry.computeVertexNormals();
@@ -145,10 +182,8 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
   useScrollEffect(() => {
     const scrollTop = document.documentElement.scrollTop;
     const three = threeRef.current;
-    // const style = ref.current.style;
     const offset = 80;
 
-    const { width } = three;
     const fixedArea = [offset, 500 + offset];
     const isMobile = false; // width < 1024;
 
@@ -164,7 +199,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
     updateZoom();
   });
   return (
-    <section className={container} ref={containerRef}>
+    <section className={container} ref={containerRef} style={{ background: background }}>
       <div className={videoWrap}>
         <div className="stretch">
           <div className={dimmed} />
@@ -172,7 +207,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       </div>
       <div className={headingWrap}>
         <div className={headingContainer} ref={ref}>
-          <div className={circle}></div>
+          { isRendered.current ?  <div className={circle}/> : null }
           <div className={scrollDown}>scroll</div>
         </div>
       </div>

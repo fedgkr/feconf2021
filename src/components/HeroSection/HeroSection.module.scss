@@ -4,9 +4,6 @@
   position: relative;
   overflow: hidden;
   height: calc(100vh + 500px);
-  background: linear-gradient(
-    95.06deg, #8280E3 2.38%, #5590ED 100.44%);
-  // background: #000;
 }
 .container:before {
   position: absolute;
@@ -46,6 +43,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  top: -1px;
   z-index: 1;
 
   .headingContainer {

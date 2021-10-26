@@ -25,7 +25,7 @@ const SessionSection: React.FC<SessionSectionProps> = () => {
       <h2 className={title}>세션 소개</h2>
       <div className={toss}>
         <h4>{specialSession.speaker.name} / {specialSession.speaker.company}</h4>
-        <SafeLink href="#">
+        <SafeLink href={specialSession.youtubeLink}>
           <p><img src={tossImage}/>{specialSession.title}<img src={rightImage}/></p>
         </SafeLink>
         <TimeTag time="11:00 ~ 11:10"/>
@@ -35,18 +35,18 @@ const SessionSection: React.FC<SessionSectionProps> = () => {
       </div>
       <div className={sessionCardContainer}>
         <div className={sessionRow}>
-          {sessionList.slice(0, 2).map((session) => (
-            <SessionCard key={session.title} session={session}/>
+          {sessionList.slice(0, 2).map((session, idx) => (
+            <SessionCard key={session.title} session={session} isEven={idx === 0}/>
           ))}
         </div>
         <div className={sessionRow}>
-          {sessionList.slice(2, 4).map((session) => (
-            <SessionCard key={session.title} session={session}/>
+          {sessionList.slice(2, 4).map((session, idx) => (
+            <SessionCard key={session.title} session={session} isEven={idx === 0}/>
           ))}
         </div>
         <div className={sessionRow}>
-          {sessionList.slice(4, 6).map((session) => (
-            <SessionCard key={session.title} session={session}/>
+          {sessionList.slice(4, 6).map((session, idx) => (
+            <SessionCard key={session.title} session={session} isEven={idx === 0}/>
           ))}
         </div>
       </div>

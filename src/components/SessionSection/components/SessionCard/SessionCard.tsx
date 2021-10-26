@@ -1,11 +1,13 @@
 import React from 'react';
-import { container, imageWrap, textWrap, time } from './SessionCard.module.scss';
-import cardImage from '~/images/sessions/card.png';
+import { container, imageWrap, textWrap } from './SessionCard.module.scss';
+import cardImage1 from '~/images/sessions/card_01.png';
+import cardImage2 from '~/images/sessions/card_02.png';
 import { useSessionDetail } from "~/data/states/modal.state";
 import TimeTag from "~/components/TimeTag/TimeTag";
 
 interface SessionCardProps {
   session: Session;
+  isEven: boolean;
 }
 
 const timeTable = [
@@ -17,12 +19,12 @@ const timeTable = [
   '16:30 ~ 17:15',
 ];
 
-const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
+const SessionCard: React.FC<SessionCardProps> = ({ session, isEven }) => {
   const [, setDetail] = useSessionDetail();
   return (
     <div className={container} onClick={() => setDetail({ active: true, data: session })}>
       <div className={imageWrap}>
-        <img src={cardImage} alt="Session"/>
+        <img src={isEven ? cardImage1 : cardImage2} alt="Session"/>
       </div>
       <div className={textWrap}>
         <span>{session.speaker.name} / {session.speaker.company}</span>

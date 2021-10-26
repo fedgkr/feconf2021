@@ -36,6 +36,7 @@ interface Session {
   title: string;
   description: string;
   speaker: Speaker;
+  youtubeLink: string;
   index: number;
   tags: string[];
 }

@@ -13,7 +13,7 @@ export const useFirebase = () => {
   const [, setSupportModal] = useReservationModal();
   const [, setAuthenticating] = useAuthenticating();
   const [, setCurrentUser] = useAtom(currentUser);
-  const [messageState, setMessages] = useAtom(messages);
+  const [, setMessages] = useAtom(messages);
   useEffect(() => {
     if (!loadRequested) {
       loadRequested = true;

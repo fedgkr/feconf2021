@@ -2,11 +2,14 @@
 
 .container {
   position: relative;
-  width: 480px;
+  width: 467px;
   cursor: pointer;
-  @include respond-to('large') {
+  @include respond-to('medium') {
     max-width: 306px;
     width: 100%;
+  }
+  @include respond-to('small') {
+    margin: 0 auto;
   }
 }
 
@@ -25,6 +28,7 @@
 .textWrap {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding: 12px 4px;
   gap: 4px;
   span {
@@ -36,15 +40,5 @@
     line-height: 27px;
     color: white;
     word-break: keep-all;
-  }
-  .time {
-    align-self: flex-start;
-    margin-top: 12px;
-    font-size: 12px;
-    line-height: 1.5;
-    color: #A3AAB1;
-    padding: 4px 8px;
-    border-radius: 6px;
-    background-color: #20232C;
   }
 }

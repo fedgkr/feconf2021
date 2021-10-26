@@ -2,6 +2,7 @@ import React from 'react';
 import { container, imageWrap, textWrap, time } from './SessionCard.module.scss';
 import cardImage from '~/images/sessions/card.png';
 import { useSessionDetail } from "~/data/states/modal.state";
+import TimeTag from "~/components/TimeTag/TimeTag";
 
 interface SessionCardProps {
   session: Session;
@@ -26,7 +27,7 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
       <div className={textWrap}>
         <span>{session.speaker.name} / {session.speaker.company}</span>
         <strong>{session.title}</strong>
-        <div className={time}>{timeTable[session.index]}</div>
+        <TimeTag time={timeTable[session.index]}/>
       </div>
     </div>
   );

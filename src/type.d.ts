@@ -29,13 +29,14 @@ interface Speaker {
   imageUrl: string;
 }
 
-type SessionType = 'A' | 'B';
+type SessionType = 'A' | 'B' | 'SPECIAL';
 
 interface Session {
   type: SessionType;
   title: string;
   description: string;
   speaker: Speaker;
+  youtubeLink: string;
   index: number;
   tags: string[];
 }

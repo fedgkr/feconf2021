@@ -1,5 +1,5 @@
 import React from 'react';
-import { container, indicator } from './Toggle.module.scss';
+import { container, active } from './Toggle.module.scss';
 
 interface ToggleProps {
   session: SessionType;
@@ -9,9 +9,8 @@ interface ToggleProps {
 const Toggle: React.FC<ToggleProps> = ({ session, onSessionChange }) => {
   return (
     <div className={container}>
-      <button onClick={() => onSessionChange('A')}>A track</button>
-      <button onClick={() => onSessionChange('B')}>B track</button>
-      <div className={indicator} style={{ transform: `translateX(${ session === 'A' ? 0 : 100 }%)` }}><div/></div>
+      <button className={session === 'A' ? active : ''} onClick={() => onSessionChange('A')}>A track</button>
+      <button className={session === 'B' ? active : ''} onClick={() => onSessionChange('B')}>B track</button>
     </div>
   );
 }

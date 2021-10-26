@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import favicon from '~/images/favicon.png';
 import og from '~/images/og.png';
 
 interface MetaProps {}
@@ -35,7 +34,7 @@ const Meta: React.FC<MetaProps> = () => {
         content="국내 최고의 프론트엔드 개발 컨퍼런스. 프론트엔드 개발의 소중한 경험을 공유합니다!"
       />
       <meta name="twitter:creator" content="@FeConf" />
-      <link rel="icon" type="image/png" href={favicon}/>
+      <link rel="icon" type="image/png" href="https://2021.feconf.kr/favicon.png"/>
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
     </Helmet>
   );

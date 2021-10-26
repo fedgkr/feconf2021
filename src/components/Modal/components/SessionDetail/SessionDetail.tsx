@@ -36,11 +36,11 @@ const SessionDetail: React.FC<SessionDetailProps> = () => {
           <div className={speaker}>
             { detail.data?.speaker.name } / { detail.data?.speaker.company }
           </div>
-          <SafeLink href={detail.data?.youtubeLink}>
-            <div className={button}>
+          <div className={button}>
+            <SafeLink href={detail.data?.youtubeLink} onClick={evt => evt.stopPropagation()}>
               <button>10.30 오픈예정</button>
-            </div>
-          </SafeLink>
+            </SafeLink>
+          </div>
         </div>
       </div>
     </Modal>

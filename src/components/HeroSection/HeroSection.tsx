@@ -122,7 +122,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       zoomMaterial.uniforms.zoomY.value = zoomY;
     }
     window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("click", onMouseMove);
+    // window.addEventListener("click", onMouseMove);
     three.on("render", ({ now }) => {
       if (!isRendered.current) {
         isRendered.current = true;
@@ -175,7 +175,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("click", onMouseMove);
+      // window.removeEventListener("click", onMouseMove);
     };
   }, []);
 

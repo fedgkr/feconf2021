@@ -31,6 +31,7 @@
   border-radius: 50%;
   background-color: rgba(0, 0, 0, .1);
   z-index: 1;
+
   svg {
     width: 20px;
     height: 20px;
@@ -43,9 +44,11 @@
   height: 180px;
   background-color: #749BFF;
   overflow: hidden;
+
   & > div {
     position: absolute;
     border-radius: 50%;
+
     &:first-child {
       top: 72px;
       left: -244px;
@@ -54,6 +57,7 @@
       background: linear-gradient(339.55deg, #8FAEFF 11.54%, rgba(116, 155, 255, 0) 39.44%);
       transform: matrix(1, 0, 0, -1, 0, 0);
     }
+
     &:last-child {
       bottom: -5px;
       left: 359px;
@@ -63,6 +67,7 @@
       transform: matrix(1, 0, 0, -1, 0, 0);
     }
   }
+
   @include respond-to('small') {
     display: none;
   }
@@ -70,6 +75,7 @@
 
 .content {
   padding: 40px 40px 30px 40px;
+
   h3 {
     font-size: 22px;
     font-weight: 600;
@@ -77,12 +83,14 @@
     color: #ffffff;
     word-break: keep-all;
   }
+
   p {
     margin-top: 16px;
     font-size: 16px;
     line-height: 1.6;
     color: #ffffff;
   }
+
   @include respond-to('small') {
     padding: 68px 20px 30px 20px;
   }
@@ -92,6 +100,7 @@
   display: flex;
   gap: 4px;
   margin-top: 12px;
+
   span {
     padding: 2px 8px;
     border-radius: 6px;
@@ -111,15 +120,31 @@
 }
 
 .button {
-  text-align: right;
+  display: flex;
   margin-top: 20px;
+  justify-content: flex-end;
+
   button {
-    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 117px;
+    height: 46px;
     font-size: 14px;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.4);
-    background: #2B2F3B;
-    border-radius: 12px;
+    background: linear-gradient(95.06deg, #8280E3 2.38%, #5590ED 100.44%);
+    border-radius: 9px;
     border: none;
+
+    img {
+      width: 20px;
+      margin-right: 8px;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 14px;
+      color: #FFFFFF;
+    }
   }
 }

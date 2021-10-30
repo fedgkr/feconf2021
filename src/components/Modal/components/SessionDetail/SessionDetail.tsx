@@ -3,6 +3,7 @@ import { container, closeBtn, header, content, tagList, speaker, button } from '
 import Modal from "~/components/Modal/Modal";
 import { useSessionDetail } from "~/data/states/modal.state";
 import SafeLink from "~/components/SafeLink/SafeLink";
+import youtube from '~/images/icon/youtube.png';
 
 interface SessionDetailProps {}
 
@@ -38,7 +39,7 @@ const SessionDetail: React.FC<SessionDetailProps> = () => {
           </div>
           <div className={button}>
             <SafeLink href={detail.data?.youtubeLink} onClick={evt => evt.stopPropagation()}>
-              <button>10.30 오픈예정</button>
+              <button><img src={youtube}/><span>보러가기</span></button>
             </SafeLink>
           </div>
         </div>

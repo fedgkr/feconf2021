@@ -17,7 +17,7 @@ export const sessions: Session[] = [
     type: 'A',
     index: 4,
     description: '커리어의 대부분을 React와 함께했습니다. 사용자로써 느끼는 만족도는 날이 갈수록 더 높아지고 있는데요. React의 다양한 매력 포인트와 그 바탕이 되는 결정·방향성을 살펴보며 사랑에 빠진 이유를 스스로 돌아보았습니다. 이를 통해 얻은 교훈을 일상의 업무에 적용한 사례까지도 소개드리려 합니다.',
-    youtubeLink: 'https://www.youtube.com/watch?v=1ZHunr78Ias',
+    youtubeLink: 'https://www.youtube.com/watch?v=dJAEWhR83Ug',
     speaker: {
       name: '안희종',
       company: '플렉스팀',
@@ -30,7 +30,7 @@ export const sessions: Session[] = [
     type: 'A',
     index: 3,
     description: '모놀리식 아키텍처로 구현된 비즈넵 앱의 일부 서비스를 React로 마이그레이션을 진행하면서 Micro-Frontends 아키텍처를 도입하게 되었습니다. 이번 발표에서는 그 아키텍쳐를 구현하기 위해 선택한 Webpack 5 Module Federation 기술을 중심으로 심도 있게 알아봅니다. 그 과정에서 치열하게 고민했던 경험과 그로부터 얻은 인사이트를 여러분과 함께 공유하고 싶습니다.',
-    youtubeLink: 'https://www.youtube.com/watch?v=3vGNuDCOMN4',
+    youtubeLink: 'https://www.youtube.com/watch?v=0Eq6evGKJ68',
     speaker: {
       name: '임지훈',
       company: '비즈넵',
@@ -121,7 +121,7 @@ export const sessions: Session[] = [
     type: 'A',
     index: 1,
     description: '접근성을 준수해서 개발하는 것이 중요하다는 이야기는 종종 듣지만, semantic tag, aria-*과 같은 것들이 실제로 우리의 서비스에 어떤 영향을 주는지에 대해선 잘 모르는 경우가 많습니다. \n스크린리더로 웹서비스를 사용해보면서, 유저가 어떤 안 좋은 경험을 하게 되는지, 어떻게 개선할 수 있는지에 대해서 이야기합니다.',
-    youtubeLink: 'https://www.youtube.com/watch?v=tZg8f7yLog0',
+    youtubeLink: 'https://www.youtube.com/watch?v=tKj3xsXy9KM',
     speaker: {
       name: '김도환',
       company: '비바리퍼블리카(토스)',

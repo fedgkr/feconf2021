@@ -1,0 +1,14 @@
+{
+  "main.js": "render-page.js",
+  "render-page.js.map": "render-page.js.map",
+  "static/5.png": "static/5-d20540754b5467a19e9df561d6c91a7a.png",
+  "static/card_01.png": "static/card_01-d110dc885d4f247ff839b4a4f3ebdfda.png",
+  "static/card_02.png": "static/card_02-2a3de8f62036f825f3e56153ab25413b.png",
+  "static/earth.png": "static/earth-7b4045e068fac4084e4b71d850512d57.png",
+  "static/flag.png": "static/flag-8b0d49db39e29ba1cd5ab33b01d4a6b2.png",
+  "static/noise.png": "static/noise-c0e6992315ac6e9234d9ee3bb56336b1.png",
+  "static/og.png": "static/og-a2621288d5a96b4589014bc574ea7579.png",
+  "static/people.png": "static/people-0131afb3912fcd1c92624ba2d7fece87.png",
+  "static/rocket.png": "static/rocket-e8327fd29bba2f6a0a736294254d4104.png",
+  "static/sphere.png": "static/sphere-aa4f2204b228c9238a57d6d1694b89c8.png"
+}

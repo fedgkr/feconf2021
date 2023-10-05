@@ -1,0 +1,1 @@
+{"version":3,"file":"868-6c304ddbda60d420fcfb.js","mappings":"6GAEAA,EAAOC,QAAU,CACfC,MAAO,EAAAC,EAAOD","sources":["webpack://feconf2021/./node_modules/gatsby/dist/internal-plugins/bundle-optimisations/polyfills/whatwg-fetch.js"],"sourcesContent":["\"use strict\";\n\nmodule.exports = {\n  fetch: global.fetch\n};"],"names":["module","exports","fetch","g"],"sourceRoot":""}
